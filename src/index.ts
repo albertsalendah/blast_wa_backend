@@ -16,9 +16,9 @@ import { createNewToken } from './utils/createToken'
 import { sendmessagePOST, getHistory, testQu } from './sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 
-//const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
 
-const mongoURI = 'mongodb://127.0.0.1:27017/blastwa';
+// const mongoURI = 'mongodb://127.0.0.1:27017/blastwa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
