@@ -1,4 +1,4 @@
-//import 'dotenv/config'
+import 'dotenv/config'
 import makeWASocket, { DisconnectReason, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, useMultiFileAuthState, Browsers, WAConnectionState, } from '@whiskeysockets/baileys'
 import { Boom } from '@hapi/boom'
 import NodeCache from 'node-cache'
