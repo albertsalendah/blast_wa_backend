@@ -14,7 +14,7 @@ import { Server, Socket } from 'socket.io'
 import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './utils/createToken'
-import { sendmessagePOST, getHistory, testQu } from './sendmessagePOST'
+import { sendmessagePOST, getHistory } from './sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 
 const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
@@ -91,7 +91,7 @@ const startSock = async () => {
 						} catch (error) {
 							console.log('folder deleted failed')
 						}
-						startSock()
+						//startSock()
 					} else if (reason === DisconnectReason.connectionClosed ||
 						reason === DisconnectReason.connectionLost ||
 						reason === DisconnectReason.connectionReplaced

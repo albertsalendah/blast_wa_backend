@@ -8,6 +8,7 @@ import fs from "fs"
 import { applicants } from './testNO';
 import { history } from './models/history_send_schema'
 import { v4 as uuidv4 } from 'uuid';
+import { listProgdi } from './models/list_progdi';
 
 //let isLoopRunning = false;
 interface Mahasiswa {
@@ -19,11 +20,17 @@ interface Mahasiswa {
     Prodi_Registrasi_Ulang: String;
 }
 
+interface progdi {
+    nama_progdi: string,
+    kode_progdi: string,
+}
+
 // In-memory job/task store
 interface Job {
     progress: number;
     status: string;
     sendto: string;
+    message: string;
 }
 
 const jobs: { [jobId: string]: Job } = {};
@@ -50,18 +57,26 @@ export async function sendmessagePOST(sock: any) {
         };
         let numberWA: string;
         let listMahasiswa: Mahasiswa[] = [];
+        const listprogdi: progdi[] = listProgdi
+        let selectedProgdi: string = ''
         const delayBetweenItems = 3000; // 5 seconds
         const delayEveryTenItems = 30000; // 1 minute
         let count = 0;
+        for (let i = 0; i < listprogdi.length; i++) {
+            if (req.body.progdi === listProgdi[i].kode_progdi) {
+                selectedProgdi = listProgdi[i].nama_progdi
+            }
+        }
 
         // Generate a unique job identifier
         const jobId = uuidv4();
         // Store the initial job details (e.g., progress: 0, status: 'processing')
-        jobs[jobId] = { progress: 0, status: 'processing', sendto: req.body.progdi };
+        jobs[jobId] = { progress: 0, status: 'processing', sendto: selectedProgdi, message: "" };
         // Send a Socket.IO message to the client, informing it about the new job
-        io.emit('job', { jobId, progress: 0, status: 'processing', sendto: req.body.progdi });
+        io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: " " });
 
         try {
+            io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
             listMahasiswa = applicants
             // listMahasiswa = await axios.request(config)
             //     .then((response) => {
@@ -109,6 +124,7 @@ export async function sendmessagePOST(sock: any) {
             //     })
             //     .catch((error) => {
             //         console.log(error);
+            //         io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Failed to Aquired Data From API" });
             //         return [];
             //         //isLoopRunning = false;
             //     });
@@ -120,6 +136,7 @@ export async function sendmessagePOST(sock: any) {
             if (!req.files) {
 
                 if (listMahasiswa.length > 0) {
+                    io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
                     for (let i = 0; i < listMahasiswa.length; i++) {
                         const item = listMahasiswa[i];
                         setTimeout(async () => {
@@ -136,7 +153,7 @@ export async function sendmessagePOST(sock: any) {
                                         .catch(() => {
                                             console.log('Pasan Tidak Terkirim');
                                         });
-                                    await createHistory(item,pesankirim)
+                                    await createHistory(item, pesankirim)
                                     console.log('Pasan Terkirim Ke : ' + numberWA);
                                 } else {
                                     unRegistercounter++;
@@ -145,15 +162,15 @@ export async function sendmessagePOST(sock: any) {
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
                                     progress = Math.floor((count / listMahasiswa.length) * 100);
                                     // Update job progress
-                                    jobs[jobId].progress = progress;                                   
+                                    jobs[jobId].progress = progress;
 
                                     // Send a Socket.IO message to the client, updating the job progress
-                                    io.emit('job', { jobId, progress, status: 'processing',sendto: req.body.progdi});
+                                    io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + item.Nama_Pendaftar });
                                 }
 
                             } else {
                                 jobs[jobId].status = 'error';
-                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`,sendto: req.body.progdi });
+                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
                                 console.log(`WhatsApp belum terhubung.`)
                             }
                             //=======================================
@@ -164,7 +181,7 @@ export async function sendmessagePOST(sock: any) {
                             }
                             if (count === listMahasiswa.length) {
                                 jobs[jobId].status = 'completed';
-                                io.emit('job', { jobId, progress: 100, status: 'completed',sendto: req.body.progdi });
+                                io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: "" });
                                 console.log('Pesan Tanpa File Telah Terkirim Semua ');
                             }
                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
@@ -172,7 +189,7 @@ export async function sendmessagePOST(sock: any) {
                     console.log("Total No : " + listMahasiswa.length)
                 } else {
                     jobs[jobId].status = 'error';
-                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`,sendto: req.body.progdi });
+                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: `Tidak Ada Nomor Yang Ditemukan` });
                     console.log(`Tidak Ada Nomor Yang Ditemukan`)
                 }
             } else {
@@ -194,6 +211,7 @@ export async function sendmessagePOST(sock: any) {
                 }
 
                 if (listMahasiswa.length != 0) {
+                    io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
                     for (let i = 0; i < listMahasiswa.length; i++) {
                         const item = listMahasiswa[i];
                         setTimeout(async () => {
@@ -253,7 +271,7 @@ export async function sendmessagePOST(sock: any) {
                                             console.log('Pasan Terkirim Ke : ' + numberWA);
                                         }
                                     }
-                                    await createHistory(item,pesankirim)
+                                    await createHistory(item, pesankirim)
                                 } else {
                                     console.log(`Nomor ${numberWA} tidak terdaftar.`);
                                 }
@@ -263,11 +281,11 @@ export async function sendmessagePOST(sock: any) {
                                     jobs[jobId].progress = progress;
 
                                     // Send a Socket.IO message to the client, updating the job progress
-                                    io.emit('job', { jobId, progress, status: 'processing',sendto: req.body.progdi });
+                                    io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + item.Nama_Pendaftar });
                                 }
                             } else {
                                 jobs[jobId].status = 'error';
-                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`,sendto: req.body.progdi });
+                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
                                 console.log(`WhatsApp belum terhubung.`)
                             }
                             //=======================================
@@ -291,7 +309,7 @@ export async function sendmessagePOST(sock: any) {
                                     }
                                 }
                                 jobs[jobId].status = 'completed';
-                                io.emit('job', { jobId, progress: 100, status: 'completed',sendto: req.body.progdi });
+                                io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: "" });
                                 console.log('Pesan Dengan File Telah Terkirim Semua');
                             }
                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
@@ -299,13 +317,13 @@ export async function sendmessagePOST(sock: any) {
                     console.log("Total No : " + listMahasiswa.length)
                 } else {
                     jobs[jobId].status = 'error';
-                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`,sendto: req.body.progdi });
+                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: "Tidak Ada Nomor Yang Ditemukan" });
                     console.log(`Tidak Ada Nomor Yang Ditemukan`)
                 }
             }
         } catch (err) {
             jobs[jobId].status = 'error';
-            io.emit('job', { jobId, progress: 0, status: 'error', error: err,sendto: req.body.progdi });
+            io.emit('job', { jobId, progress: 0, status: 'error', error: err, sendto: selectedProgdi, messasge: 'error' });
         }
         res.json({ jobId });
     });
@@ -341,62 +359,4 @@ async function createHistory(item: Mahasiswa, pesankirim: String) {
     } catch (error) {
         console.log(`Terjadi Kesalahan Saat Menyimpan History Pesan`)
     }
-}
-
-export async function testQu() {
-    // app.post('/process', async (req, res) => {
-    //     // Generate a unique job identifier
-    //     const jobId = uuidv4();
-
-    //     // Store the initial job details (e.g., progress: 0, status: 'processing')
-    //     jobs[jobId] = { progress: 0, status: 'processing' };
-
-    //     // Send a Socket.IO message to the client, informing it about the new job
-    //     io.emit('job', { jobId, progress: 0, status: 'processing' });
-
-    //     // Perform the long-running task asynchronously
-    //     try {
-    //         await performTask(jobId);
-    //         // Update job status to 'completed' when the task is finished
-    //         jobs[jobId].status = 'completed';
-    //         io.emit('job', { jobId, progress: 100, status: 'completed' });
-    //     } catch (error) {
-    //         // Update job status to 'error' if an error occurs during the task
-    //         jobs[jobId].status = 'error';
-    //         io.emit('job', { jobId, progress: 0, status: 'error', error: error });
-    //     }
-
-    //     // Send the job identifier as the response to the client
-    //     res.json({ jobId });
-    // });
-}
-
-// Simulated long-running task
-function performTask(jobId: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-        let progress = 0;
-        const interval = setInterval(() => {
-            // Check if the job still exists and is not marked as 'completed' or 'error'
-            if (jobs[jobId] && jobs[jobId].status === 'processing') {
-                // Simulate progress update
-                progress += Math.floor(Math.random() * 10);
-                progress = Math.min(progress, 100);
-
-                // Update job progress
-                jobs[jobId].progress = progress;
-
-                // Send a Socket.IO message to the client, updating the job progress
-                io.emit('job', { jobId, progress, status: 'processing' });
-
-                // Check if the task is completed
-                if (progress === 100) {
-                    clearInterval(interval);
-                    resolve();
-                }
-            } else {
-                clearInterval(interval);
-                reject(new Error('Job canceled or completed.'));
-            }
-        }, 1000); // Progress update interval (1 second)
-    });
 }
