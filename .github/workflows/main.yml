@@ -5,6 +5,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3 
+      - name: Set environment variable
+        run: echo "PORT=8081" >> .env
       - name: update dependencies
         run: npm install
       - name: run pm2
