@@ -113,7 +113,7 @@ const startSock = async () => {
 					mongoose.disconnect
 				}
 
-				//console.log('connection update', update)
+				console.log('connection update', update)
 
 				conns = connection
 

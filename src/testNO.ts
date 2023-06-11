@@ -58,6 +58,14 @@ const datas = [
         "Status_Registrasi_Ulang": "Diterima - PEMAMIK 7 2023",
         "Prodi_Registrasi_Ulang": "702023003"
     },
+    {
+        "No_Pendaftaran":"09",
+        "Nama_Pendaftar": "Richard Salendah 09",
+        "No_HP": "082138345212",
+        "Tahun_Akademik":"2023-2024",
+        "Status_Registrasi_Ulang": "Diterima - PEMAMIK 7 2023",
+        "Prodi_Registrasi_Ulang": "702023003"
+    },
 ];
 
 export const applicants = datas.map((data) => ({
