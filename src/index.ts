@@ -16,7 +16,6 @@ import cron from 'node-cron'
 import { createNewToken } from './utils/createToken'
 import { sendmessagePOST, getHistory } from './sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
-import { exec } from 'child_process';
 
 const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
 
