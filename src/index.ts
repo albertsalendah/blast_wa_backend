@@ -203,7 +203,7 @@ const updateQR = (data: String) => {
 		case "qr":
 			soket?.emit("qr", qrCode);
 			soket?.emit("log", "QR Code received, please scan!");
-			console.log('QR Code received, please scan!');
+			console.log('QR Code received, please scan!!!');
 			break;
 		case "connected":
 			soket?.emit("qrstatus", "connected");
