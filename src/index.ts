@@ -135,7 +135,7 @@ export const startSock = async () => {
 							getHistory()
 							app.get("/logout", async (req, res) => {
 								try {
-									await sock.logout()
+									//await sock.logout()
 									//await startSock()
 									res.json('Logout succesfully')
 								} catch (error) {
