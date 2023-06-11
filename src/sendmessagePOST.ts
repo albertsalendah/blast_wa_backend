@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { phoneNumberFormatter } from './utils/formatter'
-import { app, isConnected, io } from './index';
+import { app, isConnected, io, startSock } from './index';
 import { token } from './models/tokenschema'
 import { UploadedFile } from 'express-fileupload'
 import path from 'path'
@@ -36,6 +36,7 @@ interface Job {
 const jobs: { [jobId: string]: Job } = {};
 
 export async function sendmessagePOST(sock: any) {
+
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
 
@@ -146,19 +147,22 @@ export async function sendmessagePOST(sock: any) {
                                 const [exists] = await sock.onWhatsApp(numberWA);
                                 if (exists?.jid || (exists && exists?.jid)) {
                                     registeredcounter++
-                                    sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace("|", item.Nama_Pendaftar) })
+                                    await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace("|", item.Nama_Pendaftar) })
                                         .then(async () => {
-                                            console.log('Pasan Terkirim Ke : ' + numberWA);                                          
+                                            console.log('Pasan Terkirim Ke : ' + numberWA);
+                                            io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
                                         })
                                         .catch(() => {
                                             console.log('Pasan Tidak Terkirim');
                                         });
+                                    //io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
                                     await createHistory(item, pesankirim)
                                     console.log('Pasan Terkirim Ke : ' + numberWA);
                                 } else {
                                     unRegistercounter++;
                                     console.log(`Nomor ${numberWA} tidak terdaftar. `);
                                 }
+
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
                                     progress = Math.floor((count / listMahasiswa.length) * 100);
                                     // Update job progress
@@ -235,6 +239,7 @@ export async function sendmessagePOST(sock: any) {
                                                 caption: pesankirim.replace("|", item.Nama_Pendaftar)
                                             }).then(() => {
                                                 console.log('pesan berhasil terkirim');
+                                                io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
                                             }).catch(() => {
                                                 console.log('pesan gagal terkirim');
                                             });
@@ -250,6 +255,7 @@ export async function sendmessagePOST(sock: any) {
                                                 mimetype: 'audio/mp4'
                                             }).then(() => {
                                                 console.log('pesan berhasil terkirim');
+                                                io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
                                             }).catch(() => {
                                                 console.log('pesan gagal terkirim');
                                             });
@@ -265,12 +271,14 @@ export async function sendmessagePOST(sock: any) {
                                                 fileName: filesimpan[i].name
                                             }).then(() => {
                                                 console.log('pesan berhasil terkirim');
+                                                io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
                                             }).catch(() => {
                                                 console.log('pesan gagal terkirim');
                                             });
                                             console.log('Pasan Terkirim Ke : ' + numberWA);
                                         }
                                     }
+                                    //io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
                                     await createHistory(item, pesankirim)
                                 } else {
                                     console.log(`Nomor ${numberWA} tidak terdaftar.`);

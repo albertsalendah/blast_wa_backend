@@ -16,6 +16,7 @@ import cron from 'node-cron'
 import { createNewToken } from './utils/createToken'
 import { sendmessagePOST, getHistory } from './sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
+import { exec } from 'child_process';
 
 const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
 
@@ -41,7 +42,7 @@ let conns: WAConnectionState | undefined;
 
 const msgRetryCounterCache = new NodeCache()
 
-const startSock = async () => {
+export const startSock = async () => {
 	const { state, saveCreds } = await useMultiFileAuthState('baileys_auth_info')
 	// fetch latest version of WA Web
 	const { version, isLatest } = await fetchLatestBaileysVersion()
@@ -52,7 +53,7 @@ const startSock = async () => {
 		version,
 		logger: pino({ level: "silent" }),
 		printQRInTerminal: false,
-		//keepAliveIntervalMs: 60000,
+		keepAliveIntervalMs: 60000,
 		auth: {
 			creds: state.creds,
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
@@ -65,54 +66,43 @@ const startSock = async () => {
 			if (events['connection.update']) {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
-				// if (connection === 'close') {
-				// 	// reconnect if not logged out
-				// 	if ((lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut) {
-				// 		startSock()
-				// 	} else {
-				// 		console.log('Connection closed. You are logged out.')
-				// 		try {
-				// 			fs.rmSync('baileys_auth_info', { recursive: true, force: true });
-				// 			console.log('folder deleted succesfully')
-				// 			startSock()
-				// 		} catch (error) {
-				// 			console.log('folder deleted failed')
-				// 		}
-				// 	}
-				// }
-				if (connection === 'close') {
-					// reconnect if not logged out
-					let reason = new Boom(lastDisconnect?.error).output.statusCode;
-					if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
-						console.log('Koneksi Terputus badSession');
-						try {
-							fs.rmSync('baileys_auth_info', { recursive: true, force: true });
-							console.log('folder deleted succesfully')
-						} catch (error) {
-							console.log('folder deleted failed')
+				try {
+					if (connection === 'close') {
+						// reconnect if not logged out
+						let reason = new Boom(lastDisconnect?.error).output.statusCode;
+						if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
+							console.log('Koneksi Terputus badSession');
+							try {
+								fs.rmSync('baileys_auth_info', { recursive: true, force: true });
+								console.log('folder deleted succesfully')
+							} catch (error) {
+								console.log('folder deleted failed')
+							}
+							startSock()
+						} else if (reason === DisconnectReason.connectionClosed ||
+							reason === DisconnectReason.connectionLost ||
+							reason === DisconnectReason.connectionReplaced
+						) {
+							cron.schedule('*/1 * * * *', function () {
+								console.log("Connection closed, reconnecting....");
+								startSock()
+							})
+						} else if (reason === DisconnectReason.restartRequired ||
+							reason === DisconnectReason.timedOut) {
+							console.log("Connection closed, Restarting....");
+							startSock()
 						}
-						//startSock()
-					} else if (reason === DisconnectReason.connectionClosed ||
-						reason === DisconnectReason.connectionLost ||
-						reason === DisconnectReason.connectionReplaced
-					) {
-						cron.schedule('*/1 * * * *', function () {
-							console.log("Connection closed, reconnecting....");
-							startSock()
-						})
-					} else if (reason === DisconnectReason.restartRequired ||
-						reason === DisconnectReason.timedOut) {
-						console.log("Connection closed, Restarting....");
-						startSock()
+						else {
+							console.log(`Unknown DisconnectReason: ${reason}|${lastDisconnect?.error}`)
+							cron.schedule('*/1 * * * *', function () {
+								console.log("Unknown DisconnectReason, reconnecting....");
+								startSock()
+							})
+						}
+						mongoose.disconnect
 					}
-					else {
-						console.log(`Unknown DisconnectReason: ${reason}|${lastDisconnect?.error}`)
-						cron.schedule('*/1 * * * *', function () {
-							console.log("Unknown DisconnectReason, reconnecting....");
-							startSock()
-						})
-					}
-					mongoose.disconnect
+				} catch (error) {
+					console.log("Error Trying To reconnect When Connection Is Closed", error)
 				}
 
 				console.log('connection update', update)
@@ -130,33 +120,36 @@ const startSock = async () => {
 							startSock()
 						})
 					});
-
-				if (update.qr == undefined) {
-					qrCode = ''
-					if (connection === "close" || connection === 'connecting') {
-						updateQR("disconnected");
-					} else {
-						updateQR("connected");
-						sendmessagePOST(sock)
-						createScheduleMessage()
-						getHistory()
-						app.get("/logout", async (req, res) => {
+			
+					if (update.qr == undefined) {
+						qrCode = ''
+						if (connection === "close" || connection === 'connecting') {
+							updateQR("disconnected");
+						} else {
+							updateQR("connected");
 							try {
-								//await sock.logout()
-								//await startSock()
-								res.json('Logout succesfully')
+								sendmessagePOST(sock)
+								createScheduleMessage()
 							} catch (error) {
-								console.log('folder deleted failed')
-								res.json('Logout failed');
+								console.log('Connection Status 01 ' + connection+" ",error)
 							}
-						})
+							getHistory()
+							app.get("/logout", async (req, res) => {
+								try {
+									await sock.logout()
+									//await startSock()
+									res.json('Logout succesfully')
+								} catch (error) {
+									console.log('folder deleted failed')
+									res.json('Logout failed');
+								}
+							})
+						}
+						console.log('Connection Status 01 ' + connection)
+					} else {
+						qrCode = update.qr
+						updateQR("qr");
 					}
-					console.log('Connection Status 01 ' + connection)
-				} else {
-					qrCode = update.qr
-					updateQR("qr");
-				}
-
 			}
 			// credentials updated -- save them
 			if (events['creds.update']) {
