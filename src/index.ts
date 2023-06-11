@@ -1,5 +1,5 @@
-import 'dotenv/config'
-import makeWASocket, { DisconnectReason, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, useMultiFileAuthState, Browsers, WAConnectionState } from '@whiskeysockets/baileys'
+//import 'dotenv/config'
+import makeWASocket, { DisconnectReason, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, useMultiFileAuthState, Browsers, WAConnectionState, } from '@whiskeysockets/baileys'
 import { Boom } from '@hapi/boom'
 import NodeCache from 'node-cache'
 import MAIN_LOGGER from '@whiskeysockets/baileys/lib/Utils/logger'
@@ -17,9 +17,9 @@ import { createNewToken } from './utils/createToken'
 import { sendmessagePOST, getHistory, testQu } from './sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 
-const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
+//const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
 
-// const mongoURI = 'mongodb://127.0.0.1:27017/blastwa';
+const mongoURI = 'mongodb://127.0.0.1:27017/blastwa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -52,7 +52,7 @@ const startSock = async () => {
 		version,
 		logger: pino({ level: "silent" }),
 		printQRInTerminal: false,
-		keepAliveIntervalMs: 60000,
+		//keepAliveIntervalMs: 60000,
 		auth: {
 			creds: state.creds,
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
@@ -60,16 +60,29 @@ const startSock = async () => {
 		msgRetryCounterCache,
 		browser: Browsers.macOS('Desktop'),
 	})
-
 	sock.ev.process(
 		async (events) => {
 			if (events['connection.update']) {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
+				// if (connection === 'close') {
+				// 	// reconnect if not logged out
+				// 	if ((lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut) {
+				// 		startSock()
+				// 	} else {
+				// 		console.log('Connection closed. You are logged out.')
+				// 		try {
+				// 			fs.rmSync('baileys_auth_info', { recursive: true, force: true });
+				// 			console.log('folder deleted succesfully')
+				// 			startSock()
+				// 		} catch (error) {
+				// 			console.log('folder deleted failed')
+				// 		}
+				// 	}
+				// }
 				if (connection === 'close') {
 					// reconnect if not logged out
 					let reason = new Boom(lastDisconnect?.error).output.statusCode;
-					//(lastDisconnect?.error as Boom)?.output?.statusCode
 					if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
 						console.log('Koneksi Terputus badSession');
 						try {
@@ -83,10 +96,8 @@ const startSock = async () => {
 						reason === DisconnectReason.connectionLost ||
 						reason === DisconnectReason.connectionReplaced
 					) {
-						cron.schedule('*/3 * * * *', function () {
-							console.log("Connection closed, reconnecting....");
-							startSock()
-						})
+						console.log("Connection closed, reconnecting....");
+						startSock()
 					} else if (reason === DisconnectReason.restartRequired ||
 						reason === DisconnectReason.timedOut) {
 						console.log("Connection closed, Restarting....");
@@ -94,7 +105,7 @@ const startSock = async () => {
 					}
 					else {
 						console.log(`Unknown DisconnectReason: ${reason}|${lastDisconnect?.error}`)
-						cron.schedule('*/3 * * * *', function () {
+						cron.schedule('*/1 * * * *', function () {
 							console.log("Connection closed, reconnecting....");
 							startSock()
 						})
@@ -103,7 +114,9 @@ const startSock = async () => {
 				}
 
 				//console.log('connection update', update)
+
 				conns = connection
+
 				mongoose.connect(mongoURI)
 					.then(() => {
 						console.log('Connected to MongoDB')
@@ -115,24 +128,33 @@ const startSock = async () => {
 							startSock()
 						})
 					});
-				if (mongoose.connection.readyState === 1) {
-					if (update.qr == undefined) {
-						qrCode = ''
-						if (connection === "close" || conns === 'connecting') {
-							updateQR("disconnected");
-						} else {
-							updateQR("connected");
-							sendmessagePOST(sock)
-							createScheduleMessage()
-							getHistory()
-							testQu();
-						}
-						console.log('Connection Status 01 ' + conns)
+
+				if (update.qr == undefined) {
+					qrCode = ''
+					if (connection === "close" || connection === 'connecting') {
+						updateQR("disconnected");
 					} else {
-						qrCode = update.qr
-						updateQR("qr");
+						updateQR("connected");
+						sendmessagePOST(sock)
+						createScheduleMessage()
+						getHistory()
+						app.get("/logout", async (req, res) => {
+							try {
+								//await sock.logout()
+								//await startSock()
+								res.json('Logout succesfully')
+							} catch (error) {
+								console.log('folder deleted failed')
+								res.json('Logout failed');
+							}
+						})
 					}
+					console.log('Connection Status 01 ' + connection)
+				} else {
+					qrCode = update.qr
+					updateQR("qr");
 				}
+
 			}
 			// credentials updated -- save them
 			if (events['creds.update']) {
