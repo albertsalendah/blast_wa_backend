@@ -96,8 +96,10 @@ const startSock = async () => {
 						reason === DisconnectReason.connectionLost ||
 						reason === DisconnectReason.connectionReplaced
 					) {
-						console.log("Connection closed, reconnecting....");
-						startSock()
+						cron.schedule('*/1 * * * *', function () {
+							console.log("Connection closed, reconnecting....");
+							startSock()
+						})
 					} else if (reason === DisconnectReason.restartRequired ||
 						reason === DisconnectReason.timedOut) {
 						console.log("Connection closed, Restarting....");
@@ -106,7 +108,7 @@ const startSock = async () => {
 					else {
 						console.log(`Unknown DisconnectReason: ${reason}|${lastDisconnect?.error}`)
 						cron.schedule('*/1 * * * *', function () {
-							console.log("Connection closed, reconnecting....");
+							console.log("Unknown DisconnectReason, reconnecting....");
 							startSock()
 						})
 					}
