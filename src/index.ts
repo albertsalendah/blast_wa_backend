@@ -171,6 +171,7 @@ io.on('connection', async (socket: Socket) => {
 		if (isConnected()) {
 			if (conns === 'close' || conns === 'connecting') {
 				updateQR("disconnected");
+				//startSock()
 			} else {
 				updateQR("connected");
 			}
