@@ -67,7 +67,7 @@ export const startSock = async () => {
 				const { connection, lastDisconnect } = update
 				try {
 					if (connection === 'close') {
-						// reconnect if not logged out
+						// reconnect if not logged ou
 						let reason = new Boom(lastDisconnect?.error).output.statusCode;
 						if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
 							console.log('Koneksi Terputus badSession');
