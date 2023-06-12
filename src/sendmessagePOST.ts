@@ -144,23 +144,28 @@ export async function sendmessagePOST(sock: any) {
                             count++;
                             numberWA = phoneNumberFormatter(item.No_HP[0]);
                             if (isConnected()) {
-                                const [exists] = await sock.onWhatsApp(numberWA);
-                                if (exists?.jid || (exists && exists?.jid)) {
-                                    registeredcounter++
-                                    // await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace("|", item.Nama_Pendaftar) })
-                                    //     .then(async () => {
-                                    //         console.log('Pasan Terkirim Ke : ' + numberWA);
-                                    //         io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
-                                    //     })
-                                    //     .catch(() => {
-                                    //         console.log('Pasan Tidak Terkirim');
-                                    //     });
-                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
-                                    await createHistory(item, pesankirim)
-                                    console.log('Pasan Terkirim Ke : ' + numberWA);
-                                } else {
-                                    unRegistercounter++;
-                                    console.log(`Nomor ${numberWA} tidak terdaftar. `);
+                                try {
+                                    const [exists] = await sock.onWhatsApp(numberWA);
+                                    if (exists?.jid || (exists && exists?.jid)) {
+                                        registeredcounter++
+                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace("|", item.Nama_Pendaftar) })
+                                            .then(async () => {
+                                                console.log('Pasan Terkirim Ke : ' + numberWA);
+                                                io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
+                                            })
+                                            .catch(() => {
+                                                console.log('Pasan Tidak Terkirim');
+                                            });
+                                        //io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
+                                        await createHistory(item, pesankirim)
+                                        console.log('Pasan Terkirim Ke : ' + numberWA);
+                                    } else {
+                                        unRegistercounter++;
+                                        console.log(`Nomor ${numberWA} tidak terdaftar. `);
+                                    }
+                                } catch (error) {
+                                    console.log("ERROR SEND MESSAGE WITHOUT FILE",error)
+                                    io.emit("log", "ERROR SENDING WITHOUT MESSAGE FILE"); 
                                 }
 
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
@@ -224,64 +229,69 @@ export async function sendmessagePOST(sock: any) {
                             let namafiledikirim: string[] = []
                             let extensionName: String[] = []
                             if (isConnected()) {
-                                const [exists] = await sock.onWhatsApp(numberWA);
-                                if (exists?.jid || (exists && exists?.jid)) {
-                                    // for (let i = 0; i < file_ubah_nama.length; i++) {
-                                    //     namafiledikirim[i] = './uploads/' + file_ubah_nama[i];
-                                    //     extensionName[i] = path.extname(namafiledikirim[i]);
-                                    //     if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
-                                    //         registeredcounter++
-                                    //         await sock.sendMessage(exists.jid || exists.jid, {
-                                    //             image: {
-                                    //                 url: namafiledikirim[i],
-                                    //                 caption: pesankirim.replace("|", item.Nama_Pendaftar)
-                                    //             },
-                                    //             caption: pesankirim.replace("|", item.Nama_Pendaftar)
-                                    //         }).then(() => {
-                                    //             console.log('pesan berhasil terkirim');
-                                    //             io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
-                                    //         }).catch(() => {
-                                    //             console.log('pesan gagal terkirim');
-                                    //         });
-                                    //         console.log('Pasan Terkirim Ke : ' + numberWA);
-                                    //     } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
-                                    //         registeredcounter++
-                                    //         await sock.sendMessage(exists.jid || exists.jid, {
-                                    //             audio: {
-                                    //                 url: namafiledikirim[i],
-                                    //                 caption: pesankirim.replace("|", item.Nama_Pendaftar)
-                                    //             },
-                                    //             caption: pesankirim.replace("|", item.Nama_Pendaftar),
-                                    //             mimetype: 'audio/mp4'
-                                    //         }).then(() => {
-                                    //             console.log('pesan berhasil terkirim');
-                                    //             io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
-                                    //         }).catch(() => {
-                                    //             console.log('pesan gagal terkirim');
-                                    //         });
-                                    //     } else {
-                                    //         registeredcounter++
-                                    //         await sock.sendMessage(exists.jid || exists.jid, {
-                                    //             document: {
-                                    //                 url: namafiledikirim[i],
-                                    //                 caption: pesankirim.replace("|", item.Nama_Pendaftar)
-                                    //             },
-                                    //             caption: pesankirim.replace("|", item.Nama_Pendaftar),
-                                    //             mimetype: fileDikirim_Mime[i],
-                                    //             fileName: filesimpan[i].name
-                                    //         }).then(() => {
-                                    //             console.log('pesan berhasil terkirim');
-                                    //             io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
-                                    //         }).catch(() => {
-                                    //             console.log('pesan gagal terkirim');
-                                    //         });
-                                    //         console.log('Pasan Terkirim Ke : ' + numberWA);
-                                    //     }
-                                    // }
-                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
-                                    await createHistory(item, pesankirim)
-                                } else {
-                                    console.log(`Nomor ${numberWA} tidak terdaftar.`);
+                                try {
+                                    const [exists] = await sock.onWhatsApp(numberWA);
+                                    if (exists?.jid || (exists && exists?.jid)) {
+                                        for (let i = 0; i < file_ubah_nama.length; i++) {
+                                            namafiledikirim[i] = './uploads/' + file_ubah_nama[i];
+                                            extensionName[i] = path.extname(namafiledikirim[i]);
+                                            if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
+                                                registeredcounter++
+                                                await sock.sendMessage(exists.jid || exists.jid, {
+                                                    image: {
+                                                        url: namafiledikirim[i],
+                                                        caption: pesankirim.replace("|", item.Nama_Pendaftar)
+                                                    },
+                                                    caption: pesankirim.replace("|", item.Nama_Pendaftar)
+                                                }).then(() => {
+                                                    console.log('pesan berhasil terkirim');
+                                                    io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
+                                                }).catch(() => {
+                                                    console.log('pesan gagal terkirim');
+                                                });
+                                                console.log('Pasan Terkirim Ke : ' + numberWA);
+                                            } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
+                                                registeredcounter++
+                                                await sock.sendMessage(exists.jid || exists.jid, {
+                                                    audio: {
+                                                        url: namafiledikirim[i],
+                                                        caption: pesankirim.replace("|", item.Nama_Pendaftar)
+                                                    },
+                                                    caption: pesankirim.replace("|", item.Nama_Pendaftar),
+                                                    mimetype: 'audio/mp4'
+                                                }).then(() => {
+                                                    console.log('pesan berhasil terkirim');
+                                                    io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
+                                                }).catch(() => {
+                                                    console.log('pesan gagal terkirim');
+                                                });
+                                            } else {
+                                                registeredcounter++
+                                                await sock.sendMessage(exists.jid || exists.jid, {
+                                                    document: {
+                                                        url: namafiledikirim[i],
+                                                        caption: pesankirim.replace("|", item.Nama_Pendaftar)
+                                                    },
+                                                    caption: pesankirim.replace("|", item.Nama_Pendaftar),
+                                                    mimetype: fileDikirim_Mime[i],
+                                                    fileName: filesimpan[i].name
+                                                }).then(() => {
+                                                    console.log('pesan berhasil terkirim');
+                                                    io.emit("log", "Berhasil Mengirim Pesan Ke "+item.Nama_Pendaftar);    
+                                                }).catch(() => {
+                                                    console.log('pesan gagal terkirim');
+                                                });
+                                                console.log('Pasan Terkirim Ke : ' + numberWA);
+                                            }
+                                        }
+                                        //io.emit("log", "Berhasil Mengirim Pesan Ke " + item.Nama_Pendaftar);
+                                        await createHistory(item, pesankirim)
+                                    } else {
+                                        console.log(`Nomor ${numberWA} tidak terdaftar.`);
+                                    }
+                                } catch (error) {
+                                    console.log(`ERROR SENDING MESSAGE FILE`,error);
+                                    io.emit("log", "ERROR SENDING MESSAGE FILE"); 
                                 }
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
                                     progress = Math.floor((count / listMahasiswa.length) * 100);
