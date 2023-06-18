@@ -3,7 +3,6 @@ import makeWASocket, { DisconnectReason, fetchLatestBaileysVersion, makeCacheabl
 import { Boom } from '@hapi/boom'
 import NodeCache from 'node-cache'
 import MAIN_LOGGER from '@whiskeysockets/baileys/lib/Utils/logger'
-import pino from "pino"
 import fs from "fs"
 import express from "express"
 import fileUpload from 'express-fileupload'
@@ -11,15 +10,16 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import http from 'http'
 import { Server, Socket } from 'socket.io'
-import mongoose from 'mongoose'
+import mongoose, { get } from 'mongoose'
 import cron from 'node-cron'
-import { createNewToken } from './utils/createToken'
-import { sendmessagePOST, getHistory } from './sendmessagePOST'
+import { createNewToken } from './routes/createToken'
+import { sendmessagePOST, getHistory } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
+import pm2 from 'pm2'
+import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
+import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
 
-const mongoURI = "mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/blastwa?retryWrites=true&w=majority";
-
-//const mongoURI = 'mongodb://127.0.0.1:27017/blastwa';
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -37,7 +37,7 @@ export const io = new Server(server);
 const port = process.env.PORT || 8080;
 let qrCode: String = '';
 let soket: Socket;
-let conns: WAConnectionState | undefined;
+let conns: boolean;
 
 const msgRetryCounterCache = new NodeCache()
 
@@ -50,7 +50,7 @@ export const startSock = async () => {
 	const sock = makeWASocket({
 		defaultQueryTimeoutMs: undefined,
 		version,
-		logger: pino({ level: "silent" }),
+		logger,
 		printQRInTerminal: false,
 		keepAliveIntervalMs: 60000,
 		auth: {
@@ -65,90 +65,58 @@ export const startSock = async () => {
 			if (events['connection.update']) {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
-				try {
-					if (connection === 'close') {
-						// reconnect if not logged out
-						let reason = new Boom(lastDisconnect?.error).output.statusCode;
-						if (reason === DisconnectReason.badSession || reason === DisconnectReason.loggedOut) {
-							console.log('Koneksi Terputus badSession');
-							try {
-								fs.rmSync('baileys_auth_info', { recursive: true, force: true });
-								console.log('folder deleted succesfully')
-							} catch (error) {
-								console.log('folder deleted failed')
-							}
-							startSock()
-						} else if (reason === DisconnectReason.connectionClosed ||
-							reason === DisconnectReason.connectionLost ||
-							reason === DisconnectReason.connectionReplaced
-						) {
-							cron.schedule('*/1 * * * *', function () {
-								console.log("Connection closed, reconnecting....");
-								startSock()
-							})
-						} else if (reason === DisconnectReason.restartRequired ||
-							reason === DisconnectReason.timedOut) {
-							console.log("Connection closed, Restarting....");
-							startSock()
+				if (connection === 'close') {
+					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
+					if (shouldReconnect) {
+						//startSock()
+					} else {
+						console.log('Connection closed, trying to reconnect...')
+						try {
+							fs.rmSync('baileys_auth_info', { recursive: true, force: true });
+							console.log('folder deleted succesfully')
+						} catch (error) {
+							console.log('folder deleted failed')
 						}
-						else {
-							console.log(`Unknown DisconnectReason: ${reason}|${lastDisconnect?.error}`)
-							cron.schedule('*/1 * * * *', function () {
-								console.log("Unknown DisconnectReason, reconnecting....");
-								startSock()
-							})
-						}
-						mongoose.disconnect
 					}
-				} catch (error) {
-					console.log("Error Trying To reconnect When Connection Is Closed", error)
+					console.log('shouldReconnect? : ', shouldReconnect);
+					updateQR("disconnected")
+					pm2.restart('blast_wa', (err) => {
+						if (err) {
+							console.error('Error restarting PM2:', err);
+						} else {
+							console.log('PM2 restarted successfully.');
+						}
+					});
 				}
 
-				console.log('connection update', update)
-
-				conns = connection
-
+				if (update.qr == undefined) {
+					qrCode = ''
+					updateQR("connected");
+				} else {
+					qrCode = update.qr
+					updateQR("qr");
+				}
 				mongoose.connect(mongoURI)
 					.then(() => {
 						console.log('Connected to MongoDB')
+						// if (sock.user?.id !== undefined) {
+						// 	if (sock.user?.id.split(":")[0] !== "6281935614654" || sock.user?.id.split(":")[0] !== "628112822278" || sock.user?.id.split(":")[0] !== "6285640551818") {
+						// 		console.log(sock.user?.id + " you are not registered...")
+						// 		conns = false
+						// 		sock.logout();
+						// 	} else {
+						// 		console.log("User is admin");
+						// 		conns = true
+						// 	}
+						// }
 					})
 					.catch(error => {
 						console.log('MongoDB connection error:', error)
 						cron.schedule('*/2 * * * *', function () {
 							console.log("Connection closed, reconnecting....");
-							startSock()
 						})
 					});
-			
-					if (update.qr == undefined) {
-						qrCode = ''
-						if (connection === "close" || connection === 'connecting') {
-							updateQR("disconnected");
-						} else {
-							updateQR("connected");
-							try {
-								sendmessagePOST(sock)
-								createScheduleMessage()
-							} catch (error) {
-								console.log('Connection Status 01 ' + connection+" ",error)
-							}
-							getHistory()
-							app.get("/logout", async (req, res) => {
-								try {
-									//await sock.logout()
-									//await startSock()
-									res.json('Logout succesfully')
-								} catch (error) {
-									console.log('folder deleted failed')
-									res.json('Logout failed');
-								}
-							})
-						}
-						console.log('Connection Status 01 ' + connection)
-					} else {
-						qrCode = update.qr
-						updateQR("qr");
-					}
+
 			}
 			// credentials updated -- save them
 			if (events['creds.update']) {
@@ -167,18 +135,10 @@ export const startSock = async () => {
 io.on('connection', async (socket: Socket) => {
 	soket = socket
 	console.log('A user connected');
-	if (mongoose.connection.readyState === 1) {
-		if (isConnected()) {
-			if (conns === 'close' || conns === 'connecting') {
-				updateQR("disconnected");
-				//startSock()
-			} else {
-				updateQR("connected");
-			}
-			console.log('Connection Status 02 ' + conns)
-		} else {
-			updateQR("qr");
-		}
+	if (isConnected()) {
+		updateQR("connected");
+	} else {
+		updateQR("disconnected");
 	}
 	socket.on('disconnect', () => {
 		console.log('A user disconnected');
@@ -186,7 +146,7 @@ io.on('connection', async (socket: Socket) => {
 })
 
 export const isConnected = () => {
-	if (qrCode == '') {
+	if (conns) {
 		return true;
 	} else {
 		return false;
@@ -221,7 +181,29 @@ cron.schedule('0 * * * *', function () {
 	createNewToken()
 })
 
-startSock().catch(err => console.log("unexpected error: " + err))
+startSock().then((sock) => {
+	sendmessagePOST(sock)
+	createScheduleMessage()
+	getHistory()
+	getListFile()
+	downloadFile()
+	deleteFile()
+	addTemplatePesan()
+	getTemplatePesan()
+	deleteTemplatePesan()
+	editTemplatePesan()
+	app.get("/logout", async (req, res) => {
+		try {
+			//updateQR("disconnected");
+			await sock.logout()
+			res.json('Logout succesfully')
+		} catch (error) {
+			console.log('folder deleted failed')
+			res.json('Logout failed');
+		}
+	})
+
+}).catch(err => console.log("unexpected error: " + err))
 server.listen(port, () => {
 	console.log("Server Running On Port : ", port);
 })

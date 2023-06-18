@@ -1,5 +1,9 @@
 export const Progdi = [
     {
+        "nama_progdi": "---",
+        "kode_progdi": "000"
+    },
+    {
         "nama_progdi": "BIMBINGAN KONSELING",
         "kode_progdi": "13"
     },{
