@@ -35075,6 +35075,7 @@
 2023-06-18 14:40:13:   syscall: 'queryTxt',
 2023-06-18 14:40:13:   hostname: 'blastwacluster.jpiwxtk.mongodb.net'
 2023-06-18 14:40:13: }
+<<<<<<< HEAD
 2023-06-18 15:22:46: Server Running On Port :  8080
 2023-06-18 15:22:46: using WA v2.2325.3, isLatest: true
 2023-06-18 15:22:46: WhatsApp terhubung!
@@ -36485,3 +36486,5 @@
 2023-06-18 20:39:31: Connected to MongoDB
 2023-06-18 20:39:31: QR Code received, please scan!
 2023-06-18 20:39:31: Connected to MongoDB
+=======
+>>>>>>> aed64200fceecee7617090bdb9dd508345a56184
