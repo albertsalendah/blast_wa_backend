@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3 
       - name: Set environment variable
-        run: echo "PORT=8081" >> .env
+        run: echo "\nPORT=8081\n" >> .env
       - name: update dependencies
         run: npm install
       - name: run pm2
