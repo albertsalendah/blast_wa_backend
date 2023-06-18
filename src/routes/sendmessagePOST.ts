@@ -68,7 +68,7 @@ export async function sendmessagePOST(sock: any) {
         let listMahasiswa: DynamicInterface[] = [];
         const listprogdi: progdi[] = listProgdi
         let selectedProgdi: string = ''
-        const delayBetweenItems = 3000; // 5 seconds
+        const delayBetweenItems = 5000; // 5 seconds
         const delayEveryTenItems = 30000; // 1 minute
         let count = 0;
         for (let i = 0; i < listprogdi.length; i++) {
@@ -224,7 +224,7 @@ export async function sendmessagePOST(sock: any) {
                                     const [exists] = await sock.onWhatsApp(numberWA);
                                     if (exists?.jid || (exists && exists?.jid)) {
                                         registeredcounter++
-                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) })
+                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId })
                                             .then(async () => {
                                                 console.log('Pasan Terkirim Ke : ' + numberWA);
                                                 io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
@@ -240,7 +240,7 @@ export async function sendmessagePOST(sock: any) {
                                         // worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         //await createHistory(item, pesankirim)
-                                        console.log('Pasan Terkirim Ke : ' + numberWA);
+                                        //console.log('Pasan Terkirim Ke : ' + numberWA);
                                     } else {
                                         unRegistercounter++;
                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
@@ -332,9 +332,9 @@ export async function sendmessagePOST(sock: any) {
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     image: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama)
+                                                        caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama)
+                                                    caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
                                                     statusPesan = "Terkirim"
@@ -350,9 +350,9 @@ export async function sendmessagePOST(sock: any) {
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     audio: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama)
+                                                        caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama),
+                                                    caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId,
                                                     mimetype: 'audio/mp4'
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
@@ -367,9 +367,9 @@ export async function sendmessagePOST(sock: any) {
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     document: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama)
+                                                        caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama),
+                                                    caption: pesankirim.replace(/\|/g, nama)+"\n ID Pesan : "+jobId,
                                                     mimetype: fileDikirim_Mime[i],
                                                     fileName: filesimpan[i].name
                                                 }).then(() => {

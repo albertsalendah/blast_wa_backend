@@ -2,7 +2,7 @@ module.exports = {
     apps: [
       {
         name: 'wa-blast-backend',
-        script: 'watch',
+        script: 'dist/index.js',
         watch: ['dist'],
         ignore_watch: ['files/upload', 'files/input_list_nomor','files/output_list_nomor'],
         restart_delay: 30000,

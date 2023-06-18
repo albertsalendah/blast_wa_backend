@@ -16,12 +16,13 @@ import { createNewToken } from './routes/createToken'
 import { sendmessagePOST, getHistory } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
-import { getListFile,downloadFile,deleteFile } from './routes/getFiles'
-import { addTemplatePesan,getTemplatePesan,deleteTemplatePesan,editTemplatePesan} from './routes/templates_pesan'
+import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
+import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
+import nodemon from 'nodemon'
 
 
 
-const mongoURI = process.env.LOCAL_MONGO_URI ||'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -67,21 +68,25 @@ export const startSock = async () => {
 			if (events['connection.update']) {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
-				if (connection === 'close') {				
+				if (connection === 'close') {
 					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
 					if (shouldReconnect) {
-						await startSock()
+						sock.end(undefined)
+						//await startSock()
 					} else {
 						console.log('Connection closed, trying to reconnect...')
 						try {
 							fs.rmSync('baileys_auth_info', { recursive: true, force: true });
 							console.log('folder deleted succesfully')
+							//nodemon.restart()
 						} catch (error) {
 							console.log('folder deleted failed')
 						}
 					}
 					console.log('shouldReconnect? : ', shouldReconnect);
 					updateQR("disconnected")
+					
+					conns = false					
 					pm2.restart('wa-blast-backend', (err) => {
 						if (err) {
 							console.error('Error restarting PM2:', err);
@@ -94,13 +99,14 @@ export const startSock = async () => {
 				if (update.qr == undefined) {
 					qrCode = ''
 					updateQR("connected");
+					conns = true
 				} else {
 					qrCode = update.qr
 					updateQR("qr");
+					conns = false
 				}
 				mongoose.connect(mongoURI)
-					.then(() => {
-						conns = true
+					.then(() => {				
 						console.log('Connected to MongoDB')
 						// if (sock.user?.id !== undefined) {
 						// 	if (sock.user?.id.split(":")[0] !== "6281935614654") {
@@ -119,7 +125,7 @@ export const startSock = async () => {
 							console.log("Connection closed, reconnecting....");
 						})
 					});
-				
+
 			}
 			// credentials updated -- save them
 			if (events['creds.update']) {
@@ -206,7 +212,7 @@ startSock().then((sock) => {
 			res.json('Logout failed');
 		}
 	})
-	
+
 }).catch(err => console.log("unexpected error: " + err))
 server.listen(port, () => {
 	console.log("Server Running On Port : ", port);

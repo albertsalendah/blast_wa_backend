@@ -1,7 +1,7 @@
 {
     "verbose": true,
     "ignore": ["files/upload", "files/input_list_nomor","files/output_list_nomor", "dist/*"],
-    "watch": ["src", "baileys_auth_info"],
+    "watch": ["src"],
     "exec": "npm run build && npm start",
     "ext": "*"
 }
