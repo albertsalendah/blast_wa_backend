@@ -19,7 +19,7 @@ import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
 import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
 
-const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -68,7 +68,7 @@ export const startSock = async () => {
 				if (connection === 'close') {
 					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
 					if (shouldReconnect) {
-						await startSock()
+						//startSock()
 					} else {
 						console.log('Connection closed, trying to reconnect...')
 						try {
@@ -80,13 +80,13 @@ export const startSock = async () => {
 					}
 					console.log('shouldReconnect? : ', shouldReconnect);
 					updateQR("disconnected")
-					// pm2.restart('blast_wa', (err) => {
-					// 	if (err) {
-					// 		console.error('Error restarting PM2:', err);
-					// 	} else {
-					// 		console.log('PM2 restarted successfully.');
-					// 	}
-					// });
+					pm2.restart('blast_wa', (err) => {
+						if (err) {
+							console.error('Error restarting PM2:', err);
+						} else {
+							console.log('PM2 restarted successfully.');
+						}
+					});
 				}
 
 				if (update.qr == undefined) {
@@ -133,7 +133,6 @@ export const startSock = async () => {
 }
 
 io.on('connection', async (socket: Socket) => {
-	soket = socket
 	soket = socket
 	console.log('A user connected');
 	if (isConnected()) {
