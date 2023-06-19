@@ -22,7 +22,7 @@ import nodemon from 'nodemon'
 
 
 
-const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -71,7 +71,7 @@ export const startSock = async () => {
 				if (connection === 'close') {
 					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
 					if (shouldReconnect) {
-						await startSock()
+						//await startSock()
 					} else {
 						console.log('Connection closed, trying to reconnect...')
 						try {
@@ -84,15 +84,17 @@ export const startSock = async () => {
 					}
 					console.log('shouldReconnect? : ', shouldReconnect);
 					updateQR("disconnected")
-					
-					conns = false					
-					pm2.restart('wa-blast-backend', (err) => {
-						if (err) {
-							console.error('Error restarting PM2:', err);
-						} else {
-							console.log('PM2 restarted successfully.');
-						}
-					});
+
+					//conns = false		
+					setTimeout(() => {
+						pm2.restart('wa-blast-backend', (err) => {
+							if (err) {
+								console.error('Error restarting PM2:', err);
+							} else {
+								console.log('PM2 restarted successfully.');
+							}
+						});
+					}, 5000);
 				}
 
 				if (update.qr == undefined) {
@@ -105,7 +107,7 @@ export const startSock = async () => {
 					conns = false
 				}
 				mongoose.connect(mongoURI)
-					.then(() => {				
+					.then(() => {
 						console.log('Connected to MongoDB')
 						// if (sock.user?.id !== undefined) {
 						// 	if (sock.user?.id.split(":")[0] !== "6281935614654") {
@@ -191,6 +193,21 @@ cron.schedule('0 * * * *', function () {
 })
 
 startSock().then((sock) => {
+	app.post("/login", async (req, res) => {
+		try {
+			if (req.body.username === 'ok' && req.body.password === 'ok') {
+				updateQR("disconnected");
+				res.status(200).json('Login succesfully');
+				console.log('Login succesfully');
+			} else {
+				res.status(401).json('Login failed');
+				console.log('Login failed');
+			}
+		} catch (error) {
+			res.status(500).json('Login failed ' + error);
+			console.log('Login failed ' + error);
+		}
+	})
 	sendmessagePOST(sock)
 	createScheduleMessage()
 	getHistory()
@@ -201,13 +218,13 @@ startSock().then((sock) => {
 	getTemplatePesan()
 	deleteTemplatePesan()
 	editTemplatePesan()
+
 	app.get("/logout", async (req, res) => {
 		try {
-			//updateQR("disconnected");
 			await sock.logout()
 			res.json('Logout succesfully')
 		} catch (error) {
-			console.log('folder deleted failed')
+			console.log('Logout failed')
 			res.json('Logout failed');
 		}
 	})
