@@ -10,19 +10,21 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import http from 'http'
 import { Server, Socket } from 'socket.io'
-import mongoose, { get } from 'mongoose'
+import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
 import { sendmessagePOST, getHistory } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
-import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
+import { getListFile, downloadFile, deleteFile, getListFileSisaData, downloadFileSisaData, deleteFileSisaData } from './routes/getFiles'
 import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
-import nodemon from 'nodemon'
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User, { IUser } from './models/user_schema';
 
 
 
-const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -51,11 +53,12 @@ export const startSock = async () => {
 	console.log(`using WA v${version.join('.')}, isLatest: ${isLatest}`)
 
 	const sock = makeWASocket({
-		defaultQueryTimeoutMs: undefined,
 		version,
 		logger,
 		printQRInTerminal: false,
+		defaultQueryTimeoutMs: undefined,
 		keepAliveIntervalMs: 60000,
+		//qrTimeout: 60000,
 		auth: {
 			creds: state.creds,
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
@@ -69,34 +72,30 @@ export const startSock = async () => {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
 				if (connection === 'close') {
-					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut
-					if (shouldReconnect) {
-						//await startSock()
-					} else {
+					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode //!== DisconnectReason.loggedOut
+					if (shouldReconnect === DisconnectReason.loggedOut || shouldReconnect === DisconnectReason.timedOut
+						|| shouldReconnect === DisconnectReason.badSession) {
+						updateQR("disconnected")
 						console.log('Connection closed, trying to reconnect...')
-						try {
-							fs.rmSync('baileys_auth_info', { recursive: true, force: true });
-							console.log('folder deleted succesfully')
-							//nodemon.restart()
-						} catch (error) {
-							console.log('folder deleted failed')
+						if (shouldReconnect === DisconnectReason.loggedOut || shouldReconnect === DisconnectReason.badSession) {
+							soket?.emit('logout', "logout")
+							try {
+								fs.rmSync('baileys_auth_info', { recursive: true, force: true });
+								console.log('folder deleted succesfully')
+							} catch (error) {
+								console.log('folder deleted failed')
+							}
 						}
+						startSock()
+					} else {
+						console.log('Reconnecting...')
+						restart()
 					}
 					console.log('shouldReconnect? : ', shouldReconnect);
-					updateQR("disconnected")
-
-					//conns = false		
-					setTimeout(() => {
-						pm2.restart('wa-blast-backend', (err) => {
-							if (err) {
-								console.error('Error restarting PM2:', err);
-							} else {
-								console.log('PM2 restarted successfully.');
-							}
-						});
-					}, 5000);
 				}
 
+				console.log('connection update: ', update)
+				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
 				if (update.qr == undefined) {
 					qrCode = ''
 					updateQR("connected");
@@ -106,27 +105,6 @@ export const startSock = async () => {
 					updateQR("qr");
 					conns = false
 				}
-				mongoose.connect(mongoURI)
-					.then(() => {
-						console.log('Connected to MongoDB')
-						// if (sock.user?.id !== undefined) {
-						// 	if (sock.user?.id.split(":")[0] !== "6281935614654") {
-						// 		console.log(sock.user?.id + " you are not registered...")
-						// 		conns = false
-						// 		sock.logout();
-						// 	} else {
-						// 		console.log("User is admin");
-						// 		conns = true
-						// 	}
-						// }
-					})
-					.catch(error => {
-						console.log('MongoDB connection error:', error)
-						cron.schedule('*/2 * * * *', function () {
-							console.log("Connection closed, reconnecting....");
-						})
-					});
-
 			}
 			// credentials updated -- save them
 			if (events['creds.update']) {
@@ -139,22 +117,22 @@ export const startSock = async () => {
 	//sendScheduleMessage(sock)
 	//})
 	//===============================
+	io.on('connection', async (socket: Socket) => {
+		socket.setMaxListeners(15);
+		soket = socket
+
+		console.log('A user connected');
+		if (isConnected()) {
+			updateQR("connected");
+		} else {
+			updateQR("disconnected");
+		}
+		socket.on('disconnect', () => {
+			console.log('A user disconnected');
+		});
+	})
 	return sock
 }
-
-io.on('connection', async (socket: Socket) => {
-	soket = socket
-
-	console.log('A user connected');
-	if (isConnected()) {
-		updateQR("connected");
-	} else {
-		updateQR("disconnected");
-	}
-	socket.on('disconnect', () => {
-		console.log('A user disconnected');
-	});
-})
 
 export const isConnected = () => {
 	if (conns) {
@@ -163,6 +141,18 @@ export const isConnected = () => {
 		return false;
 	}
 };
+
+async function restart() {
+	setTimeout(() => {
+		pm2.restart('wa-blast-backend', (err) => {
+			if (err) {
+				console.error('Error restarting PM2:', err);
+			} else {
+				console.log('PM2 restarted successfully.');
+			}
+		});
+	}, 5000);
+}
 
 const updateQR = (data: String) => {
 	switch (data) {
@@ -193,21 +183,6 @@ cron.schedule('0 * * * *', function () {
 })
 
 startSock().then((sock) => {
-	app.post("/login", async (req, res) => {
-		try {
-			if (req.body.username === 'ok' && req.body.password === 'ok') {
-				updateQR("disconnected");
-				res.status(200).json('Login succesfully');
-				console.log('Login succesfully');
-			} else {
-				res.status(401).json('Login failed');
-				console.log('Login failed');
-			}
-		} catch (error) {
-			res.status(500).json('Login failed ' + error);
-			console.log('Login failed ' + error);
-		}
-	})
 	sendmessagePOST(sock)
 	createScheduleMessage()
 	getHistory()
@@ -218,6 +193,9 @@ startSock().then((sock) => {
 	getTemplatePesan()
 	deleteTemplatePesan()
 	editTemplatePesan()
+	getListFileSisaData()
+	deleteFileSisaData()
+	downloadFileSisaData()
 
 	app.get("/logout", async (req, res) => {
 		try {
@@ -230,6 +208,75 @@ startSock().then((sock) => {
 	})
 
 }).catch(err => console.log("unexpected error: " + err))
+mongoose.connect(mongoURI)
+	.then(() => {
+		console.log('Connected to MongoDB')
+	})
+	.catch(error => {
+		console.log('MongoDB connection error:', error)
+		cron.schedule('*/2 * * * *', function () {
+			console.log("Connection closed, reconnecting....");
+		})
+	});
+app.post("/login", async (req, res) => {
+	try {
+		const { username, password } = req.body;
+
+		// Find the user by username
+		const user = await User.findOne({ username });
+		if (!user) {
+			res.status(401).json({ message: 'Invalid credentials' });
+			return;
+		}
+
+		// Compare the provided password with the hashed password in the database
+		const isPasswordValid = await bcrypt.compare(password, user.password);
+		if (!isPasswordValid) {
+			res.status(401).json({ message: 'Invalid credentials' });
+			return;
+		}
+
+		// Generate a JSON Web Token (JWT)
+		const token = jwt.sign({ userId: user._id }, 'secretKey');
+		if (!conns) {
+			updateQR("disconnected");
+			soket?.emit("log", "Loading QR Code...");
+		} else {
+			updateQR("connected");
+		}
+		res.status(200).json({ token });
+	} catch (error) {
+		res.status(500).json({ message: 'Internal server error' });
+	}
+})
+app.post("/register", async (req, res) => {
+	try {
+		const username = req.body.username;
+		const password = req.body.password;
+		// Check if the username is already taken
+		const existingUser = await User.findOne({ username });
+		if (existingUser) {
+			res.status(400).json({ message: 'Username already taken' });
+			return;
+		}
+
+		// Hash the password
+		const hashedPassword = await bcrypt.hash(password, 10);
+
+		// Create a new user
+		const newUser: IUser = new User({
+			username,
+			password: hashedPassword,
+		});
+
+		// Save the user to the database
+		await newUser.save();
+
+		res.status(201).json({ message: 'User registered successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Internal server error' });
+	}
+})
 server.listen(port, () => {
 	console.log("Server Running On Port : ", port);
 })

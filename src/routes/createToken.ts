@@ -7,7 +7,6 @@ export async function createNewToken() {
 	const currentDate = format(new Date(), 'EEE, dd MMM yyyy');//new Date().toUTCString();
 	console.log(currentDate);
 	try {
-
 		const deletedTokens = await token.deleteMany({ expires: { $lt: currentDate } }).exec();
 		console.log('Deleted expired tokens:', deletedTokens.deletedCount);
 		const existingToken = await token.findOne().sort({ _id: -1 }).exec();
@@ -31,7 +30,7 @@ export async function createNewToken() {
 				token_type: response.data['token_type'],
 				expires_in: response.data['expires_in'],
 				issued: response.data['.issued'],
-				expires: response.data['.expires']
+				expires: currentDate
 			};
 
 			const createdToken = await token.create(newToken);

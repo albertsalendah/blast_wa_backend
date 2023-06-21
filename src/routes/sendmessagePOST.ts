@@ -6,13 +6,11 @@ import { token } from '../models/tokenschema'
 import { UploadedFile } from 'express-fileupload'
 import path from 'path'
 import fs from "fs"
-import { applicants } from '../testNO';
 import { history } from '../models/history_send_schema'
 import { v4 as uuidv4 } from 'uuid';
 import { listProgdi } from '../models/list_progdi';
 import * as ExcelJS from 'exceljs';
 
-//let isLoopRunning = false;
 interface Mahasiswa {
     No_Pendaftaran: string;
     Nama_Pendaftar: string;
@@ -74,11 +72,8 @@ export async function sendmessagePOST(sock: any) {
         for (let i = 0; i < listprogdi.length; i++) {
             if (req.body.progdi === listProgdi[i].kode_progdi) {
                 selectedProgdi = listProgdi[i].nama_progdi
-            } else {
-                selectedProgdi = req.body.progdi
             }
         }
-
         // Generate a unique job identifier
         const jobId = uuidv4();
         // Store the initial job details (e.g., progress: 0, status: 'processing')
@@ -87,7 +82,6 @@ export async function sendmessagePOST(sock: any) {
         io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: " " });
 
         try {
-
             const currentDate = new Date();
             let filePath = ""
             if (req.files?.daftar_no) {
@@ -102,10 +96,10 @@ export async function sendmessagePOST(sock: any) {
                     file_daftar_no = [file_dikirim];
                 }
                 for (let i = 0; i < file_daftar_no.length; i++) {
-                    file_ubah_nama[i] = `input_${new Date().getTime()}_${selectedProgdi}_${file_daftar_no[i].name}`;
+                    file_ubah_nama[i] = `input_${selectedProgdi}_${new Date().getTime()}_${file_daftar_no[i].name}`;
                     await file_daftar_no[i].mv('./files/input_list_nomor/' + file_ubah_nama[i]);
                     await workbook.xlsx.readFile('./files/input_list_nomor/' + file_ubah_nama[i]);
-                    filePath = path.join("files/output_list_nomor", `output_${new Date().getTime()}_${selectedProgdi}_${file_daftar_no[i].name}`);
+                    filePath = path.join("files/output_list_nomor", `output_${selectedProgdi}_${new Date().getTime()}_${file_daftar_no[i].name}`);
                 }
 
                 const worksheet = workbook.worksheets[0];
@@ -134,10 +128,10 @@ export async function sendmessagePOST(sock: any) {
                 }
                 //console.log(listMahasiswa)
             } else {
-                filePath = path.join("files/output_list_nomor", `output_${new Date().getTime()}_data_api_${selectedProgdi}.xlsx`);
+                filePath = path.join("files/output_list_nomor", `output_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
                 listMahasiswa =
                     await axios.request(config)
-                        .then((response) => {
+                        .then(async (response) => {
                             let uniqueResponse = []
                             if (req.body.status_regis === "All") {
                                 uniqueResponse = response.data.response.flat(2)
@@ -152,6 +146,7 @@ export async function sendmessagePOST(sock: any) {
                                 }
                                 return accumulator;
                             }, []);
+                            const datas: DynamicInterface[] = []
                             filteredResponse.forEach((item: any) => {
                                 item.No_HP = item.No_HP.split(",").filter(Boolean);
                                 const uniqueNoHP = Array.from(new Set(item.No_HP));
@@ -166,16 +161,46 @@ export async function sendmessagePOST(sock: any) {
                                             Status_Registrasi_Ulang: item.Status_Registrasi_Ulang,
                                             Prodi_Registrasi_Ulang: item.Prodi_Registrasi_Ulang
                                         };
-                                        listMahasiswa.push(mahasiswa)
+                                        datas.push(mahasiswa)
                                     }
                                 });
                             });
+                           
+                            if (datas.length > 250) {
+                                const sliceSize = 250;
+                                const numberOfSlices = Math.ceil(datas.length / sliceSize);
+                                const outputArrays = [];
+                                for (let i = 0; i < numberOfSlices; i++) {
+                                    const start = i * sliceSize;
+                                    const end = start + sliceSize;
+                                    const slice = datas.slice(start, end);
+                                    outputArrays.push(slice);
+                                }
+                                for (let i = 0; i < outputArrays.length; i++) {
+                                    if (i === 0) {
+                                        listMahasiswa = outputArrays[i];
+                                    } else {
+                                        const workbook = new ExcelJS.Workbook();
+                                        const worksheet = workbook.addWorksheet('Sheet 1');
+                                        const newcolumnNames = Object.keys(outputArrays[i][0]);
+                                        worksheet.addRow(newcolumnNames);
+                                        outputArrays[i].forEach((row) => {
+                                            const values = newcolumnNames.map((newcolumnNames) => row[newcolumnNames]);
+                                            worksheet.addRow(values);
+                                        });
+                                        const filesisa = path.join("files/sisa_data", `sisa_data_${i}_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
+                                        await workbook.xlsx.writeFile(filesisa);
+                                    }
+                                    console.log("Jumlah Data List Mahasiswa : " + listMahasiswa.length + ` SISA DATA ${i + 1}: ` + outputArrays[i].length)
+                                }
+                            } else {
+                                listMahasiswa = datas
+                            }
                             return listMahasiswa;
                             // res.status(200).json({             
                             //     response: listMahasiswa
                             // });
                             console.log(listMahasiswa.length)
-                            // isLoopRunning = false;
                         })
                         .catch((error) => {
                             console.log(error);
@@ -183,8 +208,7 @@ export async function sendmessagePOST(sock: any) {
                             return [];
                             // res.status(200).json({             
                             //     response: listMahasiswa
-                            // });
-                            //isLoopRunning = false;
+                            // });                         
                         });
             }
             io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
@@ -197,16 +221,13 @@ export async function sendmessagePOST(sock: any) {
                 worksheet.addRow(values);
             });
             worksheet.getColumn(newcolumnNames.length + 1).header = "Kategori Pesan";
-            worksheet.getColumn(newcolumnNames.length + 2).header = "Status Pesan";
-            //worksheet.getColumn(newcolumnNames.length + 1).values = additionalColumnValues;
-            //listMahasiswa = applicants           
+            worksheet.getColumn(newcolumnNames.length + 2).header = "Status Pesan";                 
 
             let unRegistercounter = 0;
             let registeredcounter = 0;
             let progress = 0;
             const latestEntry = await history.findOne({}, {}, { sort: { _id: -1 } });
             if (!req.files?.file_dikirim) {
-
                 if (listMahasiswa.length > 0) {
                     io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
                     for (let i = 0; i < listMahasiswa.length; i++) {
@@ -236,8 +257,8 @@ export async function sendmessagePOST(sock: any) {
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
                                             });
-                                        // worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        // worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         //await createHistory(item, pesankirim)
                                         //console.log('Pasan Terkirim Ke : ' + numberWA);
@@ -383,7 +404,7 @@ export async function sendmessagePOST(sock: any) {
                                                 console.log('Pasan Terkirim Ke : ' + numberWA);
                                             }
                                         }
-                                        //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         //await createHistory(item, pesankirim)
                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = statusPesan
