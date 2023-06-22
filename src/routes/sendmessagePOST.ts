@@ -214,7 +214,6 @@ export async function sendmessagePOST(sock: any) {
             worksheet.getColumn(newcolumnNames.length + 1).header = "Kategori Pesan";
             worksheet.getColumn(newcolumnNames.length + 2).header = "Status Pesan";
             worksheet.getColumn(newcolumnNames.length + 3).header = "ID Pesan";
-            worksheet.getColumn(newcolumnNames.length + 4).header = "Isi Pesan";
 
             let unRegistercounter = 0;
             let registeredcounter = 0;
