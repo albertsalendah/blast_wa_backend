@@ -43,7 +43,6 @@ const port = process.env.PORT || 8080;
 let qrCode: String = '';
 let soket: Socket;
 let conns: boolean;
-
 const msgRetryCounterCache = new NodeCache()
 
 export const startSock = async () => {
@@ -58,7 +57,7 @@ export const startSock = async () => {
 		printQRInTerminal: false,
 		defaultQueryTimeoutMs: undefined,
 		keepAliveIntervalMs: 60000,
-		//qrTimeout: 60000,
+		qrTimeout: 60000,
 		auth: {
 			creds: state.creds,
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
@@ -97,7 +96,7 @@ export const startSock = async () => {
 				console.log('connection update: ', update)
 				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
 				if (update.qr == undefined) {
-					qrCode = ''
+					//qrCode = ''
 					updateQR("connected");
 					conns = true
 				} else {
@@ -117,10 +116,9 @@ export const startSock = async () => {
 	//sendScheduleMessage(sock)
 	//})
 	//===============================
+	io.setMaxListeners(15);
 	io.on('connection', async (socket: Socket) => {
-		socket.setMaxListeners(15);
 		soket = socket
-
 		console.log('A user connected');
 		if (isConnected()) {
 			updateQR("connected");
@@ -165,13 +163,11 @@ const updateQR = (data: String) => {
 			soket?.emit("qrstatus", "connected");
 			soket?.emit("log", "WhatsApp terhubung!");
 			console.log('WhatsApp terhubung!');
-			qrCode = '';
 			break;
 		case "disconnected":
 			soket?.emit("qrstatus", "disconnected");
 			soket?.emit("log", "WhatsApp belum terhubung!");
 			console.log('WhatsApp belum terhubung!');
-			qrCode = '';
 			break;
 		default:
 			break;
