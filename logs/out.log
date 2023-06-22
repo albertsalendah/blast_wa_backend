@@ -346,3 +346,530 @@
 2023-06-22 22:00:00:   expires: 'Wed, 21 Jun 2023',
 2023-06-22 22:00:00:   __v: 0
 2023-06-22 22:00:00: }
+2023-06-23 03:36:21: Server Running On Port :  8080
+2023-06-23 03:36:21: Connected to MongoDB
+2023-06-23 03:36:21: using WA v2.2325.3, isLatest: true
+2023-06-23 03:36:22: connection update:  {
+2023-06-23 03:36:22:   connection: 'connecting',
+2023-06-23 03:36:22:   receivedPendingNotifications: false,
+2023-06-23 03:36:22:   qr: undefined
+2023-06-23 03:36:22: }
+2023-06-23 03:36:22: Socket AuthState ID : 6281935614654:7@s.whatsapp.net
+2023-06-23 03:36:22: WhatsApp terhubung!
+2023-06-23 03:36:27: WhatsApp belum terhubung!
+2023-06-23 03:36:27: Connection closed, trying to reconnect...
+2023-06-23 03:36:27: folder deleted succesfully
+2023-06-23 03:36:27: shouldReconnect? :  401
+2023-06-23 03:36:27: connection update:  {
+2023-06-23 03:36:27:   connection: 'close',
+2023-06-23 03:36:27:   lastDisconnect: {
+2023-06-23 03:36:27:     error: Error: Connection Failure
+2023-06-23 03:36:27:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:446:13)
+2023-06-23 03:36:27:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:36:27:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-23 03:36:27:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-23 03:36:27:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-23 03:36:27:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:36:27:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-23 03:36:27:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:36:27:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-23 03:36:27:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-23 03:36:27:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-23 03:36:27:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-23 03:36:27:       data: [Object],
+2023-06-23 03:36:27:       isBoom: true,
+2023-06-23 03:36:27:       isServer: false,
+2023-06-23 03:36:27:       output: [Object]
+2023-06-23 03:36:27:     },
+2023-06-23 03:36:27:     date: 2023-06-22T20:36:27.721Z
+2023-06-23 03:36:27:   }
+2023-06-23 03:36:27: }
+2023-06-23 03:36:27: Socket AuthState ID : 6281935614654:7@s.whatsapp.net
+2023-06-23 03:36:27: WhatsApp terhubung!
+2023-06-23 03:36:27: using WA v2.2325.3, isLatest: true
+2023-06-23 03:36:27: connection update:  {
+2023-06-23 03:36:27:   connection: 'connecting',
+2023-06-23 03:36:27:   receivedPendingNotifications: false,
+2023-06-23 03:36:27:   qr: undefined
+2023-06-23 03:36:27: }
+2023-06-23 03:36:27: Socket AuthState ID : undefined
+2023-06-23 03:36:27: WhatsApp terhubung!
+2023-06-23 03:36:29: connection update:  {
+2023-06-23 03:36:29:   qr: '2@3SqvV26FAgd+ViCQqIxvMOUvUcawU1Vk+Tl3ruXmNFOAnBghanKXRkxptXCRvjjqrr6sJuEyOCZM7Q==,lJrqZK2kwMDjCOBOsMPJyFFA7ut5b9gJwPdCZA4amwY=,GKJ/nSDyMyDShCPun2wBZfvsY9JTSKSzRVk8n4QRX2k=,ovnV6TueHwt4J0mvkS7UBxTiY+4olvsl+k8gB4Z1kh4='
+2023-06-23 03:36:29: }
+2023-06-23 03:36:29: Socket AuthState ID : undefined
+2023-06-23 03:36:29: QR Code received, please scan!
+2023-06-23 03:37:29: connection update:  {
+2023-06-23 03:37:29:   qr: '2@Yqnzlj0UtWtYWWdPQpI09El9CSwf8UvUuSfW5tntsJVQ4pKD3FJO6h2NCeRSJwUpt+byM9eyhnO0/w==,lJrqZK2kwMDjCOBOsMPJyFFA7ut5b9gJwPdCZA4amwY=,GKJ/nSDyMyDShCPun2wBZfvsY9JTSKSzRVk8n4QRX2k=,ovnV6TueHwt4J0mvkS7UBxTiY+4olvsl+k8gB4Z1kh4='
+2023-06-23 03:37:29: }
+2023-06-23 03:37:29: Socket AuthState ID : undefined
+2023-06-23 03:37:29: QR Code received, please scan!
+2023-06-23 03:37:34: A user connected
+2023-06-23 03:37:34: WhatsApp belum terhubung!
+2023-06-23 03:37:34: A user connected
+2023-06-23 03:37:34: WhatsApp belum terhubung!
+2023-06-23 03:38:06: WhatsApp belum terhubung!
+2023-06-23 03:38:06: A user disconnected
+2023-06-23 03:38:06: A user disconnected
+2023-06-23 03:38:09: A user connected
+2023-06-23 03:38:09: WhatsApp belum terhubung!
+2023-06-23 03:38:09: A user connected
+2023-06-23 03:38:09: WhatsApp belum terhubung!
+2023-06-23 03:38:29: connection update:  {
+2023-06-23 03:38:29:   qr: '2@u3tr8hp9z8wTU3ybq0Tna6jXvpTKh/crAuZs7ppAGiFzXSxHOorbcrsmJO1a9E5Qsz7VJzov3K0KUw==,lJrqZK2kwMDjCOBOsMPJyFFA7ut5b9gJwPdCZA4amwY=,GKJ/nSDyMyDShCPun2wBZfvsY9JTSKSzRVk8n4QRX2k=,ovnV6TueHwt4J0mvkS7UBxTiY+4olvsl+k8gB4Z1kh4='
+2023-06-23 03:38:29: }
+2023-06-23 03:38:29: Socket AuthState ID : undefined
+2023-06-23 03:38:29: QR Code received, please scan!
+2023-06-23 03:39:29: connection update:  {
+2023-06-23 03:39:29:   qr: '2@1YuTQjKIbVv/gSSl1oJBbGUXgRmj77OiX2RJFojPRgmypq4r7EA+QA5mq3JbkoFDhtb+GhpjR8rzgA==,lJrqZK2kwMDjCOBOsMPJyFFA7ut5b9gJwPdCZA4amwY=,GKJ/nSDyMyDShCPun2wBZfvsY9JTSKSzRVk8n4QRX2k=,ovnV6TueHwt4J0mvkS7UBxTiY+4olvsl+k8gB4Z1kh4='
+2023-06-23 03:39:29: }
+2023-06-23 03:39:29: Socket AuthState ID : undefined
+2023-06-23 03:39:29: QR Code received, please scan!
+2023-06-23 03:39:59: Reconnecting...
+2023-06-23 03:39:59: shouldReconnect? :  428
+2023-06-23 03:39:59: connection update:  {
+2023-06-23 03:39:59:   connection: 'close',
+2023-06-23 03:39:59:   lastDisconnect: {
+2023-06-23 03:39:59:     error: Error: Connection Terminated by Server
+2023-06-23 03:39:59:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-23 03:39:59:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:39:59:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-23 03:39:59:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-23 03:39:59:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-23 03:39:59:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:39:59:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-23 03:39:59:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:39:59:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-23 03:39:59:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-23 03:39:59:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-23 03:39:59:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-23 03:39:59:       data: null,
+2023-06-23 03:39:59:       isBoom: true,
+2023-06-23 03:39:59:       isServer: false,
+2023-06-23 03:39:59:       output: [Object]
+2023-06-23 03:39:59:     },
+2023-06-23 03:39:59:     date: 2023-06-22T20:39:59.173Z
+2023-06-23 03:39:59:   }
+2023-06-23 03:39:59: }
+2023-06-23 03:39:59: Socket AuthState ID : undefined
+2023-06-23 03:39:59: WhatsApp terhubung!
+2023-06-23 03:40:07: Server Running On Port :  8080
+2023-06-23 03:40:07: Connected to MongoDB
+2023-06-23 03:40:07: using WA v2.2325.3, isLatest: true
+2023-06-23 03:40:07: connection update:  {
+2023-06-23 03:40:07:   connection: 'connecting',
+2023-06-23 03:40:07:   receivedPendingNotifications: false,
+2023-06-23 03:40:07:   qr: undefined
+2023-06-23 03:40:07: }
+2023-06-23 03:40:07: Socket AuthState ID : undefined
+2023-06-23 03:40:07: WhatsApp terhubung!
+2023-06-23 03:40:07: connection update:  {
+2023-06-23 03:40:07:   qr: '2@qevH81SX3lTpNe0zv+xZJdnUA3v/hASt5I6cx0wQVw+rFEqhHOUhW7fJ2W2x8StN3mQJj1hmiLvAxw==,xCUGg4ib0yzijuQ1ASihjozfT6jjW2jvcP0jKMjkmEk=,ipjJX1T4HmNmFtVk7s15uLJ6+2tJ2a3O62N8+0iE5D4=,fBlG7wE8C0xXnhkp5g6IeobP3hK2YOOIK/ZYZ+8uwtw='
+2023-06-23 03:40:07: }
+2023-06-23 03:40:07: Socket AuthState ID : undefined
+2023-06-23 03:40:07: QR Code received, please scan!
+2023-06-23 03:40:15: A user connected
+2023-06-23 03:40:15: WhatsApp belum terhubung!
+2023-06-23 03:41:07: connection update:  {
+2023-06-23 03:41:07:   qr: '2@t2rNWQ0e1CC74Yhoxsl3HIRJv7CXx5UngNa0/2T+qT3Ir7eBiHf3ixiZQItlVBtiPuqbj/Xm/NgC9w==,xCUGg4ib0yzijuQ1ASihjozfT6jjW2jvcP0jKMjkmEk=,ipjJX1T4HmNmFtVk7s15uLJ6+2tJ2a3O62N8+0iE5D4=,fBlG7wE8C0xXnhkp5g6IeobP3hK2YOOIK/ZYZ+8uwtw='
+2023-06-23 03:41:07: }
+2023-06-23 03:41:07: Socket AuthState ID : undefined
+2023-06-23 03:41:07: QR Code received, please scan!
+2023-06-23 03:41:14: connection update:  { isNewLogin: true, qr: undefined }
+2023-06-23 03:41:14: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 03:41:14: WhatsApp terhubung!
+2023-06-23 03:41:14: Reconnecting...
+2023-06-23 03:41:14: shouldReconnect? :  515
+2023-06-23 03:41:14: connection update:  {
+2023-06-23 03:41:14:   connection: 'close',
+2023-06-23 03:41:14:   lastDisconnect: {
+2023-06-23 03:41:14:     error: Error: Stream Errored (restart required)
+2023-06-23 03:41:14:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:441:13)
+2023-06-23 03:41:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:41:14:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-23 03:41:14:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-23 03:41:14:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-23 03:41:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:41:14:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-23 03:41:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-23 03:41:14:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-23 03:41:14:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-23 03:41:14:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-23 03:41:14:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-23 03:41:14:       data: [Object],
+2023-06-23 03:41:14:       isBoom: true,
+2023-06-23 03:41:14:       isServer: true,
+2023-06-23 03:41:14:       output: [Object]
+2023-06-23 03:41:14:     },
+2023-06-23 03:41:14:     date: 2023-06-22T20:41:14.875Z
+2023-06-23 03:41:14:   }
+2023-06-23 03:41:14: }
+2023-06-23 03:41:14: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 03:41:14: WhatsApp terhubung!
+2023-06-23 03:41:22: Server Running On Port :  8080
+2023-06-23 03:41:22: Connected to MongoDB
+2023-06-23 03:41:22: using WA v2.2325.3, isLatest: true
+2023-06-23 03:41:22: connection update:  {
+2023-06-23 03:41:22:   connection: 'connecting',
+2023-06-23 03:41:22:   receivedPendingNotifications: false,
+2023-06-23 03:41:22:   qr: undefined
+2023-06-23 03:41:22: }
+2023-06-23 03:41:22: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 03:41:22: WhatsApp terhubung!
+2023-06-23 03:41:25: connection update:  { connection: 'open' }
+2023-06-23 03:41:25: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 03:41:25: WhatsApp terhubung!
+2023-06-23 03:41:26: connection update:  { receivedPendingNotifications: true }
+2023-06-23 03:41:26: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 03:41:26: WhatsApp terhubung!
+2023-06-23 03:41:42: Total No : 1
+2023-06-23 03:41:44: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:41:44: History Pesan Berhasil Ditambahkan
+2023-06-23 03:41:44: Pesan Tanpa File Telah Terkirim Semua 
+2023-06-23 03:42:51: Total No : 10
+2023-06-23 03:42:52: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:42:52: History Pesan Berhasil Ditambahkan
+2023-06-23 03:42:57: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:42:57: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:01: Total No : 10
+2023-06-23 03:43:02: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:02: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:02: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:02: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:07: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:07: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:07: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:07: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:12: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:12: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:12: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:12: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:17: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:17: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:17: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:17: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:22: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:22: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:22: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:22: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:27: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:27: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:27: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:27: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:32: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:32: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:32: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:32: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:37: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:37: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:37: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:37: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:37: Pesan Tanpa File Telah Terkirim Semua 
+2023-06-23 03:43:42: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:42: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:47: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 03:43:47: History Pesan Berhasil Ditambahkan
+2023-06-23 03:43:47: Pesan Tanpa File Telah Terkirim Semua 
+2023-06-23 03:46:20: A user connected
+2023-06-23 03:46:20: WhatsApp terhubung!
+2023-06-23 04:00:00: Fri, 23 Jun 2023
+2023-06-23 04:00:00: Deleted expired tokens: 0
+2023-06-23 04:00:00: Existing token still valid: {
+2023-06-23 04:00:00:   _id: new ObjectId("64922162f02f153996f6bcb7"),
+2023-06-23 04:00:00:   access_token: 'gbdgbnSEGGBMN6VA3PCuF8vWqnfkCyiBACryG-OcJ1u7r1K9ZiiRvG3orNykrxy2tgbBvPlzupzRWaVfWTCnVIxmoma9rChllHuKyiyXWqRyhjw4EpCCDmRwEbpcl8a4vKWiZusQldIH5c-pFiaX5tjIlLxVsrEcJ-U19PEOiLl9ybnMImQ7srYF8tAcdNuNo3XVfa0u6Vx9FayeamVNUHJ0dcuO1_omwSD8JI84CGvQGfnPN7WdMQUbtm8ILTxasfehMkWTPwRkz8zZbKtPE7M-qCbdJypBPU-GI_rdk44',
+2023-06-23 04:00:00:   token_type: 'bearer',
+2023-06-23 04:00:00:   expires_in: '86399',
+2023-06-23 04:00:00:   issued: 'Tue, 20 Jun 2023 22:00:04 GMT',
+2023-06-23 04:00:00:   expires: 'Wed, 21 Jun 2023',
+2023-06-23 04:00:00:   __v: 0
+2023-06-23 04:00:00: }
+2023-06-23 04:03:11: Server Running On Port :  8080
+2023-06-23 04:03:11: Connected to MongoDB
+2023-06-23 04:03:12: using WA v2.2325.3, isLatest: true
+2023-06-23 04:03:12: connection update:  {
+2023-06-23 04:03:12:   connection: 'connecting',
+2023-06-23 04:03:12:   receivedPendingNotifications: false,
+2023-06-23 04:03:12:   qr: undefined
+2023-06-23 04:03:12: }
+2023-06-23 04:03:12: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 04:03:12: WhatsApp terhubung!
+2023-06-23 04:03:12: A user connected
+2023-06-23 04:03:12: WhatsApp terhubung!
+2023-06-23 04:03:12: connection update:  { isOnline: true }
+2023-06-23 04:03:12: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 04:03:12: WhatsApp terhubung!
+2023-06-23 04:03:12: connection update:  { connection: 'open' }
+2023-06-23 04:03:12: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 04:03:12: WhatsApp terhubung!
+2023-06-23 04:03:13: connection update:  { receivedPendingNotifications: true }
+2023-06-23 04:03:13: Socket AuthState ID : 6281935614654:13@s.whatsapp.net
+2023-06-23 04:03:13: WhatsApp terhubung!
+2023-06-23 04:03:19: WhatsApp terhubung!
+2023-06-23 04:03:19: A user disconnected
+2023-06-23 04:03:24: A user connected
+2023-06-23 04:03:24: WhatsApp terhubung!
+2023-06-23 04:04:10: Total No : 100
+2023-06-23 04:04:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:16: Nomor 821383452123@s.whatsapp.net tidak terdaftar. 
+2023-06-23 04:04:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:26: Nomor 821383452123@s.whatsapp.net tidak terdaftar. 
+2023-06-23 04:04:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:04:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:04:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:05:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:05:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:02: Total No : 10
+2023-06-23 04:06:04: pesan berhasil terkirim
+2023-06-23 04:06:04: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:04: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:08: pesan berhasil terkirim
+2023-06-23 04:06:08: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:08: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:13: pesan berhasil terkirim
+2023-06-23 04:06:13: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:13: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:18: pesan berhasil terkirim
+2023-06-23 04:06:18: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:18: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:23: pesan berhasil terkirim
+2023-06-23 04:06:23: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:23: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:28: pesan berhasil terkirim
+2023-06-23 04:06:28: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:28: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:33: pesan berhasil terkirim
+2023-06-23 04:06:33: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:33: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:38: pesan berhasil terkirim
+2023-06-23 04:06:38: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:38: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:43: pesan berhasil terkirim
+2023-06-23 04:06:43: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:43: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:48: pesan berhasil terkirim
+2023-06-23 04:06:48: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:48: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:48: Pesan Dengan File Telah Terkirim Semua
+2023-06-23 04:06:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:06:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:06:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:07:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:07:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:21: Waiting...
+2023-06-23 04:08:24: A user disconnected
+2023-06-23 04:08:31: A user connected
+2023-06-23 04:08:31: WhatsApp terhubung!
+2023-06-23 04:08:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:08:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:08:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:09:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:09:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:10:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:10:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:11:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:11:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:01: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:01: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:06: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:06: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:07: WhatsApp terhubung!
+2023-06-23 04:12:07: A user disconnected
+2023-06-23 04:12:11: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:11: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:12: A user connected
+2023-06-23 04:12:12: WhatsApp terhubung!
+2023-06-23 04:12:16: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:16: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:21: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:21: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:31: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:31: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:36: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:36: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:41: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:41: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:46: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:46: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:51: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:51: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:56: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:12:56: History Pesan Berhasil Ditambahkan
+2023-06-23 04:12:56: Pesan Tanpa File Telah Terkirim Semua 
+2023-06-23 04:17:12: A user disconnected
+2023-06-23 04:17:19: A user connected
+2023-06-23 04:17:19: WhatsApp terhubung!
+2023-06-23 04:37:11: WhatsApp terhubung!
+2023-06-23 04:37:11: A user disconnected
+2023-06-23 04:37:16: A user connected
+2023-06-23 04:37:16: WhatsApp terhubung!
+2023-06-23 04:37:26: Total No : 1
+2023-06-23 04:37:26: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-23 04:37:26: History Pesan Berhasil Ditambahkan
+2023-06-23 04:37:26: Pesan Tanpa File Telah Terkirim Semua 
+2023-06-23 04:39:08: File deleted: output_---_1687422850831_100.xlsx
+2023-06-23 04:39:10: File deleted: output_---_1687466502675_1.xlsx
+2023-06-23 04:39:11: File deleted: output_---_1687466571990_10.xlsx
+2023-06-23 04:39:13: File deleted: output_---_1687466581969_10.xlsx
+2023-06-23 04:39:15: File deleted: output_---_1687467850968_100.xlsx
+2023-06-23 04:39:20: File deleted: output_---_1687467962377_10.xlsx
+2023-06-23 04:39:22: File deleted: output_---_1687469846320_1.xlsx
+2023-06-23 04:39:33: File deleted: input_---_1687422027425_1.xlsx
+2023-06-23 04:42:16: A user disconnected
+2023-06-23 04:42:23: A user connected
+2023-06-23 04:42:23: WhatsApp terhubung!
+2023-06-23 04:53:19: A user disconnected

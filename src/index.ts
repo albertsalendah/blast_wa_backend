@@ -22,8 +22,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from './models/user_schema';
 
-
-
 const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
@@ -96,7 +94,6 @@ export const startSock = async () => {
 				console.log('connection update: ', update)
 				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
 				if (update.qr == undefined) {
-					//qrCode = ''
 					updateQR("connected");
 					conns = true
 				} else {
