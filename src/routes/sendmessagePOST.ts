@@ -243,20 +243,20 @@ export async function sendmessagePOST(sock: any) {
                                                 io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId+"-"+i
+                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
                                                 item.Kategori_Pesan = req.body.kategori_pesan
                                                 item.Status_Pesan = "Terkirim"
-                                                item.id_pesan = jobId+"-"+i
+                                                item.id_pesan = jobId
                                                 item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                             })
                                             .catch(() => {
                                                 console.log('Pasan Tidak Terkirim');
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                                 worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId+"-"+i
+                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
                                                 item.Kategori_Pesan = req.body.kategori_pesan
                                                 item.Status_Pesan = "Gagal Terkirim"
-                                                item.id_pesan = jobId+"-"+i
+                                                item.id_pesan = jobId
                                                 item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                             });
                                         //worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
@@ -267,10 +267,10 @@ export async function sendmessagePOST(sock: any) {
                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar WA"
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId+"-"+i
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
                                         item.Kategori_Pesan = req.body.kategori_pesan
                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
-                                        item.id_pesan = jobId+"-"+i
+                                        item.id_pesan = jobId
                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                     }
                                     await createHistory(item)
@@ -368,14 +368,14 @@ export async function sendmessagePOST(sock: any) {
                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 });
                                             } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
@@ -393,14 +393,14 @@ export async function sendmessagePOST(sock: any) {
                                                     statusPesan = "Terkirim"
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 });
                                             } else {
@@ -419,14 +419,14 @@ export async function sendmessagePOST(sock: any) {
                                                     statusPesan = "Terkirim"
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
                                                     item.Kategori_Pesan = req.body.kategori_pesan
                                                     item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId+"-"+i
+                                                    item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
                                                 });
                                             }
@@ -435,12 +435,12 @@ export async function sendmessagePOST(sock: any) {
                                         console.log('Pasan Terkirim Ke : ' + numberWA);
                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = statusPesan
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId+"-"+i
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
                                     } else {
                                         console.log(`Nomor ${numberWA} tidak terdaftar.`);
                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar"
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId+"-"+i
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
                                         item.Kategori_Pesan = req.body.kategori_pesan
                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
                                         item.id_pesan = jobId
