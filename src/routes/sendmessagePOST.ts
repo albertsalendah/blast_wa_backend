@@ -32,7 +32,6 @@ interface DynamicInterface {
 const jobs: { [jobId: string]: Job } = {};
 
 export async function sendmessagePOST(sock: any) {
-
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
 
@@ -107,6 +106,10 @@ export async function sendmessagePOST(sock: any) {
                         columnNames.push(cell.value?.toString() ?? '');
                     }
                 });
+                if (columnNames.length >= 2) {
+                    columnNames[1] = 'Nama';
+                    columnNames[2] = 'No_Handphone';
+                }
                 for (let i = 2; i <= worksheet.rowCount; i++) {
                     const row = worksheet.getRow(i);
                     const rowData: DynamicInterface = {};
@@ -146,8 +149,8 @@ export async function sendmessagePOST(sock: any) {
                                     if (no.length > 10) {
                                         const mahasiswa: DynamicInterface = {
                                             No_Pendaftaran: item.No_Pendaftaran,
-                                            Nama_Pendaftar: item.Nama_Pendaftar,
-                                            No_HP: no,
+                                            Nama: item.Nama_Pendaftar,
+                                            No_Handphone: no,
                                             Tahun_Akademik: item.Tahun_Akademik,
                                             Status_Registrasi_Ulang: item.Status_Registrasi_Ulang,
                                             Prodi_Registrasi_Ulang: item.Prodi_Registrasi_Ulang
@@ -237,30 +240,34 @@ export async function sendmessagePOST(sock: any) {
                                     const [exists] = await sock.onWhatsApp(numberWA);
                                     if (exists?.jid || (exists && exists?.jid)) {
                                         registeredcounter++
-                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i })
-                                            .then(async () => {
-                                                console.log('Pasan Terkirim Ke : ' + numberWA);
-                                                io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                item.Kategori_Pesan = req.body.kategori_pesan
-                                                item.Status_Pesan = "Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                            })
-                                            .catch(() => {
-                                                console.log('Pasan Tidak Terkirim');
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                item.Kategori_Pesan = req.body.kategori_pesan
-                                                item.Status_Pesan = "Gagal Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                            });
-                                        //worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        //worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                        // await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i })
+                                        //     .then(async () => {
+                                        //         console.log('Pasan Terkirim Ke : ' + numberWA);
+                                        //         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                        //         item.Kategori_Pesan = req.body.kategori_pesan
+                                        //         item.Status_Pesan = "Terkirim"
+                                        //         item.id_pesan = jobId
+                                        //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //     })
+                                        //     .catch(() => {
+                                        //         console.log('Pasan Tidak Terkirim');
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
+                                        //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                        //         item.Kategori_Pesan = req.body.kategori_pesan
+                                        //         item.Status_Pesan = "Gagal Terkirim"
+                                        //         item.id_pesan = jobId
+                                        //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //     });
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                        item.Kategori_Pesan = req.body.kategori_pesan
+                                        item.Status_Pesan = "Terkirim"
+                                        item.id_pesan = jobId
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                     } else {
                                         unRegistercounter++;
@@ -351,86 +358,86 @@ export async function sendmessagePOST(sock: any) {
                                     let statusPesan = ''
                                     const [exists] = await sock.onWhatsApp(numberWA);
                                     if (exists?.jid || (exists && exists?.jid)) {
-                                        for (let i = 0; i < file_ubah_nama.length; i++) {
-                                            namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
-                                            extensionName[i] = path.extname(namafiledikirim[i]);
-                                            if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    image: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    statusPesan = "Terkirim"
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                });
-                                            } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    audio: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
-                                                    mimetype: 'audio/mp4'
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                });
-                                            } else {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    document: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
-                                                    mimetype: fileDikirim_Mime[i],
-                                                    fileName: filesimpan[i].name
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                });
-                                            }
-                                        }
+                                        // for (let i = 0; i < file_ubah_nama.length; i++) {
+                                        //     namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
+                                        //     extensionName[i] = path.extname(namafiledikirim[i]);
+                                        //     if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
+                                        //         registeredcounter++
+                                        //         await sock.sendMessage(exists.jid || exists.jid, {
+                                        //             image: {
+                                        //                 url: namafiledikirim[i],
+                                        //                 caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                        //             },
+                                        //             caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                        //         }).then(() => {
+                                        //             console.log('pesan berhasil terkirim');
+                                        //             statusPesan = "Terkirim"
+                                        //             io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         }).catch(() => {
+                                        //             console.log('pesan gagal terkirim');
+                                        //             statusPesan = "Gagal Terkirim"
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Gagal Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         });
+                                        //     } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
+                                        //         registeredcounter++
+                                        //         await sock.sendMessage(exists.jid || exists.jid, {
+                                        //             audio: {
+                                        //                 url: namafiledikirim[i],
+                                        //                 caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                        //             },
+                                        //             caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
+                                        //             mimetype: 'audio/mp4'
+                                        //         }).then(() => {
+                                        //             console.log('pesan berhasil terkirim');
+                                        //             io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        //             statusPesan = "Terkirim"
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         }).catch(() => {
+                                        //             console.log('pesan gagal terkirim');
+                                        //             statusPesan = "Gagal Terkirim"
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Gagal Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         });
+                                        //     } else {
+                                        //         registeredcounter++
+                                        //         await sock.sendMessage(exists.jid || exists.jid, {
+                                        //             document: {
+                                        //                 url: namafiledikirim[i],
+                                        //                 caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                        //             },
+                                        //             caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
+                                        //             mimetype: fileDikirim_Mime[i],
+                                        //             fileName: filesimpan[i].name
+                                        //         }).then(() => {
+                                        //             console.log('pesan berhasil terkirim');
+                                        //             io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        //             statusPesan = "Terkirim"
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         }).catch(() => {
+                                        //             console.log('pesan gagal terkirim');
+                                        //             statusPesan = "Gagal Terkirim"
+                                        //             item.Kategori_Pesan = req.body.kategori_pesan
+                                        //             item.Status_Pesan = "Gagal Terkirim"
+                                        //             item.id_pesan = jobId
+                                        //             item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        //         });
+                                        //     }
+                                        // }
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         console.log('Pasan Terkirim Ke : ' + numberWA);
                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
@@ -509,13 +516,26 @@ export async function sendmessagePOST(sock: any) {
 export async function getHistory() {
     app.get('/history', async (req, res) => {
         try {
-            const histories = await history.find();
+            const histories = await history.distinct('id_pesan');
             res.json(histories);
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch history data' });
         }
     });
 }
+
+export async function getListPesan() {
+    app.get('/getlistpesan/:id_pesan', async (req, res) => {
+        const id_pesan  = req.params.id_pesan;
+        try {
+            const data = await history.find({ id_pesan: id_pesan });
+            res.json(data);
+        } catch (error) {
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    });
+}
+
 
 async function createHistory(item: DynamicInterface) {
     try {
