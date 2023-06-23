@@ -3005,3 +3005,22 @@
 2023-06-24 05:31:44: connection update:  { receivedPendingNotifications: true }
 2023-06-24 05:31:44: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
 2023-06-24 05:31:44: WhatsApp terhubung!
+2023-06-24 05:36:21: Server Running On Port :  8080
+2023-06-24 05:36:21: using WA v2.2325.3, isLatest: true
+2023-06-24 05:36:21: connection update:  {
+2023-06-24 05:36:21:   connection: 'connecting',
+2023-06-24 05:36:21:   receivedPendingNotifications: false,
+2023-06-24 05:36:21:   qr: undefined
+2023-06-24 05:36:21: }
+2023-06-24 05:36:21: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:36:21: WhatsApp terhubung!
+2023-06-24 05:36:21: Connected to MongoDB
+2023-06-24 05:36:22: connection update:  { isOnline: true }
+2023-06-24 05:36:22: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:36:22: WhatsApp terhubung!
+2023-06-24 05:36:22: connection update:  { connection: 'open' }
+2023-06-24 05:36:22: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:36:22: WhatsApp terhubung!
+2023-06-24 05:36:22: connection update:  { receivedPendingNotifications: true }
+2023-06-24 05:36:22: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:36:22: WhatsApp terhubung!
