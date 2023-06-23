@@ -22,7 +22,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from './models/user_schema';
 
-const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
