@@ -2657,3 +2657,313 @@
 2023-06-24 04:11:36: connection update:  { receivedPendingNotifications: true }
 2023-06-24 04:11:36: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
 2023-06-24 04:11:36: WhatsApp terhubung!
+2023-06-24 04:27:05: Server Running On Port :  8080
+2023-06-24 04:27:05: Connected to MongoDB
+2023-06-24 04:27:05: using WA v2.2325.3, isLatest: true
+2023-06-24 04:27:05: connection update:  {
+2023-06-24 04:27:05:   connection: 'connecting',
+2023-06-24 04:27:05:   receivedPendingNotifications: false,
+2023-06-24 04:27:05:   qr: undefined
+2023-06-24 04:27:05: }
+2023-06-24 04:27:05: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:05: WhatsApp terhubung!
+2023-06-24 04:27:06: connection update:  { isOnline: true }
+2023-06-24 04:27:06: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:06: WhatsApp terhubung!
+2023-06-24 04:27:06: connection update:  { connection: 'open' }
+2023-06-24 04:27:06: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:06: WhatsApp terhubung!
+2023-06-24 04:27:06: connection update:  { receivedPendingNotifications: true }
+2023-06-24 04:27:06: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:06: WhatsApp terhubung!
+2023-06-24 04:27:11: Server Running On Port :  8080
+2023-06-24 04:27:11: Connected to MongoDB
+2023-06-24 04:27:11: using WA v2.2325.3, isLatest: true
+2023-06-24 04:27:11: connection update:  {
+2023-06-24 04:27:11:   connection: 'connecting',
+2023-06-24 04:27:11:   receivedPendingNotifications: false,
+2023-06-24 04:27:11:   qr: undefined
+2023-06-24 04:27:11: }
+2023-06-24 04:27:11: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:11: WhatsApp terhubung!
+2023-06-24 04:27:12: connection update:  { isOnline: true }
+2023-06-24 04:27:12: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:12: WhatsApp terhubung!
+2023-06-24 04:27:12: connection update:  { connection: 'open' }
+2023-06-24 04:27:12: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:12: WhatsApp terhubung!
+2023-06-24 04:27:12: connection update:  { receivedPendingNotifications: true }
+2023-06-24 04:27:12: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 04:27:12: WhatsApp terhubung!
+2023-06-24 04:31:19: A user connected
+2023-06-24 04:31:19: WhatsApp terhubung!
+2023-06-24 04:31:24: WhatsApp terhubung!
+2023-06-24 04:31:24: A user disconnected
+2023-06-24 04:31:28: A user connected
+2023-06-24 04:31:28: WhatsApp terhubung!
+2023-06-24 04:32:25: A user connected
+2023-06-24 04:32:25: WhatsApp terhubung!
+2023-06-24 04:33:13: A user connected
+2023-06-24 04:33:13: WhatsApp terhubung!
+2023-06-24 04:34:05: A user connected
+2023-06-24 04:34:05: WhatsApp terhubung!
+2023-06-24 04:34:24: A user connected
+2023-06-24 04:34:24: WhatsApp terhubung!
+2023-06-24 04:35:59: A user connected
+2023-06-24 04:35:59: WhatsApp terhubung!
+2023-06-24 04:36:55: Total No : 1
+2023-06-24 04:36:57: pesan berhasil terkirim
+2023-06-24 04:36:57: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-24 04:36:57: History Pesan Berhasil Ditambahkan
+2023-06-24 04:36:57: Pesan Dengan File Telah Terkirim Semua
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:28: A user disconnected
+2023-06-24 04:38:33: A user connected
+2023-06-24 04:38:33: WhatsApp terhubung!
+2023-06-24 04:38:55: A user connected
+2023-06-24 04:38:55: WhatsApp terhubung!
+2023-06-24 04:39:06: WhatsApp terhubung!
+2023-06-24 04:39:06: A user disconnected
+2023-06-24 04:39:06: A user disconnected
+2023-06-24 04:39:08: A user connected
+2023-06-24 04:39:08: WhatsApp terhubung!
+2023-06-24 04:39:47: A user connected
+2023-06-24 04:39:47: WhatsApp terhubung!
+2023-06-24 04:43:38: A user connected
+2023-06-24 04:43:38: WhatsApp terhubung!
+2023-06-24 04:44:34: A user connected
+2023-06-24 04:44:34: WhatsApp terhubung!
+2023-06-24 04:44:40: WhatsApp terhubung!
+2023-06-24 04:44:40: A user disconnected
+2023-06-24 04:44:40: A user disconnected
+2023-06-24 04:44:40: A user disconnected
+2023-06-24 04:44:40: A user disconnected
+2023-06-24 04:44:42: A user connected
+2023-06-24 04:44:42: WhatsApp terhubung!
+2023-06-24 04:48:34: A user connected
+2023-06-24 04:48:34: WhatsApp terhubung!
+2023-06-24 04:48:49: A user disconnected
+2023-06-24 04:48:49: A user disconnected
+2023-06-24 04:48:52: A user connected
+2023-06-24 04:48:52: WhatsApp terhubung!
+2023-06-24 04:52:15: A user connected
+2023-06-24 04:52:15: WhatsApp terhubung!
+2023-06-24 04:53:12: A user connected
+2023-06-24 04:53:12: WhatsApp terhubung!
+2023-06-24 04:53:18: WhatsApp terhubung!
+2023-06-24 04:53:18: A user disconnected
+2023-06-24 04:53:18: A user disconnected
+2023-06-24 04:53:18: A user disconnected
+2023-06-24 04:53:21: A user connected
+2023-06-24 04:53:21: WhatsApp terhubung!
+2023-06-24 04:54:08: A user connected
+2023-06-24 04:54:08: WhatsApp terhubung!
+2023-06-24 04:55:30: A user connected
+2023-06-24 04:55:30: WhatsApp terhubung!
+2023-06-24 04:56:26: A user connected
+2023-06-24 04:56:26: WhatsApp terhubung!
+2023-06-24 04:57:20: A user connected
+2023-06-24 04:57:20: WhatsApp terhubung!
+2023-06-24 04:57:29: A user connected
+2023-06-24 04:57:29: WhatsApp terhubung!
+2023-06-24 04:58:51: A user connected
+2023-06-24 04:58:51: WhatsApp terhubung!
+2023-06-24 04:58:56: WhatsApp terhubung!
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:56: A user disconnected
+2023-06-24 04:58:58: A user connected
+2023-06-24 04:58:58: WhatsApp terhubung!
+2023-06-24 05:00:00: Sat, 24 Jun 2023
+2023-06-24 05:00:00: Deleted expired tokens: 0
+2023-06-24 05:00:00: Existing token still valid: {
+2023-06-24 05:00:00:   _id: new ObjectId("64922162f02f153996f6bcb7"),
+2023-06-24 05:00:00:   access_token: '9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U',
+2023-06-24 05:00:00:   token_type: 'bearer',
+2023-06-24 05:00:00:   expires_in: '86399',
+2023-06-24 05:00:00:   issued: 'Tue, 20 Jun 2023 22:00:04 GMT',
+2023-06-24 05:00:00:   expires: 'Wed, 21 Jun 2023',
+2023-06-24 05:00:00:   __v: 0
+2023-06-24 05:00:00: }
+2023-06-24 05:00:04: A user connected
+2023-06-24 05:00:04: WhatsApp terhubung!
+2023-06-24 05:00:16: A user connected
+2023-06-24 05:00:16: WhatsApp terhubung!
+2023-06-24 05:01:01: A user connected
+2023-06-24 05:01:01: WhatsApp terhubung!
+2023-06-24 05:03:03: A user connected
+2023-06-24 05:03:03: WhatsApp terhubung!
+2023-06-24 05:03:55: A user connected
+2023-06-24 05:03:55: WhatsApp terhubung!
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:14: A user disconnected
+2023-06-24 05:06:18: A user connected
+2023-06-24 05:06:18: WhatsApp terhubung!
+2023-06-24 05:06:22: WhatsApp terhubung!
+2023-06-24 05:06:22: A user disconnected
+2023-06-24 05:06:25: A user connected
+2023-06-24 05:06:25: WhatsApp terhubung!
+2023-06-24 05:07:21: A user disconnected
+2023-06-24 05:07:24: A user connected
+2023-06-24 05:07:24: WhatsApp terhubung!
+2023-06-24 05:08:36: A user connected
+2023-06-24 05:08:36: WhatsApp terhubung!
+2023-06-24 05:09:16: A user connected
+2023-06-24 05:09:16: WhatsApp terhubung!
+2023-06-24 05:11:56: A user connected
+2023-06-24 05:11:56: WhatsApp terhubung!
+2023-06-24 05:12:00: WhatsApp terhubung!
+2023-06-24 05:12:00: A user disconnected
+2023-06-24 05:12:00: A user disconnected
+2023-06-24 05:12:00: A user disconnected
+2023-06-24 05:12:00: A user disconnected
+2023-06-24 05:12:02: A user connected
+2023-06-24 05:12:02: WhatsApp terhubung!
+2023-06-24 05:12:50: A user connected
+2023-06-24 05:12:50: WhatsApp terhubung!
+2023-06-24 05:15:15: A user connected
+2023-06-24 05:15:15: WhatsApp terhubung!
+2023-06-24 05:15:45: A user connected
+2023-06-24 05:15:45: WhatsApp terhubung!
+2023-06-24 05:16:27: A user connected
+2023-06-24 05:16:27: WhatsApp terhubung!
+2023-06-24 05:17:13: A user connected
+2023-06-24 05:17:13: WhatsApp terhubung!
+2023-06-24 05:17:18: WhatsApp terhubung!
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:18: A user disconnected
+2023-06-24 05:17:21: A user connected
+2023-06-24 05:17:21: WhatsApp terhubung!
+2023-06-24 05:18:41: A user connected
+2023-06-24 05:18:41: WhatsApp terhubung!
+2023-06-24 05:19:20: A user connected
+2023-06-24 05:19:20: WhatsApp terhubung!
+2023-06-24 05:20:05: A user connected
+2023-06-24 05:20:05: WhatsApp terhubung!
+2023-06-24 05:21:04: A user connected
+2023-06-24 05:21:04: WhatsApp terhubung!
+2023-06-24 05:21:36: A user connected
+2023-06-24 05:21:36: WhatsApp terhubung!
+2023-06-24 05:22:08: A user connected
+2023-06-24 05:22:08: WhatsApp terhubung!
+2023-06-24 05:22:47: A user connected
+2023-06-24 05:22:47: WhatsApp terhubung!
+2023-06-24 05:22:51: WhatsApp terhubung!
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:51: A user disconnected
+2023-06-24 05:22:54: A user connected
+2023-06-24 05:22:54: WhatsApp terhubung!
+2023-06-24 05:24:12: A user connected
+2023-06-24 05:24:12: WhatsApp terhubung!
+2023-06-24 05:24:27: A user connected
+2023-06-24 05:24:27: WhatsApp terhubung!
+2023-06-24 05:24:45: A user connected
+2023-06-24 05:24:45: WhatsApp terhubung!
+2023-06-24 05:24:59: A user connected
+2023-06-24 05:24:59: WhatsApp terhubung!
+2023-06-24 05:25:12: A user connected
+2023-06-24 05:25:12: WhatsApp terhubung!
+2023-06-24 05:25:31: A user connected
+2023-06-24 05:25:31: WhatsApp terhubung!
+2023-06-24 05:25:54: A user connected
+2023-06-24 05:25:54: WhatsApp terhubung!
+2023-06-24 05:26:22: A user connected
+2023-06-24 05:26:22: WhatsApp terhubung!
+2023-06-24 05:26:46: A user connected
+2023-06-24 05:26:46: WhatsApp terhubung!
+2023-06-24 05:27:10: A user connected
+2023-06-24 05:27:10: WhatsApp terhubung!
+2023-06-24 05:28:18: A user connected
+2023-06-24 05:28:18: WhatsApp terhubung!
+2023-06-24 05:28:22: WhatsApp terhubung!
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:22: A user disconnected
+2023-06-24 05:28:25: A user connected
+2023-06-24 05:28:25: WhatsApp terhubung!
+2023-06-24 05:28:38: A user connected
+2023-06-24 05:28:38: WhatsApp terhubung!
+2023-06-24 05:28:52: Reconnecting...
+2023-06-24 05:28:52: shouldReconnect? :  428
+2023-06-24 05:28:52: connection update:  {
+2023-06-24 05:28:52:   connection: 'close',
+2023-06-24 05:28:52:   lastDisconnect: {
+2023-06-24 05:28:52:     error: Error: Connection Terminated
+2023-06-24 05:28:52:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:377:30)
+2023-06-24 05:28:52:         at MobileSocket.emit (node:events:513:28)
+2023-06-24 05:28:52:         at TCP.<anonymous> (node:net:322:12) {
+2023-06-24 05:28:52:       data: null,
+2023-06-24 05:28:52:       isBoom: true,
+2023-06-24 05:28:52:       isServer: false,
+2023-06-24 05:28:52:       output: [Object]
+2023-06-24 05:28:52:     },
+2023-06-24 05:28:52:     date: 2023-06-23T22:28:52.964Z
+2023-06-24 05:28:52:   }
+2023-06-24 05:28:52: }
+2023-06-24 05:28:52: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:28:52: WhatsApp terhubung!
+2023-06-24 05:29:00: Server Running On Port :  8080
+2023-06-24 05:29:00: Connected to MongoDB
+2023-06-24 05:29:00: using WA v2.2325.3, isLatest: true
+2023-06-24 05:29:00: connection update:  {
+2023-06-24 05:29:00:   connection: 'connecting',
+2023-06-24 05:29:00:   receivedPendingNotifications: false,
+2023-06-24 05:29:00:   qr: undefined
+2023-06-24 05:29:00: }
+2023-06-24 05:29:00: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:29:00: WhatsApp terhubung!
+2023-06-24 05:29:00: A user connected
+2023-06-24 05:29:00: WhatsApp terhubung!
+2023-06-24 05:29:00: A user connected
+2023-06-24 05:29:00: WhatsApp terhubung!
+2023-06-24 05:29:01: connection update:  { isOnline: true }
+2023-06-24 05:29:01: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:29:01: WhatsApp terhubung!
+2023-06-24 05:29:01: connection update:  { connection: 'open' }
+2023-06-24 05:29:01: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:29:01: WhatsApp terhubung!
+2023-06-24 05:29:01: connection update:  { receivedPendingNotifications: true }
+2023-06-24 05:29:01: Socket AuthState ID : 6281935614654:17@s.whatsapp.net
+2023-06-24 05:29:01: WhatsApp terhubung!
+2023-06-24 05:29:04: A user connected
+2023-06-24 05:29:04: WhatsApp terhubung!
+2023-06-24 05:30:01: A user connected
+2023-06-24 05:30:01: WhatsApp terhubung!
+2023-06-24 05:30:16: A user connected
+2023-06-24 05:30:16: WhatsApp terhubung!
+2023-06-24 05:30:26: A user disconnected
+2023-06-24 05:30:26: A user disconnected
+2023-06-24 05:30:26: A user disconnected
+2023-06-24 05:30:26: A user disconnected
+2023-06-24 05:30:26: A user disconnected
