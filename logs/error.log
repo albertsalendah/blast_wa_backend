@@ -54,3 +54,29 @@
 2023-06-24 00:12:06:     at Function.process_params (D:\Flutter Project\BlastWA\blast_wa\node_modules\express\lib\router\index.js:421:3)
 2023-06-24 00:12:06:     at next (D:\Flutter Project\BlastWA\blast_wa\node_modules\express\lib\router\index.js:280:10)
 2023-06-24 00:12:06:     at urlencodedParser (D:\Flutter Project\BlastWA\blast_wa\node_modules\body-parser\lib\types\urlencoded.js:91:7)
+2023-06-24 17:00:10: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-24 17:00:10:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-24 17:00:10:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-24 17:00:10:     at processTimers (node:internal/timers:512:7)
+2023-06-24 18:00:10: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-24 18:00:10:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-24 18:00:10:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-24 18:00:10:     at processTimers (node:internal/timers:512:7)
+2023-06-24 19:00:10: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-24 19:00:10:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-24 19:00:10:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-24 19:00:10:     at processTimers (node:internal/timers:512:7)
+2023-06-24 20:00:10: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-24 20:00:10:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-24 20:00:10:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-24 20:00:10:     at processTimers (node:internal/timers:512:7)
+2023-06-24 22:00:10: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-24 22:00:10:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-24 22:00:10:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-24 22:00:10:     at processTimers (node:internal/timers:512:7)
+2023-06-24 22:57:04: Error: read ECONNRESET
+2023-06-24 22:57:04:     at TCP.onStreamRead (node:internal/stream_base_commons:217:20) {
+2023-06-24 22:57:04:   errno: -4077,
+2023-06-24 22:57:04:   code: 'ECONNRESET',
+2023-06-24 22:57:04:   syscall: 'read'
+2023-06-24 22:57:04: }

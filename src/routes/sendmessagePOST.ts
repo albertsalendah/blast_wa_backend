@@ -10,6 +10,7 @@ import { history } from '../models/history_send_schema'
 import { v4 as uuidv4 } from 'uuid';
 import { listProgdi } from '../models/list_progdi';
 import * as ExcelJS from 'exceljs';
+import { format } from 'date-fns';
 
 interface progdi {
     nama_progdi: string,
@@ -51,6 +52,7 @@ export async function sendmessagePOST(sock: any) {
             },
             data: data
         };
+        const currentDate = format(new Date(), 'EEE, dd MMM yyyy');
         let numberWA: String;
         let s: string[]
         let listMahasiswa: DynamicInterface[] = [];
@@ -240,7 +242,7 @@ export async function sendmessagePOST(sock: any) {
                                     const [exists] = await sock.onWhatsApp(numberWA);
                                     if (exists?.jid || (exists && exists?.jid)) {
                                         registeredcounter++
-                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i })
+                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
                                             .then(async () => {
                                                 console.log('Pasan Terkirim Ke : ' + numberWA);
                                                 io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
@@ -251,6 +253,7 @@ export async function sendmessagePOST(sock: any) {
                                                 item.Status_Pesan = "Terkirim"
                                                 item.id_pesan = jobId
                                                 item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                item.tanggal = currentDate.toDateString()
                                             })
                                             .catch(() => {
                                                 console.log('Pasan Tidak Terkirim');
@@ -261,6 +264,7 @@ export async function sendmessagePOST(sock: any) {
                                                 item.Status_Pesan = "Gagal Terkirim"
                                                 item.id_pesan = jobId
                                                 item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                item.tanggal = currentDate.toDateString()
                                             });
                                         // worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
                                         // worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
@@ -279,6 +283,7 @@ export async function sendmessagePOST(sock: any) {
                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
                                         item.id_pesan = jobId
                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        item.tanggal = currentDate.toDateString()
                                     }
                                     await createHistory(item)
                                 } catch (error) {
@@ -366,9 +371,9 @@ export async function sendmessagePOST(sock: any) {
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     image: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
                                                     statusPesan = "Terkirim"
@@ -377,6 +382,7 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
@@ -384,15 +390,16 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Gagal Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
                                                 registeredcounter++
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     audio: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
+                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
                                                     mimetype: 'audio/mp4'
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
@@ -402,6 +409,7 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
@@ -409,15 +417,16 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Gagal Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             } else {
                                                 registeredcounter++
                                                 await sock.sendMessage(exists.jid || exists.jid, {
                                                     document: {
                                                         url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i
+                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
                                                     },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId+"-"+i,
+                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
                                                     mimetype: fileDikirim_Mime[i],
                                                     fileName: filesimpan[i].name
                                                 }).then(() => {
@@ -428,6 +437,7 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
@@ -435,6 +445,7 @@ export async function sendmessagePOST(sock: any) {
                                                     item.Status_Pesan = "Gagal Terkirim"
                                                     item.id_pesan = jobId
                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             }
                                         }
@@ -452,6 +463,7 @@ export async function sendmessagePOST(sock: any) {
                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
                                         item.id_pesan = jobId
                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                        item.tanggal = currentDate.toDateString()
                                     }
                                     await createHistory(item)
                                 } catch (error) {
@@ -517,7 +529,12 @@ export async function getHistory() {
     app.get('/history', async (req, res) => {
         try {
             const histories = await history.distinct('id_pesan');
-            res.json(histories);
+            let hist = []
+            for (let i = 0; i < histories.length; i++) {
+                const result = await history.findOne({ id_pesan: histories[i] })
+                hist.push(result)        
+            }
+            res.json(hist);
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch history data' });
         }
@@ -526,7 +543,7 @@ export async function getHistory() {
 
 export async function getListPesan() {
     app.get('/getlistpesan/:id_pesan', async (req, res) => {
-        const id_pesan  = req.params.id_pesan;
+        const id_pesan = req.params.id_pesan;
         try {
             const data = await history.find({ id_pesan: id_pesan });
             res.json(data);
