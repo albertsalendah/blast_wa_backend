@@ -21652,3 +21652,74 @@
 2023-06-26 00:35:21:   syscall: 'queryTxt',
 2023-06-26 00:35:21:   hostname: 'blastwacluster.jpiwxtk.mongodb.net'
 2023-06-26 00:35:21: }
+2023-06-26 00:36:00: Connection closed, reconnecting....
+2023-06-26 00:40:00: Connection closed, reconnecting....
+2023-06-26 00:42:00: Connection closed, reconnecting....
+2023-06-26 00:44:00: Connection closed, reconnecting....
+2023-06-26 00:46:00: Connection closed, reconnecting....
+2023-06-26 00:48:00: Connection closed, reconnecting....
+2023-06-26 00:50:00: Connection closed, reconnecting....
+2023-06-26 00:52:00: Connection closed, reconnecting....
+2023-06-26 00:54:00: Connection closed, reconnecting....
+2023-06-26 00:55:19: Server Running On Port :  8080
+2023-06-26 00:55:19: Connected to MongoDB
+2023-06-26 00:55:19: using WA v2.2325.3, isLatest: true
+2023-06-26 00:55:19: connection update:  {
+2023-06-26 00:55:19:   connection: 'connecting',
+2023-06-26 00:55:19:   receivedPendingNotifications: false,
+2023-06-26 00:55:19:   qr: undefined
+2023-06-26 00:55:19: }
+2023-06-26 00:55:19: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:55:19: WhatsApp terhubung!
+2023-06-26 00:55:20: connection update:  { isOnline: true }
+2023-06-26 00:55:20: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:55:20: WhatsApp terhubung!
+2023-06-26 00:55:20: connection update:  { connection: 'open' }
+2023-06-26 00:55:20: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:55:20: WhatsApp terhubung!
+2023-06-26 00:55:20: connection update:  { receivedPendingNotifications: true }
+2023-06-26 00:55:20: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:55:20: WhatsApp terhubung!
+2023-06-26 00:55:39: WhatsApp belum terhubung!
+2023-06-26 00:55:39: Connection closed, trying to reconnect...
+2023-06-26 00:55:39: folder deleted succesfully
+2023-06-26 00:55:39: shouldReconnect? :  401
+2023-06-26 00:55:39: connection update:  {
+2023-06-26 00:55:39:   connection: 'close',
+2023-06-26 00:55:39:   lastDisconnect: {
+2023-06-26 00:55:39:     error: Error: Stream Errored (conflict)
+2023-06-26 00:55:39:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:441:13)
+2023-06-26 00:55:39:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 00:55:39:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 00:55:39:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 00:55:39:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 00:55:39:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 00:55:39:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 00:55:39:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 00:55:39:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 00:55:39:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 00:55:39:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 00:55:39:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 00:55:39:       data: [Object],
+2023-06-26 00:55:39:       isBoom: true,
+2023-06-26 00:55:39:       isServer: false,
+2023-06-26 00:55:39:       output: [Object]
+2023-06-26 00:55:39:     },
+2023-06-26 00:55:39:     date: 2023-06-25T17:55:39.249Z
+2023-06-26 00:55:39:   }
+2023-06-26 00:55:39: }
+2023-06-26 00:55:39: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:55:39: WhatsApp terhubung!
+2023-06-26 00:55:39: using WA v2.2325.3, isLatest: true
+2023-06-26 00:55:39: connection update:  {
+2023-06-26 00:55:39:   connection: 'connecting',
+2023-06-26 00:55:39:   receivedPendingNotifications: false,
+2023-06-26 00:55:39:   qr: undefined
+2023-06-26 00:55:39: }
+2023-06-26 00:55:39: Socket AuthState ID : undefined
+2023-06-26 00:55:39: WhatsApp terhubung!
+2023-06-26 00:55:39: connection update:  {
+2023-06-26 00:55:39:   qr: '2@CBfklFBQ/eIPeEtI36xJuf/HebKwqhSQVZ2EPQ2WYWwjEWYs71M25PjlA3kyBiZS2LheeB1lOQQiOA==,Jin5sp4dTzBf7LLH9xVkTvUzhYYL+gGbwFCkSp32aUc=,DQFW4YgLXMl6btOYLDha65NGeKraVr69y0savZKIFT0=,Z2cavt8ib4fJR+fU1GLPDc4xsuqkLUXnHQvrq8dfLhY='
+2023-06-26 00:55:39: }
+2023-06-26 00:55:39: Socket AuthState ID : undefined
+2023-06-26 00:55:39: QR Code received, please scan!
