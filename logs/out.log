@@ -21627,3 +21627,28 @@
 2023-06-26 00:34:54: connection update:  { receivedPendingNotifications: true }
 2023-06-26 00:34:54: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
 2023-06-26 00:34:54: WhatsApp terhubung!
+2023-06-26 00:35:16: Server Running On Port :  8080
+2023-06-26 00:35:16: using WA v2.2325.3, isLatest: true
+2023-06-26 00:35:16: connection update:  {
+2023-06-26 00:35:16:   connection: 'connecting',
+2023-06-26 00:35:16:   receivedPendingNotifications: false,
+2023-06-26 00:35:16:   qr: undefined
+2023-06-26 00:35:16: }
+2023-06-26 00:35:16: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:35:16: WhatsApp terhubung!
+2023-06-26 00:35:17: connection update:  { isOnline: true }
+2023-06-26 00:35:17: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:35:17: WhatsApp terhubung!
+2023-06-26 00:35:17: connection update:  { connection: 'open' }
+2023-06-26 00:35:17: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:35:17: WhatsApp terhubung!
+2023-06-26 00:35:17: connection update:  { receivedPendingNotifications: true }
+2023-06-26 00:35:17: Socket AuthState ID : 6281935614654:21@s.whatsapp.net
+2023-06-26 00:35:17: WhatsApp terhubung!
+2023-06-26 00:35:21: MongoDB connection error: Error: queryTxt EREFUSED blastwacluster.jpiwxtk.mongodb.net
+2023-06-26 00:35:21:     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:251:17) {
+2023-06-26 00:35:21:   errno: undefined,
+2023-06-26 00:35:21:   code: 'EREFUSED',
+2023-06-26 00:35:21:   syscall: 'queryTxt',
+2023-06-26 00:35:21:   hostname: 'blastwacluster.jpiwxtk.mongodb.net'
+2023-06-26 00:35:21: }
