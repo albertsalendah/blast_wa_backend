@@ -219,6 +219,10 @@ export const Progdi = [
     },{
         "nama_progdi": "STUDENT EXCHANGE STUDENT EXCHANGE",
         "kode_progdi": "12"
+    },
+    {
+        "nama_progdi": "ILMU EKONOMI",
+        "kode_progdi": "22"
     }
 ]
 

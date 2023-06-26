@@ -22174,3 +22174,2002 @@
 2023-06-26 07:53:24: connection update:  { receivedPendingNotifications: true }
 2023-06-26 07:53:24: Socket AuthState ID : 6281935614654:28@s.whatsapp.net
 2023-06-26 07:53:24: WhatsApp terhubung!
+2023-06-26 13:27:37: Server Running On Port :  8080
+2023-06-26 13:27:37: Connected to MongoDB
+2023-06-26 13:27:38: using WA v2.2325.3, isLatest: true
+2023-06-26 13:27:38: connection update:  {
+2023-06-26 13:27:38:   connection: 'connecting',
+2023-06-26 13:27:38:   receivedPendingNotifications: false,
+2023-06-26 13:27:38:   qr: undefined
+2023-06-26 13:27:38: }
+2023-06-26 13:27:38: Socket AuthState ID : 6281935614654:28@s.whatsapp.net
+2023-06-26 13:27:38: WhatsApp terhubung!
+2023-06-26 13:27:43: WhatsApp belum terhubung!
+2023-06-26 13:27:43: Connection closed, trying to reconnect...
+2023-06-26 13:27:43: folder deleted succesfully
+2023-06-26 13:27:43: shouldReconnect? :  401
+2023-06-26 13:27:43: connection update:  {
+2023-06-26 13:27:43:   connection: 'close',
+2023-06-26 13:27:43:   lastDisconnect: {
+2023-06-26 13:27:43:     error: Error: Connection Failure
+2023-06-26 13:27:43:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:446:13)
+2023-06-26 13:27:43:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:27:43:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:27:43:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:27:43:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:27:43:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:27:43:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:27:43:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:27:43:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:27:43:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:27:43:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:27:43:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:27:43:       data: [Object],
+2023-06-26 13:27:43:       isBoom: true,
+2023-06-26 13:27:43:       isServer: false,
+2023-06-26 13:27:43:       output: [Object]
+2023-06-26 13:27:43:     },
+2023-06-26 13:27:43:     date: 2023-06-26T06:27:43.411Z
+2023-06-26 13:27:43:   }
+2023-06-26 13:27:43: }
+2023-06-26 13:27:43: Socket AuthState ID : 6281935614654:28@s.whatsapp.net
+2023-06-26 13:27:43: WhatsApp terhubung!
+2023-06-26 13:27:43: using WA v2.2325.3, isLatest: true
+2023-06-26 13:27:43: connection update:  {
+2023-06-26 13:27:43:   connection: 'connecting',
+2023-06-26 13:27:43:   receivedPendingNotifications: false,
+2023-06-26 13:27:43:   qr: undefined
+2023-06-26 13:27:43: }
+2023-06-26 13:27:43: Socket AuthState ID : undefined
+2023-06-26 13:27:43: WhatsApp terhubung!
+2023-06-26 13:27:44: connection update:  {
+2023-06-26 13:27:44:   qr: '2@7dpyy8d0XbjtjcId7yTndHfUxUEJ/1d9nkWYP8wrRgq18eRrwxmLSzamQwiagCyOxzPRNMKPvSIAOw==,Fix71OzIVFyyejzgWmEsnb/St6h4g+8KwEgfH0LxYgk=,WKgdcwCxuPN+cSmABg/V5jeG92qH0FIC3prmIpMLUUk=,xEpQ4L6AHmTP4Ewtw6tjlV1M8tAd4i8Q1vtbjaesafw='
+2023-06-26 13:27:44: }
+2023-06-26 13:27:44: Socket AuthState ID : undefined
+2023-06-26 13:27:44: QR Code received, please scan!
+2023-06-26 13:28:00: A user connected
+2023-06-26 13:28:00: WhatsApp belum terhubung!
+2023-06-26 13:28:00: A user connected
+2023-06-26 13:28:00: WhatsApp belum terhubung!
+2023-06-26 13:28:31: AxiosError: Request failed with status code 401
+2023-06-26 13:28:31:     at settle (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\core\settle.js:19:12)
+2023-06-26 13:28:31:     at IncomingMessage.handleStreamEnd (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\adapters\http.js:570:11)
+2023-06-26 13:28:31:     at IncomingMessage.emit (node:events:525:35)
+2023-06-26 13:28:31:     at endReadableNT (node:internal/streams/readable:1359:12)
+2023-06-26 13:28:31:     at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+2023-06-26 13:28:31:   code: 'ERR_BAD_REQUEST',
+2023-06-26 13:28:31:   config: {
+2023-06-26 13:28:31:     transitional: {
+2023-06-26 13:28:31:       silentJSONParsing: true,
+2023-06-26 13:28:31:       forcedJSONParsing: true,
+2023-06-26 13:28:31:       clarifyTimeoutError: false
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     adapter: [ 'xhr', 'http' ],
+2023-06-26 13:28:31:     transformRequest: [ [Function: transformRequest] ],
+2023-06-26 13:28:31:     transformResponse: [ [Function: transformResponse] ],
+2023-06-26 13:28:31:     timeout: 0,
+2023-06-26 13:28:31:     xsrfCookieName: 'XSRF-TOKEN',
+2023-06-26 13:28:31:     xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-26 13:28:31:     maxContentLength: -1,
+2023-06-26 13:28:31:     maxBodyLength: Infinity,
+2023-06-26 13:28:31:     env: { FormData: [Function], Blob: [class Blob] },
+2023-06-26 13:28:31:     validateStatus: [Function: validateStatus],
+2023-06-26 13:28:31:     headers: AxiosHeaders {
+2023-06-26 13:28:31:       Accept: 'application/json, text/plain, */*',
+2023-06-26 13:28:31:       Authorization: 'bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U',
+2023-06-26 13:28:31:       'Content-Type': 'application/json',
+2023-06-26 13:28:31:       'User-Agent': 'axios/1.4.0',
+2023-06-26 13:28:31:       'Content-Length': '35',
+2023-06-26 13:28:31:       'Accept-Encoding': 'gzip, compress, deflate, br'
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     method: 'get',
+2023-06-26 13:28:31:     url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:31:     data: '{"tahun":"2023-2024","progdi":"67"}'
+2023-06-26 13:28:31:   },
+2023-06-26 13:28:31:   request: <ref *1> ClientRequest {
+2023-06-26 13:28:31:     _events: [Object: null prototype] {
+2023-06-26 13:28:31:       abort: [Function (anonymous)],
+2023-06-26 13:28:31:       aborted: [Function (anonymous)],
+2023-06-26 13:28:31:       connect: [Function (anonymous)],
+2023-06-26 13:28:31:       error: [Function (anonymous)],
+2023-06-26 13:28:31:       socket: [Function (anonymous)],
+2023-06-26 13:28:31:       timeout: [Function (anonymous)],
+2023-06-26 13:28:31:       finish: [Function: requestOnFinish]
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     _eventsCount: 7,
+2023-06-26 13:28:31:     _maxListeners: undefined,
+2023-06-26 13:28:31:     outputData: [],
+2023-06-26 13:28:31:     outputSize: 0,
+2023-06-26 13:28:31:     writable: true,
+2023-06-26 13:28:31:     destroyed: false,
+2023-06-26 13:28:31:     _last: true,
+2023-06-26 13:28:31:     chunkedEncoding: false,
+2023-06-26 13:28:31:     shouldKeepAlive: false,
+2023-06-26 13:28:31:     maxRequestsOnConnectionReached: false,
+2023-06-26 13:28:31:     _defaultKeepAlive: true,
+2023-06-26 13:28:31:     useChunkedEncodingByDefault: false,
+2023-06-26 13:28:31:     sendDate: false,
+2023-06-26 13:28:31:     _removedConnection: false,
+2023-06-26 13:28:31:     _removedContLen: false,
+2023-06-26 13:28:31:     _removedTE: false,
+2023-06-26 13:28:31:     strictContentLength: false,
+2023-06-26 13:28:31:     _contentLength: '35',
+2023-06-26 13:28:31:     _hasBody: true,
+2023-06-26 13:28:31:     _trailer: '',
+2023-06-26 13:28:31:     finished: true,
+2023-06-26 13:28:31:     _headerSent: true,
+2023-06-26 13:28:31:     _closed: false,
+2023-06-26 13:28:31:     socket: TLSSocket {
+2023-06-26 13:28:31:       _tlsOptions: [Object],
+2023-06-26 13:28:31:       _secureEstablished: true,
+2023-06-26 13:28:31:       _securePending: false,
+2023-06-26 13:28:31:       _newSessionPending: false,
+2023-06-26 13:28:31:       _controlReleased: true,
+2023-06-26 13:28:31:       secureConnecting: false,
+2023-06-26 13:28:31:       _SNICallback: null,
+2023-06-26 13:28:31:       servername: 'app.uksw.edu',
+2023-06-26 13:28:31:       alpnProtocol: false,
+2023-06-26 13:28:31:       authorized: true,
+2023-06-26 13:28:31:       authorizationError: null,
+2023-06-26 13:28:31:       encrypted: true,
+2023-06-26 13:28:31:       _events: [Object: null prototype],
+2023-06-26 13:28:31:       _eventsCount: 10,
+2023-06-26 13:28:31:       connecting: false,
+2023-06-26 13:28:31:       _hadError: false,
+2023-06-26 13:28:31:       _parent: null,
+2023-06-26 13:28:31:       _host: 'app.uksw.edu',
+2023-06-26 13:28:31:       _closeAfterHandlingError: false,
+2023-06-26 13:28:31:       _readableState: [ReadableState],
+2023-06-26 13:28:31:       _maxListeners: undefined,
+2023-06-26 13:28:31:       _writableState: [WritableState],
+2023-06-26 13:28:31:       allowHalfOpen: false,
+2023-06-26 13:28:31:       _sockname: null,
+2023-06-26 13:28:31:       _pendingData: null,
+2023-06-26 13:28:31:       _pendingEncoding: '',
+2023-06-26 13:28:31:       server: undefined,
+2023-06-26 13:28:31:       _server: null,
+2023-06-26 13:28:31:       ssl: [TLSWrap],
+2023-06-26 13:28:31:       _requestCert: true,
+2023-06-26 13:28:31:       _rejectUnauthorized: true,
+2023-06-26 13:28:31:       parser: null,
+2023-06-26 13:28:31:       _httpMessage: [Circular *1],
+2023-06-26 13:28:31:       [Symbol(res)]: [TLSWrap],
+2023-06-26 13:28:31:       [Symbol(verified)]: true,
+2023-06-26 13:28:31:       [Symbol(pendingSession)]: null,
+2023-06-26 13:28:31:       [Symbol(async_id_symbol)]: 528,
+2023-06-26 13:28:31:       [Symbol(kHandle)]: [TLSWrap],
+2023-06-26 13:28:31:       [Symbol(lastWriteQueueSize)]: 0,
+2023-06-26 13:28:31:       [Symbol(timeout)]: null,
+2023-06-26 13:28:31:       [Symbol(kBuffer)]: null,
+2023-06-26 13:28:31:       [Symbol(kBufferCb)]: null,
+2023-06-26 13:28:31:       [Symbol(kBufferGen)]: null,
+2023-06-26 13:28:31:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:31:       [Symbol(kSetNoDelay)]: false,
+2023-06-26 13:28:31:       [Symbol(kSetKeepAlive)]: true,
+2023-06-26 13:28:31:       [Symbol(kSetKeepAliveInitialDelay)]: 60,
+2023-06-26 13:28:31:       [Symbol(kBytesRead)]: 0,
+2023-06-26 13:28:31:       [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:31:       [Symbol(connect-options)]: [Object]
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-26 13:28:31:       'Accept: application/json, text/plain, */*\r\n' +
+2023-06-26 13:28:31:       'Authorization: bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U\r\n' +
+2023-06-26 13:28:31:       'Content-Type: application/json\r\n' +
+2023-06-26 13:28:31:       'User-Agent: axios/1.4.0\r\n' +
+2023-06-26 13:28:31:       'Content-Length: 35\r\n' +
+2023-06-26 13:28:31:       'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-26 13:28:31:       'Host: app.uksw.edu\r\n' +
+2023-06-26 13:28:31:       'Connection: close\r\n' +
+2023-06-26 13:28:31:       '\r\n',
+2023-06-26 13:28:31:     _keepAliveTimeout: 0,
+2023-06-26 13:28:31:     _onPendingData: [Function: nop],
+2023-06-26 13:28:31:     agent: Agent {
+2023-06-26 13:28:31:       _events: [Object: null prototype],
+2023-06-26 13:28:31:       _eventsCount: 2,
+2023-06-26 13:28:31:       _maxListeners: undefined,
+2023-06-26 13:28:31:       defaultPort: 443,
+2023-06-26 13:28:31:       protocol: 'https:',
+2023-06-26 13:28:31:       options: [Object: null prototype],
+2023-06-26 13:28:31:       requests: [Object: null prototype] {},
+2023-06-26 13:28:31:       sockets: [Object: null prototype],
+2023-06-26 13:28:31:       freeSockets: [Object: null prototype] {},
+2023-06-26 13:28:31:       keepAliveMsecs: 1000,
+2023-06-26 13:28:31:       keepAlive: false,
+2023-06-26 13:28:31:       maxSockets: Infinity,
+2023-06-26 13:28:31:       maxFreeSockets: 256,
+2023-06-26 13:28:31:       scheduling: 'lifo',
+2023-06-26 13:28:31:       maxTotalSockets: Infinity,
+2023-06-26 13:28:31:       totalSocketCount: 1,
+2023-06-26 13:28:31:       maxCachedSessions: 100,
+2023-06-26 13:28:31:       _sessionCache: [Object],
+2023-06-26 13:28:31:       [Symbol(kCapture)]: false
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     socketPath: undefined,
+2023-06-26 13:28:31:     method: 'GET',
+2023-06-26 13:28:31:     maxHeaderSize: undefined,
+2023-06-26 13:28:31:     insecureHTTPParser: undefined,
+2023-06-26 13:28:31:     joinDuplicateHeaders: undefined,
+2023-06-26 13:28:31:     path: '/divprom/api/camaru',
+2023-06-26 13:28:31:     _ended: true,
+2023-06-26 13:28:31:     res: IncomingMessage {
+2023-06-26 13:28:31:       _readableState: [ReadableState],
+2023-06-26 13:28:31:       _events: [Object: null prototype],
+2023-06-26 13:28:31:       _eventsCount: 4,
+2023-06-26 13:28:31:       _maxListeners: undefined,
+2023-06-26 13:28:31:       socket: [TLSSocket],
+2023-06-26 13:28:31:       httpVersionMajor: 1,
+2023-06-26 13:28:31:       httpVersionMinor: 1,
+2023-06-26 13:28:31:       httpVersion: '1.1',
+2023-06-26 13:28:31:       complete: true,
+2023-06-26 13:28:31:       rawHeaders: [Array],
+2023-06-26 13:28:31:       rawTrailers: [],
+2023-06-26 13:28:31:       joinDuplicateHeaders: undefined,
+2023-06-26 13:28:31:       aborted: false,
+2023-06-26 13:28:31:       upgrade: false,
+2023-06-26 13:28:31:       url: '',
+2023-06-26 13:28:31:       method: null,
+2023-06-26 13:28:31:       statusCode: 401,
+2023-06-26 13:28:31:       statusMessage: 'Unauthorized',
+2023-06-26 13:28:31:       client: [TLSSocket],
+2023-06-26 13:28:31:       _consuming: false,
+2023-06-26 13:28:31:       _dumped: false,
+2023-06-26 13:28:31:       req: [Circular *1],
+2023-06-26 13:28:31:       responseUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:31:       redirects: [],
+2023-06-26 13:28:31:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:31:       [Symbol(kHeaders)]: [Object],
+2023-06-26 13:28:31:       [Symbol(kHeadersCount)]: 22,
+2023-06-26 13:28:31:       [Symbol(kTrailers)]: null,
+2023-06-26 13:28:31:       [Symbol(kTrailersCount)]: 0
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     aborted: false,
+2023-06-26 13:28:31:     timeoutCb: null,
+2023-06-26 13:28:31:     upgradeOrConnect: false,
+2023-06-26 13:28:31:     parser: null,
+2023-06-26 13:28:31:     maxHeadersCount: null,
+2023-06-26 13:28:31:     reusedSocket: false,
+2023-06-26 13:28:31:     host: 'app.uksw.edu',
+2023-06-26 13:28:31:     protocol: 'https:',
+2023-06-26 13:28:31:     _redirectable: Writable {
+2023-06-26 13:28:31:       _writableState: [WritableState],
+2023-06-26 13:28:31:       _events: [Object: null prototype],
+2023-06-26 13:28:31:       _eventsCount: 3,
+2023-06-26 13:28:31:       _maxListeners: undefined,
+2023-06-26 13:28:31:       _options: [Object],
+2023-06-26 13:28:31:       _ended: true,
+2023-06-26 13:28:31:       _ending: true,
+2023-06-26 13:28:31:       _redirectCount: 0,
+2023-06-26 13:28:31:       _redirects: [],
+2023-06-26 13:28:31:       _requestBodyLength: 35,
+2023-06-26 13:28:31:       _requestBodyBuffers: [],
+2023-06-26 13:28:31:       _onNativeResponse: [Function (anonymous)],
+2023-06-26 13:28:31:       _currentRequest: [Circular *1],
+2023-06-26 13:28:31:       _currentUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:31:       [Symbol(kCapture)]: false
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     [Symbol(kCapture)]: false,
+2023-06-26 13:28:31:     [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:31:     [Symbol(kNeedDrain)]: false,
+2023-06-26 13:28:31:     [Symbol(corked)]: 0,
+2023-06-26 13:28:31:     [Symbol(kOutHeaders)]: [Object: null prototype] {
+2023-06-26 13:28:31:       accept: [Array],
+2023-06-26 13:28:31:       authorization: [Array],
+2023-06-26 13:28:31:       'content-type': [Array],
+2023-06-26 13:28:31:       'user-agent': [Array],
+2023-06-26 13:28:31:       'content-length': [Array],
+2023-06-26 13:28:31:       'accept-encoding': [Array],
+2023-06-26 13:28:31:       host: [Array]
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     [Symbol(errored)]: null,
+2023-06-26 13:28:31:     [Symbol(kUniqueHeaders)]: null
+2023-06-26 13:28:31:   },
+2023-06-26 13:28:31:   response: {
+2023-06-26 13:28:31:     status: 401,
+2023-06-26 13:28:31:     statusText: 'Unauthorized',
+2023-06-26 13:28:31:     headers: AxiosHeaders {
+2023-06-26 13:28:31:       connection: 'close',
+2023-06-26 13:28:31:       'content-length': '61',
+2023-06-26 13:28:31:       expires: '-1',
+2023-06-26 13:28:31:       date: 'Mon, 26 Jun 2023 06:28:30 GMT',
+2023-06-26 13:28:31:       'content-type': 'application/json; charset=utf-8',
+2023-06-26 13:28:31:       server: 'Microsoft-IIS/7.5',
+2023-06-26 13:28:31:       'cache-control': 'no-cache',
+2023-06-26 13:28:31:       pragma: 'no-cache',
+2023-06-26 13:28:31:       'x-aspnet-version': '4.0.30319',
+2023-06-26 13:28:31:       'www-authenticate': 'Bearer',
+2023-06-26 13:28:31:       'x-powered-by': 'ASP.NET'
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     config: {
+2023-06-26 13:28:31:       transitional: [Object],
+2023-06-26 13:28:31:       adapter: [Array],
+2023-06-26 13:28:31:       transformRequest: [Array],
+2023-06-26 13:28:31:       transformResponse: [Array],
+2023-06-26 13:28:31:       timeout: 0,
+2023-06-26 13:28:31:       xsrfCookieName: 'XSRF-TOKEN',
+2023-06-26 13:28:31:       xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-26 13:28:31:       maxContentLength: -1,
+2023-06-26 13:28:31:       maxBodyLength: Infinity,
+2023-06-26 13:28:31:       env: [Object],
+2023-06-26 13:28:31:       validateStatus: [Function: validateStatus],
+2023-06-26 13:28:31:       headers: [AxiosHeaders],
+2023-06-26 13:28:31:       method: 'get',
+2023-06-26 13:28:31:       url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:31:       data: '{"tahun":"2023-2024","progdi":"67"}'
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     request: <ref *1> ClientRequest {
+2023-06-26 13:28:31:       _events: [Object: null prototype],
+2023-06-26 13:28:31:       _eventsCount: 7,
+2023-06-26 13:28:31:       _maxListeners: undefined,
+2023-06-26 13:28:31:       outputData: [],
+2023-06-26 13:28:31:       outputSize: 0,
+2023-06-26 13:28:31:       writable: true,
+2023-06-26 13:28:31:       destroyed: false,
+2023-06-26 13:28:31:       _last: true,
+2023-06-26 13:28:31:       chunkedEncoding: false,
+2023-06-26 13:28:31:       shouldKeepAlive: false,
+2023-06-26 13:28:31:       maxRequestsOnConnectionReached: false,
+2023-06-26 13:28:31:       _defaultKeepAlive: true,
+2023-06-26 13:28:31:       useChunkedEncodingByDefault: false,
+2023-06-26 13:28:31:       sendDate: false,
+2023-06-26 13:28:31:       _removedConnection: false,
+2023-06-26 13:28:31:       _removedContLen: false,
+2023-06-26 13:28:31:       _removedTE: false,
+2023-06-26 13:28:31:       strictContentLength: false,
+2023-06-26 13:28:31:       _contentLength: '35',
+2023-06-26 13:28:31:       _hasBody: true,
+2023-06-26 13:28:31:       _trailer: '',
+2023-06-26 13:28:31:       finished: true,
+2023-06-26 13:28:31:       _headerSent: true,
+2023-06-26 13:28:31:       _closed: false,
+2023-06-26 13:28:31:       socket: [TLSSocket],
+2023-06-26 13:28:31:       _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-26 13:28:31:         'Accept: application/json, text/plain, */*\r\n' +
+2023-06-26 13:28:31:         'Authorization: bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U\r\n' +
+2023-06-26 13:28:31:         'Content-Type: application/json\r\n' +
+2023-06-26 13:28:31:         'User-Agent: axios/1.4.0\r\n' +
+2023-06-26 13:28:31:         'Content-Length: 35\r\n' +
+2023-06-26 13:28:31:         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-26 13:28:31:         'Host: app.uksw.edu\r\n' +
+2023-06-26 13:28:31:         'Connection: close\r\n' +
+2023-06-26 13:28:31:         '\r\n',
+2023-06-26 13:28:31:       _keepAliveTimeout: 0,
+2023-06-26 13:28:31:       _onPendingData: [Function: nop],
+2023-06-26 13:28:31:       agent: [Agent],
+2023-06-26 13:28:31:       socketPath: undefined,
+2023-06-26 13:28:31:       method: 'GET',
+2023-06-26 13:28:31:       maxHeaderSize: undefined,
+2023-06-26 13:28:31:       insecureHTTPParser: undefined,
+2023-06-26 13:28:31:       joinDuplicateHeaders: undefined,
+2023-06-26 13:28:31:       path: '/divprom/api/camaru',
+2023-06-26 13:28:31:       _ended: true,
+2023-06-26 13:28:31:       res: [IncomingMessage],
+2023-06-26 13:28:31:       aborted: false,
+2023-06-26 13:28:31:       timeoutCb: null,
+2023-06-26 13:28:31:       upgradeOrConnect: false,
+2023-06-26 13:28:31:       parser: null,
+2023-06-26 13:28:31:       maxHeadersCount: null,
+2023-06-26 13:28:31:       reusedSocket: false,
+2023-06-26 13:28:31:       host: 'app.uksw.edu',
+2023-06-26 13:28:31:       protocol: 'https:',
+2023-06-26 13:28:31:       _redirectable: [Writable],
+2023-06-26 13:28:31:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:31:       [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:31:       [Symbol(kNeedDrain)]: false,
+2023-06-26 13:28:31:       [Symbol(corked)]: 0,
+2023-06-26 13:28:31:       [Symbol(kOutHeaders)]: [Object: null prototype],
+2023-06-26 13:28:31:       [Symbol(errored)]: null,
+2023-06-26 13:28:31:       [Symbol(kUniqueHeaders)]: null
+2023-06-26 13:28:31:     },
+2023-06-26 13:28:31:     data: { Message: 'Authorization has been denied for this request.' }
+2023-06-26 13:28:31:   }
+2023-06-26 13:28:31: }
+2023-06-26 13:28:44: connection update:  {
+2023-06-26 13:28:44:   qr: '2@OKDxg5fMp8H3yIu3e9eQQjvd7a2AMCEf8fjLy8AnVJoPnnsIzqo3debWAixMS2i7D1GCMG+95TO0/A==,Fix71OzIVFyyejzgWmEsnb/St6h4g+8KwEgfH0LxYgk=,WKgdcwCxuPN+cSmABg/V5jeG92qH0FIC3prmIpMLUUk=,xEpQ4L6AHmTP4Ewtw6tjlV1M8tAd4i8Q1vtbjaesafw='
+2023-06-26 13:28:44: }
+2023-06-26 13:28:44: Socket AuthState ID : undefined
+2023-06-26 13:28:44: QR Code received, please scan!
+2023-06-26 13:28:56: AxiosError: Request failed with status code 401
+2023-06-26 13:28:56:     at settle (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\core\settle.js:19:12)
+2023-06-26 13:28:56:     at IncomingMessage.handleStreamEnd (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\adapters\http.js:570:11)
+2023-06-26 13:28:56:     at IncomingMessage.emit (node:events:525:35)
+2023-06-26 13:28:56:     at endReadableNT (node:internal/streams/readable:1359:12)
+2023-06-26 13:28:56:     at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+2023-06-26 13:28:56:   code: 'ERR_BAD_REQUEST',
+2023-06-26 13:28:56:   config: {
+2023-06-26 13:28:56:     transitional: {
+2023-06-26 13:28:56:       silentJSONParsing: true,
+2023-06-26 13:28:56:       forcedJSONParsing: true,
+2023-06-26 13:28:56:       clarifyTimeoutError: false
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     adapter: [ 'xhr', 'http' ],
+2023-06-26 13:28:56:     transformRequest: [ [Function: transformRequest] ],
+2023-06-26 13:28:56:     transformResponse: [ [Function: transformResponse] ],
+2023-06-26 13:28:56:     timeout: 0,
+2023-06-26 13:28:56:     xsrfCookieName: 'XSRF-TOKEN',
+2023-06-26 13:28:56:     xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-26 13:28:56:     maxContentLength: -1,
+2023-06-26 13:28:56:     maxBodyLength: Infinity,
+2023-06-26 13:28:56:     env: { FormData: [Function], Blob: [class Blob] },
+2023-06-26 13:28:56:     validateStatus: [Function: validateStatus],
+2023-06-26 13:28:56:     headers: AxiosHeaders {
+2023-06-26 13:28:56:       Accept: 'application/json, text/plain, */*',
+2023-06-26 13:28:56:       Authorization: 'bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U',
+2023-06-26 13:28:56:       'Content-Type': 'application/json',
+2023-06-26 13:28:56:       'User-Agent': 'axios/1.4.0',
+2023-06-26 13:28:56:       'Content-Length': '35',
+2023-06-26 13:28:56:       'Accept-Encoding': 'gzip, compress, deflate, br'
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     method: 'get',
+2023-06-26 13:28:56:     url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:56:     data: '{"tahun":"2023-2024","progdi":"22"}'
+2023-06-26 13:28:56:   },
+2023-06-26 13:28:56:   request: <ref *1> ClientRequest {
+2023-06-26 13:28:56:     _events: [Object: null prototype] {
+2023-06-26 13:28:56:       abort: [Function (anonymous)],
+2023-06-26 13:28:56:       aborted: [Function (anonymous)],
+2023-06-26 13:28:56:       connect: [Function (anonymous)],
+2023-06-26 13:28:56:       error: [Function (anonymous)],
+2023-06-26 13:28:56:       socket: [Function (anonymous)],
+2023-06-26 13:28:56:       timeout: [Function (anonymous)],
+2023-06-26 13:28:56:       finish: [Function: requestOnFinish]
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     _eventsCount: 7,
+2023-06-26 13:28:56:     _maxListeners: undefined,
+2023-06-26 13:28:56:     outputData: [],
+2023-06-26 13:28:56:     outputSize: 0,
+2023-06-26 13:28:56:     writable: true,
+2023-06-26 13:28:56:     destroyed: false,
+2023-06-26 13:28:56:     _last: true,
+2023-06-26 13:28:56:     chunkedEncoding: false,
+2023-06-26 13:28:56:     shouldKeepAlive: false,
+2023-06-26 13:28:56:     maxRequestsOnConnectionReached: false,
+2023-06-26 13:28:56:     _defaultKeepAlive: true,
+2023-06-26 13:28:56:     useChunkedEncodingByDefault: false,
+2023-06-26 13:28:56:     sendDate: false,
+2023-06-26 13:28:56:     _removedConnection: false,
+2023-06-26 13:28:56:     _removedContLen: false,
+2023-06-26 13:28:56:     _removedTE: false,
+2023-06-26 13:28:56:     strictContentLength: false,
+2023-06-26 13:28:56:     _contentLength: '35',
+2023-06-26 13:28:56:     _hasBody: true,
+2023-06-26 13:28:56:     _trailer: '',
+2023-06-26 13:28:56:     finished: true,
+2023-06-26 13:28:56:     _headerSent: true,
+2023-06-26 13:28:56:     _closed: false,
+2023-06-26 13:28:56:     socket: TLSSocket {
+2023-06-26 13:28:56:       _tlsOptions: [Object],
+2023-06-26 13:28:56:       _secureEstablished: true,
+2023-06-26 13:28:56:       _securePending: false,
+2023-06-26 13:28:56:       _newSessionPending: false,
+2023-06-26 13:28:56:       _controlReleased: true,
+2023-06-26 13:28:56:       secureConnecting: false,
+2023-06-26 13:28:56:       _SNICallback: null,
+2023-06-26 13:28:56:       servername: 'app.uksw.edu',
+2023-06-26 13:28:56:       alpnProtocol: false,
+2023-06-26 13:28:56:       authorized: true,
+2023-06-26 13:28:56:       authorizationError: null,
+2023-06-26 13:28:56:       encrypted: true,
+2023-06-26 13:28:56:       _events: [Object: null prototype],
+2023-06-26 13:28:56:       _eventsCount: 10,
+2023-06-26 13:28:56:       connecting: false,
+2023-06-26 13:28:56:       _hadError: false,
+2023-06-26 13:28:56:       _parent: null,
+2023-06-26 13:28:56:       _host: 'app.uksw.edu',
+2023-06-26 13:28:56:       _closeAfterHandlingError: false,
+2023-06-26 13:28:56:       _readableState: [ReadableState],
+2023-06-26 13:28:56:       _maxListeners: undefined,
+2023-06-26 13:28:56:       _writableState: [WritableState],
+2023-06-26 13:28:56:       allowHalfOpen: false,
+2023-06-26 13:28:56:       _sockname: null,
+2023-06-26 13:28:56:       _pendingData: null,
+2023-06-26 13:28:56:       _pendingEncoding: '',
+2023-06-26 13:28:56:       server: undefined,
+2023-06-26 13:28:56:       _server: null,
+2023-06-26 13:28:56:       ssl: [TLSWrap],
+2023-06-26 13:28:56:       _requestCert: true,
+2023-06-26 13:28:56:       _rejectUnauthorized: true,
+2023-06-26 13:28:56:       parser: null,
+2023-06-26 13:28:56:       _httpMessage: [Circular *1],
+2023-06-26 13:28:56:       [Symbol(res)]: [TLSWrap],
+2023-06-26 13:28:56:       [Symbol(verified)]: true,
+2023-06-26 13:28:56:       [Symbol(pendingSession)]: null,
+2023-06-26 13:28:56:       [Symbol(async_id_symbol)]: 667,
+2023-06-26 13:28:56:       [Symbol(kHandle)]: [TLSWrap],
+2023-06-26 13:28:56:       [Symbol(lastWriteQueueSize)]: 0,
+2023-06-26 13:28:56:       [Symbol(timeout)]: null,
+2023-06-26 13:28:56:       [Symbol(kBuffer)]: null,
+2023-06-26 13:28:56:       [Symbol(kBufferCb)]: null,
+2023-06-26 13:28:56:       [Symbol(kBufferGen)]: null,
+2023-06-26 13:28:56:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:56:       [Symbol(kSetNoDelay)]: false,
+2023-06-26 13:28:56:       [Symbol(kSetKeepAlive)]: true,
+2023-06-26 13:28:56:       [Symbol(kSetKeepAliveInitialDelay)]: 60,
+2023-06-26 13:28:56:       [Symbol(kBytesRead)]: 0,
+2023-06-26 13:28:56:       [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:56:       [Symbol(connect-options)]: [Object]
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-26 13:28:56:       'Accept: application/json, text/plain, */*\r\n' +
+2023-06-26 13:28:56:       'Authorization: bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U\r\n' +
+2023-06-26 13:28:56:       'Content-Type: application/json\r\n' +
+2023-06-26 13:28:56:       'User-Agent: axios/1.4.0\r\n' +
+2023-06-26 13:28:56:       'Content-Length: 35\r\n' +
+2023-06-26 13:28:56:       'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-26 13:28:56:       'Host: app.uksw.edu\r\n' +
+2023-06-26 13:28:56:       'Connection: close\r\n' +
+2023-06-26 13:28:56:       '\r\n',
+2023-06-26 13:28:56:     _keepAliveTimeout: 0,
+2023-06-26 13:28:56:     _onPendingData: [Function: nop],
+2023-06-26 13:28:56:     agent: Agent {
+2023-06-26 13:28:56:       _events: [Object: null prototype],
+2023-06-26 13:28:56:       _eventsCount: 2,
+2023-06-26 13:28:56:       _maxListeners: undefined,
+2023-06-26 13:28:56:       defaultPort: 443,
+2023-06-26 13:28:56:       protocol: 'https:',
+2023-06-26 13:28:56:       options: [Object: null prototype],
+2023-06-26 13:28:56:       requests: [Object: null prototype] {},
+2023-06-26 13:28:56:       sockets: [Object: null prototype],
+2023-06-26 13:28:56:       freeSockets: [Object: null prototype] {},
+2023-06-26 13:28:56:       keepAliveMsecs: 1000,
+2023-06-26 13:28:56:       keepAlive: false,
+2023-06-26 13:28:56:       maxSockets: Infinity,
+2023-06-26 13:28:56:       maxFreeSockets: 256,
+2023-06-26 13:28:56:       scheduling: 'lifo',
+2023-06-26 13:28:56:       maxTotalSockets: Infinity,
+2023-06-26 13:28:56:       totalSocketCount: 1,
+2023-06-26 13:28:56:       maxCachedSessions: 100,
+2023-06-26 13:28:56:       _sessionCache: [Object],
+2023-06-26 13:28:56:       [Symbol(kCapture)]: false
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     socketPath: undefined,
+2023-06-26 13:28:56:     method: 'GET',
+2023-06-26 13:28:56:     maxHeaderSize: undefined,
+2023-06-26 13:28:56:     insecureHTTPParser: undefined,
+2023-06-26 13:28:56:     joinDuplicateHeaders: undefined,
+2023-06-26 13:28:56:     path: '/divprom/api/camaru',
+2023-06-26 13:28:56:     _ended: true,
+2023-06-26 13:28:56:     res: IncomingMessage {
+2023-06-26 13:28:56:       _readableState: [ReadableState],
+2023-06-26 13:28:56:       _events: [Object: null prototype],
+2023-06-26 13:28:56:       _eventsCount: 4,
+2023-06-26 13:28:56:       _maxListeners: undefined,
+2023-06-26 13:28:56:       socket: [TLSSocket],
+2023-06-26 13:28:56:       httpVersionMajor: 1,
+2023-06-26 13:28:56:       httpVersionMinor: 1,
+2023-06-26 13:28:56:       httpVersion: '1.1',
+2023-06-26 13:28:56:       complete: true,
+2023-06-26 13:28:56:       rawHeaders: [Array],
+2023-06-26 13:28:56:       rawTrailers: [],
+2023-06-26 13:28:56:       joinDuplicateHeaders: undefined,
+2023-06-26 13:28:56:       aborted: false,
+2023-06-26 13:28:56:       upgrade: false,
+2023-06-26 13:28:56:       url: '',
+2023-06-26 13:28:56:       method: null,
+2023-06-26 13:28:56:       statusCode: 401,
+2023-06-26 13:28:56:       statusMessage: 'Unauthorized',
+2023-06-26 13:28:56:       client: [TLSSocket],
+2023-06-26 13:28:56:       _consuming: false,
+2023-06-26 13:28:56:       _dumped: false,
+2023-06-26 13:28:56:       req: [Circular *1],
+2023-06-26 13:28:56:       responseUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:56:       redirects: [],
+2023-06-26 13:28:56:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:56:       [Symbol(kHeaders)]: [Object],
+2023-06-26 13:28:56:       [Symbol(kHeadersCount)]: 22,
+2023-06-26 13:28:56:       [Symbol(kTrailers)]: null,
+2023-06-26 13:28:56:       [Symbol(kTrailersCount)]: 0
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     aborted: false,
+2023-06-26 13:28:56:     timeoutCb: null,
+2023-06-26 13:28:56:     upgradeOrConnect: false,
+2023-06-26 13:28:56:     parser: null,
+2023-06-26 13:28:56:     maxHeadersCount: null,
+2023-06-26 13:28:56:     reusedSocket: false,
+2023-06-26 13:28:56:     host: 'app.uksw.edu',
+2023-06-26 13:28:56:     protocol: 'https:',
+2023-06-26 13:28:56:     _redirectable: Writable {
+2023-06-26 13:28:56:       _writableState: [WritableState],
+2023-06-26 13:28:56:       _events: [Object: null prototype],
+2023-06-26 13:28:56:       _eventsCount: 3,
+2023-06-26 13:28:56:       _maxListeners: undefined,
+2023-06-26 13:28:56:       _options: [Object],
+2023-06-26 13:28:56:       _ended: true,
+2023-06-26 13:28:56:       _ending: true,
+2023-06-26 13:28:56:       _redirectCount: 0,
+2023-06-26 13:28:56:       _redirects: [],
+2023-06-26 13:28:56:       _requestBodyLength: 35,
+2023-06-26 13:28:56:       _requestBodyBuffers: [],
+2023-06-26 13:28:56:       _onNativeResponse: [Function (anonymous)],
+2023-06-26 13:28:56:       _currentRequest: [Circular *1],
+2023-06-26 13:28:56:       _currentUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:56:       [Symbol(kCapture)]: false
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     [Symbol(kCapture)]: false,
+2023-06-26 13:28:56:     [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:56:     [Symbol(kNeedDrain)]: false,
+2023-06-26 13:28:56:     [Symbol(corked)]: 0,
+2023-06-26 13:28:56:     [Symbol(kOutHeaders)]: [Object: null prototype] {
+2023-06-26 13:28:56:       accept: [Array],
+2023-06-26 13:28:56:       authorization: [Array],
+2023-06-26 13:28:56:       'content-type': [Array],
+2023-06-26 13:28:56:       'user-agent': [Array],
+2023-06-26 13:28:56:       'content-length': [Array],
+2023-06-26 13:28:56:       'accept-encoding': [Array],
+2023-06-26 13:28:56:       host: [Array]
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     [Symbol(errored)]: null,
+2023-06-26 13:28:56:     [Symbol(kUniqueHeaders)]: null
+2023-06-26 13:28:56:   },
+2023-06-26 13:28:56:   response: {
+2023-06-26 13:28:56:     status: 401,
+2023-06-26 13:28:56:     statusText: 'Unauthorized',
+2023-06-26 13:28:56:     headers: AxiosHeaders {
+2023-06-26 13:28:56:       connection: 'close',
+2023-06-26 13:28:56:       'content-length': '61',
+2023-06-26 13:28:56:       expires: '-1',
+2023-06-26 13:28:56:       date: 'Mon, 26 Jun 2023 06:28:54 GMT',
+2023-06-26 13:28:56:       'content-type': 'application/json; charset=utf-8',
+2023-06-26 13:28:56:       server: 'Microsoft-IIS/7.5',
+2023-06-26 13:28:56:       'cache-control': 'no-cache',
+2023-06-26 13:28:56:       pragma: 'no-cache',
+2023-06-26 13:28:56:       'x-aspnet-version': '4.0.30319',
+2023-06-26 13:28:56:       'www-authenticate': 'Bearer',
+2023-06-26 13:28:56:       'x-powered-by': 'ASP.NET'
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     config: {
+2023-06-26 13:28:56:       transitional: [Object],
+2023-06-26 13:28:56:       adapter: [Array],
+2023-06-26 13:28:56:       transformRequest: [Array],
+2023-06-26 13:28:56:       transformResponse: [Array],
+2023-06-26 13:28:56:       timeout: 0,
+2023-06-26 13:28:56:       xsrfCookieName: 'XSRF-TOKEN',
+2023-06-26 13:28:56:       xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-26 13:28:56:       maxContentLength: -1,
+2023-06-26 13:28:56:       maxBodyLength: Infinity,
+2023-06-26 13:28:56:       env: [Object],
+2023-06-26 13:28:56:       validateStatus: [Function: validateStatus],
+2023-06-26 13:28:56:       headers: [AxiosHeaders],
+2023-06-26 13:28:56:       method: 'get',
+2023-06-26 13:28:56:       url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-26 13:28:56:       data: '{"tahun":"2023-2024","progdi":"22"}'
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     request: <ref *1> ClientRequest {
+2023-06-26 13:28:56:       _events: [Object: null prototype],
+2023-06-26 13:28:56:       _eventsCount: 7,
+2023-06-26 13:28:56:       _maxListeners: undefined,
+2023-06-26 13:28:56:       outputData: [],
+2023-06-26 13:28:56:       outputSize: 0,
+2023-06-26 13:28:56:       writable: true,
+2023-06-26 13:28:56:       destroyed: false,
+2023-06-26 13:28:56:       _last: true,
+2023-06-26 13:28:56:       chunkedEncoding: false,
+2023-06-26 13:28:56:       shouldKeepAlive: false,
+2023-06-26 13:28:56:       maxRequestsOnConnectionReached: false,
+2023-06-26 13:28:56:       _defaultKeepAlive: true,
+2023-06-26 13:28:56:       useChunkedEncodingByDefault: false,
+2023-06-26 13:28:56:       sendDate: false,
+2023-06-26 13:28:56:       _removedConnection: false,
+2023-06-26 13:28:56:       _removedContLen: false,
+2023-06-26 13:28:56:       _removedTE: false,
+2023-06-26 13:28:56:       strictContentLength: false,
+2023-06-26 13:28:56:       _contentLength: '35',
+2023-06-26 13:28:56:       _hasBody: true,
+2023-06-26 13:28:56:       _trailer: '',
+2023-06-26 13:28:56:       finished: true,
+2023-06-26 13:28:56:       _headerSent: true,
+2023-06-26 13:28:56:       _closed: false,
+2023-06-26 13:28:56:       socket: [TLSSocket],
+2023-06-26 13:28:56:       _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-26 13:28:56:         'Accept: application/json, text/plain, */*\r\n' +
+2023-06-26 13:28:56:         'Authorization: bearer 9lG_sCKqgIMasSYMH2aTUcOfgzVAR20lcIB_0rmZln78vJui95CRK4VObSYVLDciI4F7sJVm4RIY1Kzmr2qzoowT7AGCZPGhFWJiedbLjBizmKvn_mZ1yje67-IA8CLhiHMklHHw2vtaEzUKP0HJtvYj17N7Rs0nGafHaZNW9TbRB0ZdZw-lIzj-85UmOsmsIpC2n436UUIYN7sDCGMxDLD0GcxDBZC5_i7f62u17x44LjWlLflC8tmK3RjRmq4rIZs1oPaQm4eKOgfgEUV8hGB8PDLmx-_KEjc6senvh2U\r\n' +
+2023-06-26 13:28:56:         'Content-Type: application/json\r\n' +
+2023-06-26 13:28:56:         'User-Agent: axios/1.4.0\r\n' +
+2023-06-26 13:28:56:         'Content-Length: 35\r\n' +
+2023-06-26 13:28:56:         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-26 13:28:56:         'Host: app.uksw.edu\r\n' +
+2023-06-26 13:28:56:         'Connection: close\r\n' +
+2023-06-26 13:28:56:         '\r\n',
+2023-06-26 13:28:56:       _keepAliveTimeout: 0,
+2023-06-26 13:28:56:       _onPendingData: [Function: nop],
+2023-06-26 13:28:56:       agent: [Agent],
+2023-06-26 13:28:56:       socketPath: undefined,
+2023-06-26 13:28:56:       method: 'GET',
+2023-06-26 13:28:56:       maxHeaderSize: undefined,
+2023-06-26 13:28:56:       insecureHTTPParser: undefined,
+2023-06-26 13:28:56:       joinDuplicateHeaders: undefined,
+2023-06-26 13:28:56:       path: '/divprom/api/camaru',
+2023-06-26 13:28:56:       _ended: true,
+2023-06-26 13:28:56:       res: [IncomingMessage],
+2023-06-26 13:28:56:       aborted: false,
+2023-06-26 13:28:56:       timeoutCb: null,
+2023-06-26 13:28:56:       upgradeOrConnect: false,
+2023-06-26 13:28:56:       parser: null,
+2023-06-26 13:28:56:       maxHeadersCount: null,
+2023-06-26 13:28:56:       reusedSocket: false,
+2023-06-26 13:28:56:       host: 'app.uksw.edu',
+2023-06-26 13:28:56:       protocol: 'https:',
+2023-06-26 13:28:56:       _redirectable: [Writable],
+2023-06-26 13:28:56:       [Symbol(kCapture)]: false,
+2023-06-26 13:28:56:       [Symbol(kBytesWritten)]: 0,
+2023-06-26 13:28:56:       [Symbol(kNeedDrain)]: false,
+2023-06-26 13:28:56:       [Symbol(corked)]: 0,
+2023-06-26 13:28:56:       [Symbol(kOutHeaders)]: [Object: null prototype],
+2023-06-26 13:28:56:       [Symbol(errored)]: null,
+2023-06-26 13:28:56:       [Symbol(kUniqueHeaders)]: null
+2023-06-26 13:28:56:     },
+2023-06-26 13:28:56:     data: { Message: 'Authorization has been denied for this request.' }
+2023-06-26 13:28:56:   }
+2023-06-26 13:28:56: }
+2023-06-26 13:29:44: connection update:  {
+2023-06-26 13:29:44:   qr: '2@tMNuZ75YCa/Icann3IlPXFO1TMqkQBiG2jYwFYRLkloXG9vpIPCImrh7rGGSThjsPO0ImDZry+5r/A==,Fix71OzIVFyyejzgWmEsnb/St6h4g+8KwEgfH0LxYgk=,WKgdcwCxuPN+cSmABg/V5jeG92qH0FIC3prmIpMLUUk=,xEpQ4L6AHmTP4Ewtw6tjlV1M8tAd4i8Q1vtbjaesafw='
+2023-06-26 13:29:44: }
+2023-06-26 13:29:44: Socket AuthState ID : undefined
+2023-06-26 13:29:44: QR Code received, please scan!
+2023-06-26 13:29:59: 26
+2023-06-26 13:30:34: 224
+2023-06-26 13:30:44: connection update:  {
+2023-06-26 13:30:44:   qr: '2@nU3NoMWZH5kMW+ZjurCvdjG1F+d/tvIEwrDg0BrZF+gvuhP4QtHJkwXId1ZHau+0fdwFdSCYYBRVAA==,Fix71OzIVFyyejzgWmEsnb/St6h4g+8KwEgfH0LxYgk=,WKgdcwCxuPN+cSmABg/V5jeG92qH0FIC3prmIpMLUUk=,xEpQ4L6AHmTP4Ewtw6tjlV1M8tAd4i8Q1vtbjaesafw='
+2023-06-26 13:30:44: }
+2023-06-26 13:30:44: Socket AuthState ID : undefined
+2023-06-26 13:30:44: QR Code received, please scan!
+2023-06-26 13:31:14: Reconnecting...
+2023-06-26 13:31:14: shouldReconnect? :  428
+2023-06-26 13:31:14: connection update:  {
+2023-06-26 13:31:14:   connection: 'close',
+2023-06-26 13:31:14:   lastDisconnect: {
+2023-06-26 13:31:14:     error: Error: Connection Terminated by Server
+2023-06-26 13:31:14:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:31:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:31:14:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:31:14:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:31:14:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:31:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:31:14:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:31:14:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:31:14:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:31:14:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:31:14:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:31:14:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:31:14:       data: null,
+2023-06-26 13:31:14:       isBoom: true,
+2023-06-26 13:31:14:       isServer: false,
+2023-06-26 13:31:14:       output: [Object]
+2023-06-26 13:31:14:     },
+2023-06-26 13:31:14:     date: 2023-06-26T06:31:14.362Z
+2023-06-26 13:31:14:   }
+2023-06-26 13:31:14: }
+2023-06-26 13:31:14: Socket AuthState ID : undefined
+2023-06-26 13:31:14: WhatsApp terhubung!
+2023-06-26 13:31:22: Server Running On Port :  8080
+2023-06-26 13:31:22: Connected to MongoDB
+2023-06-26 13:31:22: using WA v2.2325.3, isLatest: true
+2023-06-26 13:31:22: connection update:  {
+2023-06-26 13:31:22:   connection: 'connecting',
+2023-06-26 13:31:22:   receivedPendingNotifications: false,
+2023-06-26 13:31:22:   qr: undefined
+2023-06-26 13:31:22: }
+2023-06-26 13:31:22: Socket AuthState ID : undefined
+2023-06-26 13:31:22: WhatsApp terhubung!
+2023-06-26 13:31:23: connection update:  {
+2023-06-26 13:31:23:   qr: '2@tAA0AV/E8HtjXmxPmQIXB77+j0e0+xf9XLwL36bbdT2vau4pfvvCJFXaQT3p4lqjPLr76dWvGKspJQ==,+9QP6hCU5kow8npiQfJG6PuvkMIR9DZFJdNtUPML2R8=,dKOrt1nK8fBvAd8SR92QAYpLapXPcPVS5qQmnTsn6Cg=,F6DFGQX8ZclesG4xtoGrsk3qrv83etev0LPU7bIr3OM='
+2023-06-26 13:31:23: }
+2023-06-26 13:31:23: Socket AuthState ID : undefined
+2023-06-26 13:31:23: QR Code received, please scan!
+2023-06-26 13:32:04: Jumlah Data List Mahasiswa : 250 SISA DATA 1: 250
+2023-06-26 13:32:04: Jumlah Data List Mahasiswa : 250 SISA DATA 2: 47
+2023-06-26 13:32:04: 250
+2023-06-26 13:32:23: connection update:  {
+2023-06-26 13:32:23:   qr: '2@WYfB1JVDWPTlopJFKH32HOjYgUnP7cILzRQPkopyo775sh19fV54n4ITPP4vHdXONZ0NCP+2Z5i9GQ==,+9QP6hCU5kow8npiQfJG6PuvkMIR9DZFJdNtUPML2R8=,dKOrt1nK8fBvAd8SR92QAYpLapXPcPVS5qQmnTsn6Cg=,F6DFGQX8ZclesG4xtoGrsk3qrv83etev0LPU7bIr3OM='
+2023-06-26 13:32:23: }
+2023-06-26 13:32:23: Socket AuthState ID : undefined
+2023-06-26 13:32:23: QR Code received, please scan!
+2023-06-26 13:33:23: connection update:  {
+2023-06-26 13:33:23:   qr: '2@/5oR6jXseDtXn52W8Ps6Xz/Oiu+IssSNPeOe22RgQtOsIv1coebmH3ShHL43NUjTompKLg6eNV0nbQ==,+9QP6hCU5kow8npiQfJG6PuvkMIR9DZFJdNtUPML2R8=,dKOrt1nK8fBvAd8SR92QAYpLapXPcPVS5qQmnTsn6Cg=,F6DFGQX8ZclesG4xtoGrsk3qrv83etev0LPU7bIr3OM='
+2023-06-26 13:33:23: }
+2023-06-26 13:33:23: Socket AuthState ID : undefined
+2023-06-26 13:33:23: QR Code received, please scan!
+2023-06-26 13:33:46: Jumlah Data List Mahasiswa : 250 SISA DATA 1: 250
+2023-06-26 13:33:46: Jumlah Data List Mahasiswa : 250 SISA DATA 2: 72
+2023-06-26 13:33:46: 250
+2023-06-26 13:34:23: connection update:  {
+2023-06-26 13:34:23:   qr: '2@WLmKlaEQ4m0lT8teu+pqCpXkNyvpr1LB0Icg9dUVfPRxmA33hy9x3G2JD3W5RKaxNSxiGX3y7FkJcg==,+9QP6hCU5kow8npiQfJG6PuvkMIR9DZFJdNtUPML2R8=,dKOrt1nK8fBvAd8SR92QAYpLapXPcPVS5qQmnTsn6Cg=,F6DFGQX8ZclesG4xtoGrsk3qrv83etev0LPU7bIr3OM='
+2023-06-26 13:34:23: }
+2023-06-26 13:34:23: Socket AuthState ID : undefined
+2023-06-26 13:34:23: QR Code received, please scan!
+2023-06-26 13:34:52: Reconnecting...
+2023-06-26 13:34:52: shouldReconnect? :  428
+2023-06-26 13:34:52: connection update:  {
+2023-06-26 13:34:52:   connection: 'close',
+2023-06-26 13:34:52:   lastDisconnect: {
+2023-06-26 13:34:52:     error: Error: Connection Terminated by Server
+2023-06-26 13:34:52:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:34:52:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:34:52:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:34:52:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:34:52:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:34:52:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:34:52:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:34:52:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:34:52:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:34:52:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:34:52:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:34:52:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:34:52:       data: null,
+2023-06-26 13:34:52:       isBoom: true,
+2023-06-26 13:34:52:       isServer: false,
+2023-06-26 13:34:52:       output: [Object]
+2023-06-26 13:34:52:     },
+2023-06-26 13:34:52:     date: 2023-06-26T06:34:52.954Z
+2023-06-26 13:34:52:   }
+2023-06-26 13:34:52: }
+2023-06-26 13:34:52: Socket AuthState ID : undefined
+2023-06-26 13:34:52: WhatsApp terhubung!
+2023-06-26 13:35:00: Server Running On Port :  8080
+2023-06-26 13:35:00: Connected to MongoDB
+2023-06-26 13:35:00: using WA v2.2325.3, isLatest: true
+2023-06-26 13:35:00: connection update:  {
+2023-06-26 13:35:00:   connection: 'connecting',
+2023-06-26 13:35:00:   receivedPendingNotifications: false,
+2023-06-26 13:35:00:   qr: undefined
+2023-06-26 13:35:00: }
+2023-06-26 13:35:00: Socket AuthState ID : undefined
+2023-06-26 13:35:00: WhatsApp terhubung!
+2023-06-26 13:35:01: connection update:  {
+2023-06-26 13:35:01:   qr: '2@k9vCw4EKvU3Xt/ast0PJaVcecWB26nLu6SXgi5tZv0s7x3J57/qp/hrDIORYJQdNMipf7RKBxLxasQ==,Os/WdxXOC7U70uBTTUA/2hqmxOIS8Rr6RuZ/Q/3xDV8=,fIySs5uM3pmQbfRYM6sIRW8k5UNNtPzSTyq24V1lnzc=,7tsisHBkgMmpXFZppXrErUfPpn3pfothqu3fhdqtApI='
+2023-06-26 13:35:01: }
+2023-06-26 13:35:01: Socket AuthState ID : undefined
+2023-06-26 13:35:01: QR Code received, please scan!
+2023-06-26 13:35:28: 205
+2023-06-26 13:36:01: connection update:  {
+2023-06-26 13:36:01:   qr: '2@g37l/Xq03sTUTYgbQKdWrbI54UgMOm73u/W24z3Kafb5T/FTRH9d/Ru9mOjcZLRuOU+qA2T3OBE1Ng==,Os/WdxXOC7U70uBTTUA/2hqmxOIS8Rr6RuZ/Q/3xDV8=,fIySs5uM3pmQbfRYM6sIRW8k5UNNtPzSTyq24V1lnzc=,7tsisHBkgMmpXFZppXrErUfPpn3pfothqu3fhdqtApI='
+2023-06-26 13:36:01: }
+2023-06-26 13:36:01: Socket AuthState ID : undefined
+2023-06-26 13:36:01: QR Code received, please scan!
+2023-06-26 13:37:01: connection update:  {
+2023-06-26 13:37:01:   qr: '2@2b4M4ps66uBTSS1ua/Qgsrxg25J3OgGqcI9md1FAY/KDqTJLp0pkqppCYrYgvGfCKeAREYOlgcegRQ==,Os/WdxXOC7U70uBTTUA/2hqmxOIS8Rr6RuZ/Q/3xDV8=,fIySs5uM3pmQbfRYM6sIRW8k5UNNtPzSTyq24V1lnzc=,7tsisHBkgMmpXFZppXrErUfPpn3pfothqu3fhdqtApI='
+2023-06-26 13:37:01: }
+2023-06-26 13:37:01: Socket AuthState ID : undefined
+2023-06-26 13:37:01: QR Code received, please scan!
+2023-06-26 13:38:01: connection update:  {
+2023-06-26 13:38:01:   qr: '2@DnscosoAh61AlMKlTYIGWDHqa5c2K4KM4CXWGnn1Uo2FBElX5PY+FW2yT6xFW7IslKMxhBr4ZHe4JA==,Os/WdxXOC7U70uBTTUA/2hqmxOIS8Rr6RuZ/Q/3xDV8=,fIySs5uM3pmQbfRYM6sIRW8k5UNNtPzSTyq24V1lnzc=,7tsisHBkgMmpXFZppXrErUfPpn3pfothqu3fhdqtApI='
+2023-06-26 13:38:01: }
+2023-06-26 13:38:01: Socket AuthState ID : undefined
+2023-06-26 13:38:01: QR Code received, please scan!
+2023-06-26 13:38:31: Reconnecting...
+2023-06-26 13:38:31: shouldReconnect? :  428
+2023-06-26 13:38:31: connection update:  {
+2023-06-26 13:38:31:   connection: 'close',
+2023-06-26 13:38:31:   lastDisconnect: {
+2023-06-26 13:38:31:     error: Error: Connection Terminated by Server
+2023-06-26 13:38:31:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:38:31:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:38:31:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:38:31:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:38:31:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:38:31:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:38:31:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:38:31:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:38:31:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:38:31:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:38:31:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:38:31:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:38:31:       data: null,
+2023-06-26 13:38:31:       isBoom: true,
+2023-06-26 13:38:31:       isServer: false,
+2023-06-26 13:38:31:       output: [Object]
+2023-06-26 13:38:31:     },
+2023-06-26 13:38:31:     date: 2023-06-26T06:38:31.436Z
+2023-06-26 13:38:31:   }
+2023-06-26 13:38:31: }
+2023-06-26 13:38:31: Socket AuthState ID : undefined
+2023-06-26 13:38:31: WhatsApp terhubung!
+2023-06-26 13:38:38: Server Running On Port :  8080
+2023-06-26 13:38:39: Connected to MongoDB
+2023-06-26 13:38:39: using WA v2.2325.3, isLatest: true
+2023-06-26 13:38:39: connection update:  {
+2023-06-26 13:38:39:   connection: 'connecting',
+2023-06-26 13:38:39:   receivedPendingNotifications: false,
+2023-06-26 13:38:39:   qr: undefined
+2023-06-26 13:38:39: }
+2023-06-26 13:38:39: Socket AuthState ID : undefined
+2023-06-26 13:38:39: WhatsApp terhubung!
+2023-06-26 13:38:39: connection update:  {
+2023-06-26 13:38:39:   qr: '2@tGheuik1Lm44PC3FrZnD7oOoc05oGNuEs/U/s2t0r4EzJpQKunscKlmfbKNzrTVNsZn0Ev3gsH7J1g==,DWp44CPlPTeOm01qF5kfPyIszRzEZ2abx9Z+RfOM/3M=,XvI8aCV6R5A3I9XwcRCOYG6egfgBvGWipFyDp2XdJxc=,k2nqJ39O1kL4hMXcYjaCqpB1A+xJQ44pBIJQmwsj56Y='
+2023-06-26 13:38:39: }
+2023-06-26 13:38:39: Socket AuthState ID : undefined
+2023-06-26 13:38:39: QR Code received, please scan!
+2023-06-26 13:39:37: WhatsApp belum terhubung!
+2023-06-26 13:39:40: connection update:  {
+2023-06-26 13:39:40:   qr: '2@MJaCEWM8aPeEDYKwYQbpWBwBxXmDaQJH9nwzZ0zZXDK7yZHaM217c/nobFjsg2gXootD76q8XlObCg==,DWp44CPlPTeOm01qF5kfPyIszRzEZ2abx9Z+RfOM/3M=,XvI8aCV6R5A3I9XwcRCOYG6egfgBvGWipFyDp2XdJxc=,k2nqJ39O1kL4hMXcYjaCqpB1A+xJQ44pBIJQmwsj56Y='
+2023-06-26 13:39:40: }
+2023-06-26 13:39:40: Socket AuthState ID : undefined
+2023-06-26 13:39:40: QR Code received, please scan!
+2023-06-26 13:39:40: A user connected
+2023-06-26 13:39:40: WhatsApp belum terhubung!
+2023-06-26 13:40:40: connection update:  {
+2023-06-26 13:40:40:   qr: '2@4qKWyiteut4ri5jw+hGTqUFPUEkVFlJDLqkFzUtsKELTXbZYHfrnskoUqJSWq6952dK/knaA+XXrfQ==,DWp44CPlPTeOm01qF5kfPyIszRzEZ2abx9Z+RfOM/3M=,XvI8aCV6R5A3I9XwcRCOYG6egfgBvGWipFyDp2XdJxc=,k2nqJ39O1kL4hMXcYjaCqpB1A+xJQ44pBIJQmwsj56Y='
+2023-06-26 13:40:40: }
+2023-06-26 13:40:40: Socket AuthState ID : undefined
+2023-06-26 13:40:40: QR Code received, please scan!
+2023-06-26 13:41:04: A user disconnected
+2023-06-26 13:41:40: connection update:  {
+2023-06-26 13:41:40:   qr: '2@+GiP1yXc+6su7BLACmn1U7nuCZZ47DXNRvd+U/oqz1FrNjbIttDRankbQ1v/iwqWA7yHkVfTCS4KEg==,DWp44CPlPTeOm01qF5kfPyIszRzEZ2abx9Z+RfOM/3M=,XvI8aCV6R5A3I9XwcRCOYG6egfgBvGWipFyDp2XdJxc=,k2nqJ39O1kL4hMXcYjaCqpB1A+xJQ44pBIJQmwsj56Y='
+2023-06-26 13:41:40: }
+2023-06-26 13:41:40: Socket AuthState ID : undefined
+2023-06-26 13:41:40: QR Code received, please scan!
+2023-06-26 13:42:09: Reconnecting...
+2023-06-26 13:42:09: shouldReconnect? :  428
+2023-06-26 13:42:09: connection update:  {
+2023-06-26 13:42:09:   connection: 'close',
+2023-06-26 13:42:09:   lastDisconnect: {
+2023-06-26 13:42:09:     error: Error: Connection Terminated by Server
+2023-06-26 13:42:09:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:42:09:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:42:09:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:42:09:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:42:09:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:42:09:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:42:09:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:42:09:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:42:09:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:42:09:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:42:09:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:42:09:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:42:09:       data: null,
+2023-06-26 13:42:09:       isBoom: true,
+2023-06-26 13:42:09:       isServer: false,
+2023-06-26 13:42:09:       output: [Object]
+2023-06-26 13:42:09:     },
+2023-06-26 13:42:09:     date: 2023-06-26T06:42:09.907Z
+2023-06-26 13:42:09:   }
+2023-06-26 13:42:09: }
+2023-06-26 13:42:09: Socket AuthState ID : undefined
+2023-06-26 13:42:09: WhatsApp terhubung!
+2023-06-26 13:42:17: Server Running On Port :  8080
+2023-06-26 13:42:17: Connected to MongoDB
+2023-06-26 13:42:17: using WA v2.2325.3, isLatest: true
+2023-06-26 13:42:17: connection update:  {
+2023-06-26 13:42:17:   connection: 'connecting',
+2023-06-26 13:42:17:   receivedPendingNotifications: false,
+2023-06-26 13:42:17:   qr: undefined
+2023-06-26 13:42:17: }
+2023-06-26 13:42:17: Socket AuthState ID : undefined
+2023-06-26 13:42:17: WhatsApp terhubung!
+2023-06-26 13:42:18: connection update:  {
+2023-06-26 13:42:18:   qr: '2@orkYNr00LLEdEhY1usv/n+UEvif2AqI7b3LOr/TjTUPcQ4sLiJmKrZvnUAx2LEIjCiLWxycmARID+A==,I58ZQJjoHpV3b9L2KTTYvUWK9t3UrJLfRqjOTxinzjs=,u8IIqnGIDv1DBUiZluBmYRhsQX6CadqYjyQ97JmqcTM=,S4soKclQhe1sVZjxTAiVGDTj1lAWsZIG1P/jaYdKFhU='
+2023-06-26 13:42:18: }
+2023-06-26 13:42:18: Socket AuthState ID : undefined
+2023-06-26 13:42:18: QR Code received, please scan!
+2023-06-26 13:43:18: connection update:  {
+2023-06-26 13:43:18:   qr: '2@kEyjUmvNQkzNphLbjJhLDAreZ/8EocTQfIbaOHfClWBPDNcqpLmTEvsQ5WsKR9ryLmDRT6Z9MOKhpg==,I58ZQJjoHpV3b9L2KTTYvUWK9t3UrJLfRqjOTxinzjs=,u8IIqnGIDv1DBUiZluBmYRhsQX6CadqYjyQ97JmqcTM=,S4soKclQhe1sVZjxTAiVGDTj1lAWsZIG1P/jaYdKFhU='
+2023-06-26 13:43:18: }
+2023-06-26 13:43:18: Socket AuthState ID : undefined
+2023-06-26 13:43:18: QR Code received, please scan!
+2023-06-26 13:44:18: connection update:  {
+2023-06-26 13:44:18:   qr: '2@WS2nzFQpQ9eixtY8k1TjcK+dpsuvIXp+lew+0K1GzIBiBynAxmoz3Ulxxx9sVlQhBIqrOZ3dVnN65A==,I58ZQJjoHpV3b9L2KTTYvUWK9t3UrJLfRqjOTxinzjs=,u8IIqnGIDv1DBUiZluBmYRhsQX6CadqYjyQ97JmqcTM=,S4soKclQhe1sVZjxTAiVGDTj1lAWsZIG1P/jaYdKFhU='
+2023-06-26 13:44:18: }
+2023-06-26 13:44:18: Socket AuthState ID : undefined
+2023-06-26 13:44:18: QR Code received, please scan!
+2023-06-26 13:45:10: Jumlah Data List Mahasiswa : 250 SISA DATA 1: 250
+2023-06-26 13:45:10: Jumlah Data List Mahasiswa : 250 SISA DATA 2: 47
+2023-06-26 13:45:10: 250
+2023-06-26 13:45:18: connection update:  {
+2023-06-26 13:45:18:   qr: '2@G8lblTKJvdcEaCoPKSHtje+AKg53DvQ5wWQzTYK+WUeBK2wOKKwnTvSYaS/A/uMu01TTHUnYXxAucg==,I58ZQJjoHpV3b9L2KTTYvUWK9t3UrJLfRqjOTxinzjs=,u8IIqnGIDv1DBUiZluBmYRhsQX6CadqYjyQ97JmqcTM=,S4soKclQhe1sVZjxTAiVGDTj1lAWsZIG1P/jaYdKFhU='
+2023-06-26 13:45:18: }
+2023-06-26 13:45:18: Socket AuthState ID : undefined
+2023-06-26 13:45:18: QR Code received, please scan!
+2023-06-26 13:45:48: Reconnecting...
+2023-06-26 13:45:48: shouldReconnect? :  428
+2023-06-26 13:45:48: connection update:  {
+2023-06-26 13:45:48:   connection: 'close',
+2023-06-26 13:45:48:   lastDisconnect: {
+2023-06-26 13:45:48:     error: Error: Connection Terminated by Server
+2023-06-26 13:45:48:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:45:48:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:45:48:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:45:48:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:45:48:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:45:48:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:45:48:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:45:48:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:45:48:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:45:48:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:45:48:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:45:48:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:45:48:       data: null,
+2023-06-26 13:45:48:       isBoom: true,
+2023-06-26 13:45:48:       isServer: false,
+2023-06-26 13:45:48:       output: [Object]
+2023-06-26 13:45:48:     },
+2023-06-26 13:45:48:     date: 2023-06-26T06:45:48.267Z
+2023-06-26 13:45:48:   }
+2023-06-26 13:45:48: }
+2023-06-26 13:45:48: Socket AuthState ID : undefined
+2023-06-26 13:45:48: WhatsApp terhubung!
+2023-06-26 13:45:56: Server Running On Port :  8080
+2023-06-26 13:45:56: Connected to MongoDB
+2023-06-26 13:45:56: using WA v2.2325.3, isLatest: true
+2023-06-26 13:45:56: connection update:  {
+2023-06-26 13:45:56:   connection: 'connecting',
+2023-06-26 13:45:56:   receivedPendingNotifications: false,
+2023-06-26 13:45:56:   qr: undefined
+2023-06-26 13:45:56: }
+2023-06-26 13:45:56: Socket AuthState ID : undefined
+2023-06-26 13:45:56: WhatsApp terhubung!
+2023-06-26 13:45:56: connection update:  {
+2023-06-26 13:45:56:   qr: '2@yaEyAjkrFFt892oeCJ/3pcuZ42G9K18+98TkSegSCai7+5a0knNhMve3286uZj9Wsgq9t+w+quYBAQ==,n/aks3NOdQOpmFK8GSXUf6S1r8s+D09kb81PyyioByM=,YBLxIMcQx9Wji3m5HnWdwu59vjAfc4Z6sQ5sQnMC1DA=,O/mh6D14HW75eNWT3mrQQNLNeog/qI1o/h87SoxTLoM='
+2023-06-26 13:45:56: }
+2023-06-26 13:45:56: Socket AuthState ID : undefined
+2023-06-26 13:45:56: QR Code received, please scan!
+2023-06-26 13:46:56: connection update:  {
+2023-06-26 13:46:56:   qr: '2@aTTU7nE8qMpKMnFwypGC1zkC9ZP58hfwKgrD80Fy/H0id7u6utLdaMCcv+x3KsXmAvLuVgBUuXBbpg==,n/aks3NOdQOpmFK8GSXUf6S1r8s+D09kb81PyyioByM=,YBLxIMcQx9Wji3m5HnWdwu59vjAfc4Z6sQ5sQnMC1DA=,O/mh6D14HW75eNWT3mrQQNLNeog/qI1o/h87SoxTLoM='
+2023-06-26 13:46:56: }
+2023-06-26 13:46:56: Socket AuthState ID : undefined
+2023-06-26 13:46:56: QR Code received, please scan!
+2023-06-26 13:47:56: connection update:  {
+2023-06-26 13:47:56:   qr: '2@Cobh5ouIS+Ipy8o7f35JVj7xg3TKOuHzoIkFYsTs4BlC+KdSuPt2cg1Mvmp4VbkOiqOLSjkRo2HH9g==,n/aks3NOdQOpmFK8GSXUf6S1r8s+D09kb81PyyioByM=,YBLxIMcQx9Wji3m5HnWdwu59vjAfc4Z6sQ5sQnMC1DA=,O/mh6D14HW75eNWT3mrQQNLNeog/qI1o/h87SoxTLoM='
+2023-06-26 13:47:56: }
+2023-06-26 13:47:56: Socket AuthState ID : undefined
+2023-06-26 13:47:56: QR Code received, please scan!
+2023-06-26 13:48:56: connection update:  {
+2023-06-26 13:48:56:   qr: '2@LCyDC1qrL6r6VUcgeru3Xg+KTPd7pmy2rL9DqecdoE8l9u1G5io58eCGmLZhBzMX/qOduENEZ5jmCA==,n/aks3NOdQOpmFK8GSXUf6S1r8s+D09kb81PyyioByM=,YBLxIMcQx9Wji3m5HnWdwu59vjAfc4Z6sQ5sQnMC1DA=,O/mh6D14HW75eNWT3mrQQNLNeog/qI1o/h87SoxTLoM='
+2023-06-26 13:48:56: }
+2023-06-26 13:48:56: Socket AuthState ID : undefined
+2023-06-26 13:48:56: QR Code received, please scan!
+2023-06-26 13:49:26: Reconnecting...
+2023-06-26 13:49:26: shouldReconnect? :  428
+2023-06-26 13:49:26: connection update:  {
+2023-06-26 13:49:26:   connection: 'close',
+2023-06-26 13:49:26:   lastDisconnect: {
+2023-06-26 13:49:26:     error: Error: Connection Terminated by Server
+2023-06-26 13:49:26:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 13:49:26:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:49:26:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 13:49:26:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 13:49:26:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 13:49:26:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:49:26:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 13:49:26:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 13:49:26:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 13:49:26:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 13:49:26:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 13:49:26:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 13:49:26:       data: null,
+2023-06-26 13:49:26:       isBoom: true,
+2023-06-26 13:49:26:       isServer: false,
+2023-06-26 13:49:26:       output: [Object]
+2023-06-26 13:49:26:     },
+2023-06-26 13:49:26:     date: 2023-06-26T06:49:26.896Z
+2023-06-26 13:49:26:   }
+2023-06-26 13:49:26: }
+2023-06-26 13:49:26: Socket AuthState ID : undefined
+2023-06-26 13:49:26: WhatsApp terhubung!
+2023-06-26 13:49:34: Server Running On Port :  8080
+2023-06-26 13:49:34: Connected to MongoDB
+2023-06-26 13:49:34: using WA v2.2325.3, isLatest: true
+2023-06-26 13:49:34: connection update:  {
+2023-06-26 13:49:34:   connection: 'connecting',
+2023-06-26 13:49:34:   receivedPendingNotifications: false,
+2023-06-26 13:49:34:   qr: undefined
+2023-06-26 13:49:34: }
+2023-06-26 13:49:34: Socket AuthState ID : undefined
+2023-06-26 13:49:34: WhatsApp terhubung!
+2023-06-26 13:49:35: connection update:  {
+2023-06-26 13:49:35:   qr: '2@BUvtkUxOhdcAdxYiqRRUsEkt84kmoywimNJCy/KA3laQim6+z+jXHmrSaWfuMVpSjU1RoOX2Q4cKBQ==,IA0IGetQ5Tvk83hZiX25nV/IEPYgf2H7F3QEF9ovKiI=,dJkvo/u9awzqm2HkMz85wk+4LgtayS7MAeObm8OUiCo=,M7jK6nJsB3C56BB2EsRgUdhI2us5w7FktX/q7pSdoRM='
+2023-06-26 13:49:35: }
+2023-06-26 13:49:35: Socket AuthState ID : undefined
+2023-06-26 13:49:35: QR Code received, please scan!
+2023-06-26 23:04:31: Server Running On Port :  8080
+2023-06-26 23:04:31: Connected to MongoDB
+2023-06-26 23:04:31: using WA v2.2325.3, isLatest: true
+2023-06-26 23:04:31: connection update:  {
+2023-06-26 23:04:31:   connection: 'connecting',
+2023-06-26 23:04:31:   receivedPendingNotifications: false,
+2023-06-26 23:04:31:   qr: undefined
+2023-06-26 23:04:31: }
+2023-06-26 23:04:31: Socket AuthState ID : undefined
+2023-06-26 23:04:31: WhatsApp terhubung!
+2023-06-26 23:04:32: connection update:  {
+2023-06-26 23:04:32:   qr: '2@kIuB3FuiPMly+oJNapCjxsrlc9OyCeU+CtYR/ZpnHl8zRWOZAJszjyj487KXw81h6vBBaIGYHOgw/Q==,T9tDgrrSgz+0hrJB801hi3FyZjkxlfeVdJoHOkE64nI=,9lt/0toyN6nPfGngDEN0I+4n/4E6HgO7e+pspBkbQgw=,g3BxyzTajdWLuRjIkHTFcuHE5H9XiboYwBeMGW2WYjg='
+2023-06-26 23:04:32: }
+2023-06-26 23:04:32: Socket AuthState ID : undefined
+2023-06-26 23:04:32: QR Code received, please scan!
+2023-06-26 23:05:32: connection update:  {
+2023-06-26 23:05:32:   qr: '2@gyajNQF+nIzz07Hd0h26fNYJSzKEahfLbeUQSLR/nM7GBFklGdbLLKI4Uk4sXruuAwRY5VMKg3ApvQ==,T9tDgrrSgz+0hrJB801hi3FyZjkxlfeVdJoHOkE64nI=,9lt/0toyN6nPfGngDEN0I+4n/4E6HgO7e+pspBkbQgw=,g3BxyzTajdWLuRjIkHTFcuHE5H9XiboYwBeMGW2WYjg='
+2023-06-26 23:05:32: }
+2023-06-26 23:05:32: Socket AuthState ID : undefined
+2023-06-26 23:05:32: QR Code received, please scan!
+2023-06-26 23:06:01: A user connected
+2023-06-26 23:06:01: WhatsApp belum terhubung!
+2023-06-26 23:06:32: connection update:  {
+2023-06-26 23:06:32:   qr: '2@9R/2LLhTmgJ+7oJS8c4YOt+w79nyfMWyPUbfzNnLekpc4c7b4lkvsz85riUrfXBtdbRQAdUVRHMWnA==,T9tDgrrSgz+0hrJB801hi3FyZjkxlfeVdJoHOkE64nI=,9lt/0toyN6nPfGngDEN0I+4n/4E6HgO7e+pspBkbQgw=,g3BxyzTajdWLuRjIkHTFcuHE5H9XiboYwBeMGW2WYjg='
+2023-06-26 23:06:32: }
+2023-06-26 23:06:32: Socket AuthState ID : undefined
+2023-06-26 23:06:32: QR Code received, please scan!
+2023-06-26 23:07:32: connection update:  {
+2023-06-26 23:07:32:   qr: '2@z9y2n+OJVe7P6mZqCASu1bgS7hRUlfOs44IhIUsYR0H2+iLOA6IyvLenpmWkoc06/70C9O/w1zPwxw==,T9tDgrrSgz+0hrJB801hi3FyZjkxlfeVdJoHOkE64nI=,9lt/0toyN6nPfGngDEN0I+4n/4E6HgO7e+pspBkbQgw=,g3BxyzTajdWLuRjIkHTFcuHE5H9XiboYwBeMGW2WYjg='
+2023-06-26 23:07:32: }
+2023-06-26 23:07:32: Socket AuthState ID : undefined
+2023-06-26 23:07:32: QR Code received, please scan!
+2023-06-26 23:08:02: Reconnecting...
+2023-06-26 23:08:02: shouldReconnect? :  428
+2023-06-26 23:08:02: connection update:  {
+2023-06-26 23:08:02:   connection: 'close',
+2023-06-26 23:08:02:   lastDisconnect: {
+2023-06-26 23:08:02:     error: Error: Connection Terminated by Server
+2023-06-26 23:08:02:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:379:40)
+2023-06-26 23:08:02:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:08:02:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 23:08:02:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 23:08:02:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 23:08:02:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:08:02:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 23:08:02:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:08:02:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 23:08:02:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 23:08:02:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 23:08:02:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 23:08:02:       data: null,
+2023-06-26 23:08:02:       isBoom: true,
+2023-06-26 23:08:02:       isServer: false,
+2023-06-26 23:08:02:       output: [Object]
+2023-06-26 23:08:02:     },
+2023-06-26 23:08:02:     date: 2023-06-26T16:08:02.575Z
+2023-06-26 23:08:02:   }
+2023-06-26 23:08:02: }
+2023-06-26 23:08:02: Socket AuthState ID : undefined
+2023-06-26 23:08:02: WhatsApp terhubung!
+2023-06-26 23:08:10: Server Running On Port :  8080
+2023-06-26 23:08:10: Connected to MongoDB
+2023-06-26 23:08:10: using WA v2.2325.3, isLatest: true
+2023-06-26 23:08:10: connection update:  {
+2023-06-26 23:08:10:   connection: 'connecting',
+2023-06-26 23:08:10:   receivedPendingNotifications: false,
+2023-06-26 23:08:10:   qr: undefined
+2023-06-26 23:08:10: }
+2023-06-26 23:08:10: Socket AuthState ID : undefined
+2023-06-26 23:08:10: WhatsApp terhubung!
+2023-06-26 23:08:11: connection update:  {
+2023-06-26 23:08:11:   qr: '2@xiSPDVC8mIgX0dxk6sIlmmokePrzHL8VEAAmwerBN+29GL5FSn6vxYl/j7d8Qt253qJL8TtSwcZoMQ==,cmt/ZAsUod29IAPhoLAttw3aMrhb0CWYL6nf5aRDBVM=,VIJfEgAyFn7kAiGV6GCgzEsTiUMivvQGUKnXmlLGulw=,XLwqoKcFS1w7KwtqnLx8iBwSitTKj4/+7FhMwqaIjjk='
+2023-06-26 23:08:11: }
+2023-06-26 23:08:11: Socket AuthState ID : undefined
+2023-06-26 23:08:11: QR Code received, please scan!
+2023-06-26 23:08:16: WhatsApp belum terhubung!
+2023-06-26 23:08:20: A user connected
+2023-06-26 23:08:20: WhatsApp belum terhubung!
+2023-06-26 23:09:11: connection update:  {
+2023-06-26 23:09:11:   qr: '2@ktttyJTVItm8JC+0es6JmOmpZf/10dliQCxUIXWxfntoRQbiQNlR0WF1SIR6iMrFaF8FPMPamQAX+Q==,cmt/ZAsUod29IAPhoLAttw3aMrhb0CWYL6nf5aRDBVM=,VIJfEgAyFn7kAiGV6GCgzEsTiUMivvQGUKnXmlLGulw=,XLwqoKcFS1w7KwtqnLx8iBwSitTKj4/+7FhMwqaIjjk='
+2023-06-26 23:09:11: }
+2023-06-26 23:09:11: Socket AuthState ID : undefined
+2023-06-26 23:09:11: QR Code received, please scan!
+2023-06-26 23:09:21: connection update:  { isNewLogin: true, qr: undefined }
+2023-06-26 23:09:21: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:09:21: WhatsApp terhubung!
+2023-06-26 23:09:22: Reconnecting...
+2023-06-26 23:09:22: shouldReconnect? :  515
+2023-06-26 23:09:22: connection update:  {
+2023-06-26 23:09:22:   connection: 'close',
+2023-06-26 23:09:22:   lastDisconnect: {
+2023-06-26 23:09:22:     error: Error: Stream Errored (restart required)
+2023-06-26 23:09:22:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:441:13)
+2023-06-26 23:09:22:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:09:22:         at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:239:35
+2023-06-26 23:09:22:         at Object.decodeFrame (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\noise-handler.js:136:17)
+2023-06-26 23:09:22:         at MobileSocket.onMessageRecieved (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:215:15)
+2023-06-26 23:09:22:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:09:22:         at MobileSocket.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\mobile-socket.js:11:18)
+2023-06-26 23:09:22:         at MobileSocket.emit (node:events:513:28)
+2023-06-26 23:09:22:         at addChunk (node:internal/streams/readable:324:12)
+2023-06-26 23:09:22:         at readableAddChunk (node:internal/streams/readable:297:9)
+2023-06-26 23:09:22:         at MobileSocket.Readable.push (node:internal/streams/readable:234:10)
+2023-06-26 23:09:22:         at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+2023-06-26 23:09:22:       data: [Object],
+2023-06-26 23:09:22:       isBoom: true,
+2023-06-26 23:09:22:       isServer: true,
+2023-06-26 23:09:22:       output: [Object]
+2023-06-26 23:09:22:     },
+2023-06-26 23:09:22:     date: 2023-06-26T16:09:22.214Z
+2023-06-26 23:09:22:   }
+2023-06-26 23:09:22: }
+2023-06-26 23:09:22: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:09:22: WhatsApp terhubung!
+2023-06-26 23:09:30: Server Running On Port :  8080
+2023-06-26 23:09:30: Connected to MongoDB
+2023-06-26 23:09:30: using WA v2.2325.3, isLatest: true
+2023-06-26 23:09:30: connection update:  {
+2023-06-26 23:09:30:   connection: 'connecting',
+2023-06-26 23:09:30:   receivedPendingNotifications: false,
+2023-06-26 23:09:30:   qr: undefined
+2023-06-26 23:09:30: }
+2023-06-26 23:09:30: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:09:30: WhatsApp terhubung!
+2023-06-26 23:09:30: A user connected
+2023-06-26 23:09:30: WhatsApp terhubung!
+2023-06-26 23:09:32: connection update:  { connection: 'open' }
+2023-06-26 23:09:32: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:09:32: WhatsApp terhubung!
+2023-06-26 23:09:32: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:09:32: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:09:32: WhatsApp terhubung!
+2023-06-26 23:10:33: A user connected
+2023-06-26 23:10:33: WhatsApp terhubung!
+2023-06-26 23:12:56: A user connected
+2023-06-26 23:12:56: WhatsApp terhubung!
+2023-06-26 23:13:15: A user disconnected
+2023-06-26 23:13:15: A user disconnected
+2023-06-26 23:13:15: A user disconnected
+2023-06-26 23:13:19: A user connected
+2023-06-26 23:13:19: WhatsApp terhubung!
+2023-06-26 23:13:26: WhatsApp terhubung!
+2023-06-26 23:13:26: A user disconnected
+2023-06-26 23:13:29: A user connected
+2023-06-26 23:13:29: WhatsApp terhubung!
+2023-06-26 23:14:11: A user connected
+2023-06-26 23:14:11: WhatsApp terhubung!
+2023-06-26 23:14:43: A user connected
+2023-06-26 23:14:43: WhatsApp terhubung!
+2023-06-26 23:15:14: Total No : 1
+2023-06-26 23:15:17: pesan berhasil terkirim
+2023-06-26 23:15:17: Pasan Terkirim Ke : 82138345212@s.whatsapp.net
+2023-06-26 23:15:17: History Pesan Berhasil Ditambahkan
+2023-06-26 23:15:17: Pesan Dengan File Telah Terkirim Semua
+2023-06-26 23:17:58: A user connected
+2023-06-26 23:17:58: WhatsApp terhubung!
+2023-06-26 23:18:35: A user connected
+2023-06-26 23:18:35: WhatsApp terhubung!
+2023-06-26 23:18:38: WhatsApp terhubung!
+2023-06-26 23:18:38: A user disconnected
+2023-06-26 23:18:38: A user disconnected
+2023-06-26 23:18:38: A user disconnected
+2023-06-26 23:18:38: A user disconnected
+2023-06-26 23:18:38: A user disconnected
+2023-06-26 23:18:41: A user connected
+2023-06-26 23:18:41: WhatsApp terhubung!
+2023-06-26 23:19:00: A user connected
+2023-06-26 23:19:00: WhatsApp terhubung!
+2023-06-26 23:20:45: A user connected
+2023-06-26 23:20:45: WhatsApp terhubung!
+2023-06-26 23:21:07: A user connected
+2023-06-26 23:21:07: WhatsApp terhubung!
+2023-06-26 23:21:20: A user connected
+2023-06-26 23:21:20: WhatsApp terhubung!
+2023-06-26 23:23:25: A user connected
+2023-06-26 23:23:25: WhatsApp terhubung!
+2023-06-26 23:23:32: A user connected
+2023-06-26 23:23:32: WhatsApp terhubung!
+2023-06-26 23:23:41: A user connected
+2023-06-26 23:23:41: WhatsApp terhubung!
+2023-06-26 23:23:46: WhatsApp terhubung!
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:46: A user disconnected
+2023-06-26 23:23:48: A user connected
+2023-06-26 23:23:48: WhatsApp terhubung!
+2023-06-26 23:24:20: A user connected
+2023-06-26 23:24:20: WhatsApp terhubung!
+2023-06-26 23:24:33: A user connected
+2023-06-26 23:24:33: WhatsApp terhubung!
+2023-06-26 23:24:49: A user connected
+2023-06-26 23:24:49: WhatsApp terhubung!
+2023-06-26 23:25:59: A user connected
+2023-06-26 23:25:59: WhatsApp terhubung!
+2023-06-26 23:26:58: A user connected
+2023-06-26 23:26:58: WhatsApp terhubung!
+2023-06-26 23:27:26: A user connected
+2023-06-26 23:27:26: WhatsApp terhubung!
+2023-06-26 23:27:44: A user connected
+2023-06-26 23:27:44: WhatsApp terhubung!
+2023-06-26 23:28:34: A user connected
+2023-06-26 23:28:34: WhatsApp terhubung!
+2023-06-26 23:30:20: A user connected
+2023-06-26 23:30:20: WhatsApp terhubung!
+2023-06-26 23:30:26: WhatsApp terhubung!
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:26: A user disconnected
+2023-06-26 23:30:29: A user connected
+2023-06-26 23:30:29: WhatsApp terhubung!
+2023-06-26 23:30:47: A user connected
+2023-06-26 23:30:47: WhatsApp terhubung!
+2023-06-26 23:31:04: A user connected
+2023-06-26 23:31:04: WhatsApp terhubung!
+2023-06-26 23:31:30: A user connected
+2023-06-26 23:31:30: WhatsApp terhubung!
+2023-06-26 23:31:52: A user connected
+2023-06-26 23:31:52: WhatsApp terhubung!
+2023-06-26 23:32:27: A user connected
+2023-06-26 23:32:27: WhatsApp terhubung!
+2023-06-26 23:32:42: A user connected
+2023-06-26 23:32:42: WhatsApp terhubung!
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:42: A user disconnected
+2023-06-26 23:37:46: A user connected
+2023-06-26 23:37:46: WhatsApp terhubung!
+2023-06-26 23:38:37: A user connected
+2023-06-26 23:38:37: WhatsApp terhubung!
+2023-06-26 23:45:11: Server Running On Port :  8080
+2023-06-26 23:45:11: Connected to MongoDB
+2023-06-26 23:45:11: using WA v2.2325.3, isLatest: true
+2023-06-26 23:45:11: connection update:  {
+2023-06-26 23:45:11:   connection: 'connecting',
+2023-06-26 23:45:11:   receivedPendingNotifications: false,
+2023-06-26 23:45:11:   qr: undefined
+2023-06-26 23:45:11: }
+2023-06-26 23:45:11: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:45:11: WhatsApp terhubung!
+2023-06-26 23:45:12: connection update:  { isOnline: true }
+2023-06-26 23:45:12: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:45:12: WhatsApp terhubung!
+2023-06-26 23:45:12: connection update:  { connection: 'open' }
+2023-06-26 23:45:12: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:45:12: WhatsApp terhubung!
+2023-06-26 23:45:12: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:45:12: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:45:12: WhatsApp terhubung!
+2023-06-26 23:46:42: Server Running On Port :  8080
+2023-06-26 23:46:42: Connected to MongoDB
+2023-06-26 23:46:42: using WA v2.2325.3, isLatest: true
+2023-06-26 23:46:42: connection update:  {
+2023-06-26 23:46:42:   connection: 'connecting',
+2023-06-26 23:46:42:   receivedPendingNotifications: false,
+2023-06-26 23:46:42:   qr: undefined
+2023-06-26 23:46:42: }
+2023-06-26 23:46:42: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:46:42: WhatsApp terhubung!
+2023-06-26 23:46:43: connection update:  { isOnline: true }
+2023-06-26 23:46:43: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:46:43: WhatsApp terhubung!
+2023-06-26 23:46:43: connection update:  { connection: 'open' }
+2023-06-26 23:46:43: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:46:43: WhatsApp terhubung!
+2023-06-26 23:46:43: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:46:43: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:46:43: WhatsApp terhubung!
+2023-06-26 23:49:45: Server Running On Port :  8080
+2023-06-26 23:49:45: Connected to MongoDB
+2023-06-26 23:49:45: using WA v2.2325.3, isLatest: true
+2023-06-26 23:49:45: connection update:  {
+2023-06-26 23:49:45:   connection: 'connecting',
+2023-06-26 23:49:45:   receivedPendingNotifications: false,
+2023-06-26 23:49:45:   qr: undefined
+2023-06-26 23:49:45: }
+2023-06-26 23:49:45: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:49:45: WhatsApp terhubung!
+2023-06-26 23:49:45: A user connected
+2023-06-26 23:49:45: WhatsApp terhubung!
+2023-06-26 23:49:45: A user connected
+2023-06-26 23:49:45: WhatsApp terhubung!
+2023-06-26 23:49:46: connection update:  { isOnline: true }
+2023-06-26 23:49:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:49:46: WhatsApp terhubung!
+2023-06-26 23:49:46: connection update:  { connection: 'open' }
+2023-06-26 23:49:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:49:46: WhatsApp terhubung!
+2023-06-26 23:49:46: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:49:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:49:46: WhatsApp terhubung!
+2023-06-26 23:51:01: 0
+2023-06-26 23:52:21: Server Running On Port :  8080
+2023-06-26 23:52:21: Connected to MongoDB
+2023-06-26 23:52:21: using WA v2.2325.3, isLatest: true
+2023-06-26 23:52:21: connection update:  {
+2023-06-26 23:52:21:   connection: 'connecting',
+2023-06-26 23:52:21:   receivedPendingNotifications: false,
+2023-06-26 23:52:21:   qr: undefined
+2023-06-26 23:52:21: }
+2023-06-26 23:52:21: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:52:21: WhatsApp terhubung!
+2023-06-26 23:52:21: A user connected
+2023-06-26 23:52:21: WhatsApp terhubung!
+2023-06-26 23:52:21: A user connected
+2023-06-26 23:52:21: WhatsApp terhubung!
+2023-06-26 23:52:23: connection update:  { isOnline: true }
+2023-06-26 23:52:23: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:52:23: WhatsApp terhubung!
+2023-06-26 23:52:23: connection update:  { connection: 'open' }
+2023-06-26 23:52:23: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:52:23: WhatsApp terhubung!
+2023-06-26 23:52:23: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:52:23: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:52:23: WhatsApp terhubung!
+2023-06-26 23:54:38: 0
+2023-06-26 23:55:01: 0
+2023-06-26 23:55:51: 0
+2023-06-26 23:56:45: Server Running On Port :  8080
+2023-06-26 23:56:45: Connected to MongoDB
+2023-06-26 23:56:45: using WA v2.2325.3, isLatest: true
+2023-06-26 23:56:45: connection update:  {
+2023-06-26 23:56:45:   connection: 'connecting',
+2023-06-26 23:56:45:   receivedPendingNotifications: false,
+2023-06-26 23:56:45:   qr: undefined
+2023-06-26 23:56:45: }
+2023-06-26 23:56:45: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:56:45: WhatsApp terhubung!
+2023-06-26 23:56:45: A user connected
+2023-06-26 23:56:45: WhatsApp terhubung!
+2023-06-26 23:56:46: connection update:  { isOnline: true }
+2023-06-26 23:56:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:56:46: WhatsApp terhubung!
+2023-06-26 23:56:46: connection update:  { connection: 'open' }
+2023-06-26 23:56:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:56:46: WhatsApp terhubung!
+2023-06-26 23:56:46: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:56:46: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:56:46: WhatsApp terhubung!
+2023-06-26 23:56:57: Datas :68
+2023-06-26 23:56:57: 0
+2023-06-26 23:57:14: Datas :0
+2023-06-26 23:57:14: 0
+2023-06-26 23:57:26: Datas :30
+2023-06-26 23:57:26: 0
+2023-06-26 23:58:03: Server Running On Port :  8080
+2023-06-26 23:58:03: Connected to MongoDB
+2023-06-26 23:58:04: using WA v2.2325.3, isLatest: true
+2023-06-26 23:58:04: connection update:  {
+2023-06-26 23:58:04:   connection: 'connecting',
+2023-06-26 23:58:04:   receivedPendingNotifications: false,
+2023-06-26 23:58:04:   qr: undefined
+2023-06-26 23:58:04: }
+2023-06-26 23:58:04: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:58:04: WhatsApp terhubung!
+2023-06-26 23:58:05: connection update:  { isOnline: true }
+2023-06-26 23:58:05: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:58:05: WhatsApp terhubung!
+2023-06-26 23:58:05: connection update:  { connection: 'open' }
+2023-06-26 23:58:05: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:58:05: WhatsApp terhubung!
+2023-06-26 23:58:05: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:58:05: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:58:05: WhatsApp terhubung!
+2023-06-26 23:58:21: Total Mahasiswa :30
+2023-06-26 23:58:47: A user connected
+2023-06-26 23:58:47: WhatsApp terhubung!
+2023-06-26 23:59:06: Server Running On Port :  8080
+2023-06-26 23:59:06: Connected to MongoDB
+2023-06-26 23:59:07: using WA v2.2325.3, isLatest: true
+2023-06-26 23:59:07: connection update:  {
+2023-06-26 23:59:07:   connection: 'connecting',
+2023-06-26 23:59:07:   receivedPendingNotifications: false,
+2023-06-26 23:59:07:   qr: undefined
+2023-06-26 23:59:07: }
+2023-06-26 23:59:07: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:59:07: WhatsApp terhubung!
+2023-06-26 23:59:08: connection update:  { isOnline: true }
+2023-06-26 23:59:08: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:59:08: WhatsApp terhubung!
+2023-06-26 23:59:08: connection update:  { connection: 'open' }
+2023-06-26 23:59:08: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:59:08: WhatsApp terhubung!
+2023-06-26 23:59:08: connection update:  { receivedPendingNotifications: true }
+2023-06-26 23:59:08: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-26 23:59:08: WhatsApp terhubung!
+2023-06-26 23:59:19: WhatsApp terhubung!
+2023-06-26 23:59:22: A user connected
+2023-06-26 23:59:22: WhatsApp terhubung!
+2023-06-27 00:00:00: Tue, 27 Jun 2023
+2023-06-27 00:00:00: Deleted expired tokens: 0
+2023-06-27 00:00:00: Existing token still valid: {
+2023-06-27 00:00:00:   _id: new ObjectId("64922162f02f153996f6bcb7"),
+2023-06-27 00:00:00:   access_token: 'mVCF7OdrmvJ5tqiTQQc7Sh2CitKAViK_Ec4fPHCmfX3zxZC2c4rSV5GVVHaeLZX7clW52dlJuDK58mk2hyJoP74BoZBszeabfEN4_niNzq0tUN5Hmp1jwTb5p1NHfePWz7rJoE-BrjQ7XEJoHfnQuQCnevRbspb2LxywFVSO1ab4GBmsYJeLx4c3TvDlLqUI43KJs1MZ_6bnQBkSgt93dWr9PAeJUp1VCfxpQddDOuvGdHNWsfsBEcXwDcZI_7iFtfBFrxS6rR3iCT3UQPSIpJLlFhRj1eOXj_ZCRlcCCF4',
+2023-06-27 00:00:00:   token_type: 'bearer',
+2023-06-27 00:00:00:   expires_in: '86399',
+2023-06-27 00:00:00:   issued: 'Tue, 20 Jun 2023 22:00:04 GMT',
+2023-06-27 00:00:00:   expires: 'Wed, 21 Jun 2023',
+2023-06-27 00:00:00:   __v: 0
+2023-06-27 00:00:00: }
+2023-06-27 00:00:17: Total Mahasiswa :30
+2023-06-27 00:01:19: Server Running On Port :  8080
+2023-06-27 00:01:19: Connected to MongoDB
+2023-06-27 00:01:19: using WA v2.2325.3, isLatest: true
+2023-06-27 00:01:19: connection update:  {
+2023-06-27 00:01:19:   connection: 'connecting',
+2023-06-27 00:01:19:   receivedPendingNotifications: false,
+2023-06-27 00:01:19:   qr: undefined
+2023-06-27 00:01:19: }
+2023-06-27 00:01:19: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:01:19: WhatsApp terhubung!
+2023-06-27 00:01:21: connection update:  { isOnline: true }
+2023-06-27 00:01:21: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:01:21: WhatsApp terhubung!
+2023-06-27 00:01:21: connection update:  { connection: 'open' }
+2023-06-27 00:01:21: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:01:21: WhatsApp terhubung!
+2023-06-27 00:01:21: connection update:  { receivedPendingNotifications: true }
+2023-06-27 00:01:21: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:01:21: WhatsApp terhubung!
+2023-06-27 00:02:32: A user connected
+2023-06-27 00:02:32: WhatsApp terhubung!
+2023-06-27 00:02:51: Total Mahasiswa :115
+2023-06-27 00:07:36: A user disconnected
+2023-06-27 00:07:44: A user connected
+2023-06-27 00:07:44: WhatsApp terhubung!
+2023-06-27 00:13:13: A user disconnected
+2023-06-27 00:13:19: A user connected
+2023-06-27 00:13:19: WhatsApp terhubung!
+2023-06-27 00:13:22: WhatsApp terhubung!
+2023-06-27 00:13:22: A user disconnected
+2023-06-27 00:13:28: A user connected
+2023-06-27 00:13:28: WhatsApp terhubung!
+2023-06-27 00:14:27: Total Mahasiswa :231
+2023-06-27 00:18:28: A user disconnected
+2023-06-27 00:18:34: A user connected
+2023-06-27 00:18:34: WhatsApp terhubung!
+2023-06-27 00:19:18: A user connected
+2023-06-27 00:19:18: WhatsApp terhubung!
+2023-06-27 00:19:24: WhatsApp terhubung!
+2023-06-27 00:19:24: A user disconnected
+2023-06-27 00:19:24: A user disconnected
+2023-06-27 00:19:29: A user connected
+2023-06-27 00:19:29: WhatsApp terhubung!
+2023-06-27 00:20:20: Total Mahasiswa :68
+2023-06-27 00:20:27: A user connected
+2023-06-27 00:20:27: WhatsApp terhubung!
+2023-06-27 00:21:05: A user connected
+2023-06-27 00:21:05: WhatsApp terhubung!
+2023-06-27 00:21:28: Total Mahasiswa :68
+2023-06-27 00:22:31: AxiosError: Request failed with status code 500
+2023-06-27 00:22:31:     at settle (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\core\settle.js:19:12)
+2023-06-27 00:22:31:     at Unzip.handleStreamEnd (D:\Flutter Project\BlastWA\blast_wa\node_modules\axios\lib\adapters\http.js:570:11)
+2023-06-27 00:22:31:     at Unzip.emit (node:events:525:35)
+2023-06-27 00:22:31:     at endReadableNT (node:internal/streams/readable:1359:12)
+2023-06-27 00:22:31:     at processTicksAndRejections (node:internal/process/task_queues:82:21) {
+2023-06-27 00:22:31:   code: 'ERR_BAD_RESPONSE',
+2023-06-27 00:22:31:   config: {
+2023-06-27 00:22:31:     transitional: {
+2023-06-27 00:22:31:       silentJSONParsing: true,
+2023-06-27 00:22:31:       forcedJSONParsing: true,
+2023-06-27 00:22:31:       clarifyTimeoutError: false
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     adapter: [ 'xhr', 'http' ],
+2023-06-27 00:22:31:     transformRequest: [ [Function: transformRequest] ],
+2023-06-27 00:22:31:     transformResponse: [ [Function: transformResponse] ],
+2023-06-27 00:22:31:     timeout: 0,
+2023-06-27 00:22:31:     xsrfCookieName: 'XSRF-TOKEN',
+2023-06-27 00:22:31:     xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-27 00:22:31:     maxContentLength: -1,
+2023-06-27 00:22:31:     maxBodyLength: Infinity,
+2023-06-27 00:22:31:     env: { FormData: [Function], Blob: [class Blob] },
+2023-06-27 00:22:31:     validateStatus: [Function: validateStatus],
+2023-06-27 00:22:31:     headers: AxiosHeaders {
+2023-06-27 00:22:31:       Accept: 'application/json, text/plain, */*',
+2023-06-27 00:22:31:       Authorization: 'bearer mVCF7OdrmvJ5tqiTQQc7Sh2CitKAViK_Ec4fPHCmfX3zxZC2c4rSV5GVVHaeLZX7clW52dlJuDK58mk2hyJoP74BoZBszeabfEN4_niNzq0tUN5Hmp1jwTb5p1NHfePWz7rJoE-BrjQ7XEJoHfnQuQCnevRbspb2LxywFVSO1ab4GBmsYJeLx4c3TvDlLqUI43KJs1MZ_6bnQBkSgt93dWr9PAeJUp1VCfxpQddDOuvGdHNWsfsBEcXwDcZI_7iFtfBFrxS6rR3iCT3UQPSIpJLlFhRj1eOXj_ZCRlcCCF4',
+2023-06-27 00:22:31:       'Content-Type': 'application/json',
+2023-06-27 00:22:31:       'User-Agent': 'axios/1.4.0',
+2023-06-27 00:22:31:       'Content-Length': '33',
+2023-06-27 00:22:31:       'Accept-Encoding': 'gzip, compress, deflate, br'
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     method: 'get',
+2023-06-27 00:22:31:     url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-27 00:22:31:     data: '{"tahun":"2023-2024","progdi":""}'
+2023-06-27 00:22:31:   },
+2023-06-27 00:22:31:   request: <ref *1> ClientRequest {
+2023-06-27 00:22:31:     _events: [Object: null prototype] {
+2023-06-27 00:22:31:       abort: [Function (anonymous)],
+2023-06-27 00:22:31:       aborted: [Function (anonymous)],
+2023-06-27 00:22:31:       connect: [Function (anonymous)],
+2023-06-27 00:22:31:       error: [Function (anonymous)],
+2023-06-27 00:22:31:       socket: [Function (anonymous)],
+2023-06-27 00:22:31:       timeout: [Function (anonymous)],
+2023-06-27 00:22:31:       finish: [Function: requestOnFinish]
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     _eventsCount: 7,
+2023-06-27 00:22:31:     _maxListeners: undefined,
+2023-06-27 00:22:31:     outputData: [],
+2023-06-27 00:22:31:     outputSize: 0,
+2023-06-27 00:22:31:     writable: true,
+2023-06-27 00:22:31:     destroyed: true,
+2023-06-27 00:22:31:     _last: true,
+2023-06-27 00:22:31:     chunkedEncoding: false,
+2023-06-27 00:22:31:     shouldKeepAlive: false,
+2023-06-27 00:22:31:     maxRequestsOnConnectionReached: false,
+2023-06-27 00:22:31:     _defaultKeepAlive: true,
+2023-06-27 00:22:31:     useChunkedEncodingByDefault: false,
+2023-06-27 00:22:31:     sendDate: false,
+2023-06-27 00:22:31:     _removedConnection: false,
+2023-06-27 00:22:31:     _removedContLen: false,
+2023-06-27 00:22:31:     _removedTE: false,
+2023-06-27 00:22:31:     strictContentLength: false,
+2023-06-27 00:22:31:     _contentLength: '33',
+2023-06-27 00:22:31:     _hasBody: true,
+2023-06-27 00:22:31:     _trailer: '',
+2023-06-27 00:22:31:     finished: true,
+2023-06-27 00:22:31:     _headerSent: true,
+2023-06-27 00:22:31:     _closed: true,
+2023-06-27 00:22:31:     socket: TLSSocket {
+2023-06-27 00:22:31:       _tlsOptions: [Object],
+2023-06-27 00:22:31:       _secureEstablished: true,
+2023-06-27 00:22:31:       _securePending: false,
+2023-06-27 00:22:31:       _newSessionPending: false,
+2023-06-27 00:22:31:       _controlReleased: true,
+2023-06-27 00:22:31:       secureConnecting: false,
+2023-06-27 00:22:31:       _SNICallback: null,
+2023-06-27 00:22:31:       servername: 'app.uksw.edu',
+2023-06-27 00:22:31:       alpnProtocol: false,
+2023-06-27 00:22:31:       authorized: true,
+2023-06-27 00:22:31:       authorizationError: null,
+2023-06-27 00:22:31:       encrypted: true,
+2023-06-27 00:22:31:       _events: [Object: null prototype],
+2023-06-27 00:22:31:       _eventsCount: 9,
+2023-06-27 00:22:31:       connecting: false,
+2023-06-27 00:22:31:       _hadError: false,
+2023-06-27 00:22:31:       _parent: null,
+2023-06-27 00:22:31:       _host: 'app.uksw.edu',
+2023-06-27 00:22:31:       _closeAfterHandlingError: false,
+2023-06-27 00:22:31:       _readableState: [ReadableState],
+2023-06-27 00:22:31:       _maxListeners: undefined,
+2023-06-27 00:22:31:       _writableState: [WritableState],
+2023-06-27 00:22:31:       allowHalfOpen: false,
+2023-06-27 00:22:31:       _sockname: null,
+2023-06-27 00:22:31:       _pendingData: null,
+2023-06-27 00:22:31:       _pendingEncoding: '',
+2023-06-27 00:22:31:       server: undefined,
+2023-06-27 00:22:31:       _server: null,
+2023-06-27 00:22:31:       ssl: null,
+2023-06-27 00:22:31:       _requestCert: true,
+2023-06-27 00:22:31:       _rejectUnauthorized: true,
+2023-06-27 00:22:31:       parser: null,
+2023-06-27 00:22:31:       _httpMessage: [Circular *1],
+2023-06-27 00:22:31:       [Symbol(res)]: null,
+2023-06-27 00:22:31:       [Symbol(verified)]: true,
+2023-06-27 00:22:31:       [Symbol(pendingSession)]: null,
+2023-06-27 00:22:31:       [Symbol(async_id_symbol)]: 10745,
+2023-06-27 00:22:31:       [Symbol(kHandle)]: null,
+2023-06-27 00:22:31:       [Symbol(lastWriteQueueSize)]: 0,
+2023-06-27 00:22:31:       [Symbol(timeout)]: null,
+2023-06-27 00:22:31:       [Symbol(kBuffer)]: null,
+2023-06-27 00:22:31:       [Symbol(kBufferCb)]: null,
+2023-06-27 00:22:31:       [Symbol(kBufferGen)]: null,
+2023-06-27 00:22:31:       [Symbol(kCapture)]: false,
+2023-06-27 00:22:31:       [Symbol(kSetNoDelay)]: false,
+2023-06-27 00:22:31:       [Symbol(kSetKeepAlive)]: true,
+2023-06-27 00:22:31:       [Symbol(kSetKeepAliveInitialDelay)]: 60,
+2023-06-27 00:22:31:       [Symbol(kBytesRead)]: 1595,
+2023-06-27 00:22:31:       [Symbol(kBytesWritten)]: 597,
+2023-06-27 00:22:31:       [Symbol(connect-options)]: [Object]
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-27 00:22:31:       'Accept: application/json, text/plain, */*\r\n' +
+2023-06-27 00:22:31:       'Authorization: bearer mVCF7OdrmvJ5tqiTQQc7Sh2CitKAViK_Ec4fPHCmfX3zxZC2c4rSV5GVVHaeLZX7clW52dlJuDK58mk2hyJoP74BoZBszeabfEN4_niNzq0tUN5Hmp1jwTb5p1NHfePWz7rJoE-BrjQ7XEJoHfnQuQCnevRbspb2LxywFVSO1ab4GBmsYJeLx4c3TvDlLqUI43KJs1MZ_6bnQBkSgt93dWr9PAeJUp1VCfxpQddDOuvGdHNWsfsBEcXwDcZI_7iFtfBFrxS6rR3iCT3UQPSIpJLlFhRj1eOXj_ZCRlcCCF4\r\n' +
+2023-06-27 00:22:31:       'Content-Type: application/json\r\n' +
+2023-06-27 00:22:31:       'User-Agent: axios/1.4.0\r\n' +
+2023-06-27 00:22:31:       'Content-Length: 33\r\n' +
+2023-06-27 00:22:31:       'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-27 00:22:31:       'Host: app.uksw.edu\r\n' +
+2023-06-27 00:22:31:       'Connection: close\r\n' +
+2023-06-27 00:22:31:       '\r\n',
+2023-06-27 00:22:31:     _keepAliveTimeout: 0,
+2023-06-27 00:22:31:     _onPendingData: [Function: nop],
+2023-06-27 00:22:31:     agent: Agent {
+2023-06-27 00:22:31:       _events: [Object: null prototype],
+2023-06-27 00:22:31:       _eventsCount: 2,
+2023-06-27 00:22:31:       _maxListeners: undefined,
+2023-06-27 00:22:31:       defaultPort: 443,
+2023-06-27 00:22:31:       protocol: 'https:',
+2023-06-27 00:22:31:       options: [Object: null prototype],
+2023-06-27 00:22:31:       requests: [Object: null prototype] {},
+2023-06-27 00:22:31:       sockets: [Object: null prototype] {},
+2023-06-27 00:22:31:       freeSockets: [Object: null prototype] {},
+2023-06-27 00:22:31:       keepAliveMsecs: 1000,
+2023-06-27 00:22:31:       keepAlive: false,
+2023-06-27 00:22:31:       maxSockets: Infinity,
+2023-06-27 00:22:31:       maxFreeSockets: 256,
+2023-06-27 00:22:31:       scheduling: 'lifo',
+2023-06-27 00:22:31:       maxTotalSockets: Infinity,
+2023-06-27 00:22:31:       totalSocketCount: 0,
+2023-06-27 00:22:31:       maxCachedSessions: 100,
+2023-06-27 00:22:31:       _sessionCache: [Object],
+2023-06-27 00:22:31:       [Symbol(kCapture)]: false
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     socketPath: undefined,
+2023-06-27 00:22:31:     method: 'GET',
+2023-06-27 00:22:31:     maxHeaderSize: undefined,
+2023-06-27 00:22:31:     insecureHTTPParser: undefined,
+2023-06-27 00:22:31:     joinDuplicateHeaders: undefined,
+2023-06-27 00:22:31:     path: '/divprom/api/camaru',
+2023-06-27 00:22:31:     _ended: true,
+2023-06-27 00:22:31:     res: IncomingMessage {
+2023-06-27 00:22:31:       _readableState: [ReadableState],
+2023-06-27 00:22:31:       _events: [Object: null prototype],
+2023-06-27 00:22:31:       _eventsCount: 4,
+2023-06-27 00:22:31:       _maxListeners: undefined,
+2023-06-27 00:22:31:       socket: [TLSSocket],
+2023-06-27 00:22:31:       httpVersionMajor: 1,
+2023-06-27 00:22:31:       httpVersionMinor: 1,
+2023-06-27 00:22:31:       httpVersion: '1.1',
+2023-06-27 00:22:31:       complete: true,
+2023-06-27 00:22:31:       rawHeaders: [Array],
+2023-06-27 00:22:31:       rawTrailers: [],
+2023-06-27 00:22:31:       joinDuplicateHeaders: undefined,
+2023-06-27 00:22:31:       aborted: false,
+2023-06-27 00:22:31:       upgrade: false,
+2023-06-27 00:22:31:       url: '',
+2023-06-27 00:22:31:       method: null,
+2023-06-27 00:22:31:       statusCode: 500,
+2023-06-27 00:22:31:       statusMessage: 'Internal Server Error',
+2023-06-27 00:22:31:       client: [TLSSocket],
+2023-06-27 00:22:31:       _consuming: false,
+2023-06-27 00:22:31:       _dumped: false,
+2023-06-27 00:22:31:       req: [Circular *1],
+2023-06-27 00:22:31:       responseUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-27 00:22:31:       redirects: [],
+2023-06-27 00:22:31:       [Symbol(kCapture)]: false,
+2023-06-27 00:22:31:       [Symbol(kHeaders)]: [Object],
+2023-06-27 00:22:31:       [Symbol(kHeadersCount)]: 20,
+2023-06-27 00:22:31:       [Symbol(kTrailers)]: null,
+2023-06-27 00:22:31:       [Symbol(kTrailersCount)]: 0
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     aborted: false,
+2023-06-27 00:22:31:     timeoutCb: null,
+2023-06-27 00:22:31:     upgradeOrConnect: false,
+2023-06-27 00:22:31:     parser: null,
+2023-06-27 00:22:31:     maxHeadersCount: null,
+2023-06-27 00:22:31:     reusedSocket: false,
+2023-06-27 00:22:31:     host: 'app.uksw.edu',
+2023-06-27 00:22:31:     protocol: 'https:',
+2023-06-27 00:22:31:     _redirectable: Writable {
+2023-06-27 00:22:31:       _writableState: [WritableState],
+2023-06-27 00:22:31:       _events: [Object: null prototype],
+2023-06-27 00:22:31:       _eventsCount: 3,
+2023-06-27 00:22:31:       _maxListeners: undefined,
+2023-06-27 00:22:31:       _options: [Object],
+2023-06-27 00:22:31:       _ended: true,
+2023-06-27 00:22:31:       _ending: true,
+2023-06-27 00:22:31:       _redirectCount: 0,
+2023-06-27 00:22:31:       _redirects: [],
+2023-06-27 00:22:31:       _requestBodyLength: 33,
+2023-06-27 00:22:31:       _requestBodyBuffers: [],
+2023-06-27 00:22:31:       _onNativeResponse: [Function (anonymous)],
+2023-06-27 00:22:31:       _currentRequest: [Circular *1],
+2023-06-27 00:22:31:       _currentUrl: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-27 00:22:31:       [Symbol(kCapture)]: false
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     [Symbol(kCapture)]: false,
+2023-06-27 00:22:31:     [Symbol(kBytesWritten)]: 0,
+2023-06-27 00:22:31:     [Symbol(kNeedDrain)]: false,
+2023-06-27 00:22:31:     [Symbol(corked)]: 0,
+2023-06-27 00:22:31:     [Symbol(kOutHeaders)]: [Object: null prototype] {
+2023-06-27 00:22:31:       accept: [Array],
+2023-06-27 00:22:31:       authorization: [Array],
+2023-06-27 00:22:31:       'content-type': [Array],
+2023-06-27 00:22:31:       'user-agent': [Array],
+2023-06-27 00:22:31:       'content-length': [Array],
+2023-06-27 00:22:31:       'accept-encoding': [Array],
+2023-06-27 00:22:31:       host: [Array]
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     [Symbol(errored)]: null,
+2023-06-27 00:22:31:     [Symbol(kUniqueHeaders)]: null
+2023-06-27 00:22:31:   },
+2023-06-27 00:22:31:   response: {
+2023-06-27 00:22:31:     status: 500,
+2023-06-27 00:22:31:     statusText: 'Internal Server Error',
+2023-06-27 00:22:31:     headers: AxiosHeaders {
+2023-06-27 00:22:31:       connection: 'close',
+2023-06-27 00:22:31:       'content-length': '1289',
+2023-06-27 00:22:31:       date: 'Mon, 26 Jun 2023 17:22:32 GMT',
+2023-06-27 00:22:31:       'content-type': 'text/html; charset=utf-8',
+2023-06-27 00:22:31:       server: 'Microsoft-IIS/7.5',
+2023-06-27 00:22:31:       'cache-control': 'private',
+2023-06-27 00:22:31:       'x-aspnet-version': '4.0.30319',
+2023-06-27 00:22:31:       'x-powered-by': 'ASP.NET',
+2023-06-27 00:22:31:       vary: 'Accept-Encoding'
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     config: {
+2023-06-27 00:22:31:       transitional: [Object],
+2023-06-27 00:22:31:       adapter: [Array],
+2023-06-27 00:22:31:       transformRequest: [Array],
+2023-06-27 00:22:31:       transformResponse: [Array],
+2023-06-27 00:22:31:       timeout: 0,
+2023-06-27 00:22:31:       xsrfCookieName: 'XSRF-TOKEN',
+2023-06-27 00:22:31:       xsrfHeaderName: 'X-XSRF-TOKEN',
+2023-06-27 00:22:31:       maxContentLength: -1,
+2023-06-27 00:22:31:       maxBodyLength: Infinity,
+2023-06-27 00:22:31:       env: [Object],
+2023-06-27 00:22:31:       validateStatus: [Function: validateStatus],
+2023-06-27 00:22:31:       headers: [AxiosHeaders],
+2023-06-27 00:22:31:       method: 'get',
+2023-06-27 00:22:31:       url: 'https://app.uksw.edu/divprom/api/camaru',
+2023-06-27 00:22:31:       data: '{"tahun":"2023-2024","progdi":""}'
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     request: <ref *1> ClientRequest {
+2023-06-27 00:22:31:       _events: [Object: null prototype],
+2023-06-27 00:22:31:       _eventsCount: 7,
+2023-06-27 00:22:31:       _maxListeners: undefined,
+2023-06-27 00:22:31:       outputData: [],
+2023-06-27 00:22:31:       outputSize: 0,
+2023-06-27 00:22:31:       writable: true,
+2023-06-27 00:22:31:       destroyed: true,
+2023-06-27 00:22:31:       _last: true,
+2023-06-27 00:22:31:       chunkedEncoding: false,
+2023-06-27 00:22:31:       shouldKeepAlive: false,
+2023-06-27 00:22:31:       maxRequestsOnConnectionReached: false,
+2023-06-27 00:22:31:       _defaultKeepAlive: true,
+2023-06-27 00:22:31:       useChunkedEncodingByDefault: false,
+2023-06-27 00:22:31:       sendDate: false,
+2023-06-27 00:22:31:       _removedConnection: false,
+2023-06-27 00:22:31:       _removedContLen: false,
+2023-06-27 00:22:31:       _removedTE: false,
+2023-06-27 00:22:31:       strictContentLength: false,
+2023-06-27 00:22:31:       _contentLength: '33',
+2023-06-27 00:22:31:       _hasBody: true,
+2023-06-27 00:22:31:       _trailer: '',
+2023-06-27 00:22:31:       finished: true,
+2023-06-27 00:22:31:       _headerSent: true,
+2023-06-27 00:22:31:       _closed: true,
+2023-06-27 00:22:31:       socket: [TLSSocket],
+2023-06-27 00:22:31:       _header: 'GET /divprom/api/camaru HTTP/1.1\r\n' +
+2023-06-27 00:22:31:         'Accept: application/json, text/plain, */*\r\n' +
+2023-06-27 00:22:31:         'Authorization: bearer mVCF7OdrmvJ5tqiTQQc7Sh2CitKAViK_Ec4fPHCmfX3zxZC2c4rSV5GVVHaeLZX7clW52dlJuDK58mk2hyJoP74BoZBszeabfEN4_niNzq0tUN5Hmp1jwTb5p1NHfePWz7rJoE-BrjQ7XEJoHfnQuQCnevRbspb2LxywFVSO1ab4GBmsYJeLx4c3TvDlLqUI43KJs1MZ_6bnQBkSgt93dWr9PAeJUp1VCfxpQddDOuvGdHNWsfsBEcXwDcZI_7iFtfBFrxS6rR3iCT3UQPSIpJLlFhRj1eOXj_ZCRlcCCF4\r\n' +
+2023-06-27 00:22:31:         'Content-Type: application/json\r\n' +
+2023-06-27 00:22:31:         'User-Agent: axios/1.4.0\r\n' +
+2023-06-27 00:22:31:         'Content-Length: 33\r\n' +
+2023-06-27 00:22:31:         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+2023-06-27 00:22:31:         'Host: app.uksw.edu\r\n' +
+2023-06-27 00:22:31:         'Connection: close\r\n' +
+2023-06-27 00:22:31:         '\r\n',
+2023-06-27 00:22:31:       _keepAliveTimeout: 0,
+2023-06-27 00:22:31:       _onPendingData: [Function: nop],
+2023-06-27 00:22:31:       agent: [Agent],
+2023-06-27 00:22:31:       socketPath: undefined,
+2023-06-27 00:22:31:       method: 'GET',
+2023-06-27 00:22:31:       maxHeaderSize: undefined,
+2023-06-27 00:22:31:       insecureHTTPParser: undefined,
+2023-06-27 00:22:31:       joinDuplicateHeaders: undefined,
+2023-06-27 00:22:31:       path: '/divprom/api/camaru',
+2023-06-27 00:22:31:       _ended: true,
+2023-06-27 00:22:31:       res: [IncomingMessage],
+2023-06-27 00:22:31:       aborted: false,
+2023-06-27 00:22:31:       timeoutCb: null,
+2023-06-27 00:22:31:       upgradeOrConnect: false,
+2023-06-27 00:22:31:       parser: null,
+2023-06-27 00:22:31:       maxHeadersCount: null,
+2023-06-27 00:22:31:       reusedSocket: false,
+2023-06-27 00:22:31:       host: 'app.uksw.edu',
+2023-06-27 00:22:31:       protocol: 'https:',
+2023-06-27 00:22:31:       _redirectable: [Writable],
+2023-06-27 00:22:31:       [Symbol(kCapture)]: false,
+2023-06-27 00:22:31:       [Symbol(kBytesWritten)]: 0,
+2023-06-27 00:22:31:       [Symbol(kNeedDrain)]: false,
+2023-06-27 00:22:31:       [Symbol(corked)]: 0,
+2023-06-27 00:22:31:       [Symbol(kOutHeaders)]: [Object: null prototype],
+2023-06-27 00:22:31:       [Symbol(errored)]: null,
+2023-06-27 00:22:31:       [Symbol(kUniqueHeaders)]: null
+2023-06-27 00:22:31:     },
+2023-06-27 00:22:31:     data: '<!DOCTYPE html>\r\n' +
+2023-06-27 00:22:31:       '<html>\r\n' +
+2023-06-27 00:22:31:       '    <head>\r\n' +
+2023-06-27 00:22:31:       '        <title>Runtime Error</title>\r\n' +
+2023-06-27 00:22:31:       '        <meta name="viewport" content="width=device-width" />\r\n' +
+2023-06-27 00:22:31:       '        <style>\r\n' +
+2023-06-27 00:22:31:       '         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} \r\n' +
+2023-06-27 00:22:31:       '         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}\r\n' +
+2023-06-27 00:22:31:       '         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}\r\n' +
+2023-06-27 00:22:31:       '         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }\r\n' +
+2023-06-27 00:22:31:       '         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }\r\n' +
+2023-06-27 00:22:31:       '         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n' +
+2023-06-27 00:22:31:       '         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n' +
+2023-06-27 00:22:31:       '         .version {color: gray;}\r\n' +
+2023-06-27 00:22:31:       '         .error {margin-bottom: 10px;}\r\n' +
+2023-06-27 00:22:31:       '         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:pointer; }\r\n' +
+2023-06-27 00:22:31:       '         @media screen and (max-width: 639px) {\r\n' +
+2023-06-27 00:22:31:       '          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }\r\n' +
+2023-06-27 00:22:31:       '         }\r\n' +
+2023-06-27 00:22:31:       '         @media screen and (max-width: 479px) {\r\n' +
+2023-06-27 00:22:31:       '          pre { width: 280px; }\r\n' +
+2023-06-27 00:22:31:       '         }\r\n' +
+2023-06-27 00:22:31:       '        </style>\r\n' +
+2023-06-27 00:22:31:       '    </head>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '    <body bgcolor="white">\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       "            <span><H1>Server Error in '/Divprom' Application.<hr width=100% size=1 color=silver></H1>\r\n" +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <h2> <i>Runtime Error</i> </h2></span>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <b> Description: </b>An application error occurred on the server. The current custom error settings for this application prevent the details of the application error from being viewed remotely (for security reasons). It could, however, be viewed by browsers running on the local server machine.\r\n' +
+2023-06-27 00:22:31:       '            <br><br>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <b>Details:</b> To enable the details of this specific error message to be viewable on remote machines, please create a &lt;customErrors&gt; tag within a &quot;web.config&quot; configuration file located in the root directory of the current web application. This &lt;customErrors&gt; tag should then have its &quot;mode&quot; attribute set to &quot;Off&quot;.<br><br>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <table width=100% bgcolor="#ffffcc">\r\n' +
+2023-06-27 00:22:31:       '               <tr>\r\n' +
+2023-06-27 00:22:31:       '                  <td>\r\n' +
+2023-06-27 00:22:31:       '                      <code><pre>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '&lt;!-- Web.Config Configuration File --&gt;\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '&lt;configuration&gt;\r\n' +
+2023-06-27 00:22:31:       '    &lt;system.web&gt;\r\n' +
+2023-06-27 00:22:31:       '        &lt;customErrors mode=&quot;Off&quot;/&gt;\r\n' +
+2023-06-27 00:22:31:       '    &lt;/system.web&gt;\r\n' +
+2023-06-27 00:22:31:       '&lt;/configuration&gt;</pre>                      </code>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '                  </td>\r\n' +
+2023-06-27 00:22:31:       '               </tr>\r\n' +
+2023-06-27 00:22:31:       '            </table>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <br>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <b>Notes:</b> The current error page you are seeing can be replaced by a custom error page by modifying the &quot;defaultRedirect&quot; attribute of the application&#39;s &lt;customErrors&gt; configuration tag to point to a custom error page URL.<br><br>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <table width=100% bgcolor="#ffffcc">\r\n' +
+2023-06-27 00:22:31:       '               <tr>\r\n' +
+2023-06-27 00:22:31:       '                  <td>\r\n' +
+2023-06-27 00:22:31:       '                      <code><pre>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '&lt;!-- Web.Config Configuration File --&gt;\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '&lt;configuration&gt;\r\n' +
+2023-06-27 00:22:31:       '    &lt;system.web&gt;\r\n' +
+2023-06-27 00:22:31:       '        &lt;customErrors mode=&quot;RemoteOnly&quot; defaultRedirect=&quot;mycustompage.htm&quot;/&gt;\r\n' +
+2023-06-27 00:22:31:       '    &lt;/system.web&gt;\r\n' +
+2023-06-27 00:22:31:       '&lt;/configuration&gt;</pre>                      </code>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '                  </td>\r\n' +
+2023-06-27 00:22:31:       '               </tr>\r\n' +
+2023-06-27 00:22:31:       '            </table>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            <br>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '            </font>\r\n' +
+2023-06-27 00:22:31:       '\r\n' +
+2023-06-27 00:22:31:       '    </body>\r\n' +
+2023-06-27 00:22:31:       '</html>\r\n'
+2023-06-27 00:22:31:   }
+2023-06-27 00:22:31: }
+2023-06-27 00:26:06: A user disconnected
+2023-06-27 00:26:06: A user disconnected
+2023-06-27 00:26:06: A user disconnected
+2023-06-27 00:26:12: A user connected
+2023-06-27 00:26:12: WhatsApp terhubung!
+2023-06-27 00:29:11: A user connected
+2023-06-27 00:29:11: WhatsApp terhubung!
+2023-06-27 00:29:16: WhatsApp terhubung!
+2023-06-27 00:29:16: A user disconnected
+2023-06-27 00:29:16: A user disconnected
+2023-06-27 00:29:21: A user connected
+2023-06-27 00:29:21: WhatsApp terhubung!
+2023-06-27 00:29:35: Total Mahasiswa :30
+2023-06-27 00:30:05: A user disconnected
+2023-06-27 00:30:49: A user connected
+2023-06-27 00:30:49: WhatsApp terhubung!
+2023-06-27 00:31:14: Total Mahasiswa :30
+2023-06-27 00:31:25: Total Mahasiswa :0
+2023-06-27 00:33:47: Total Mahasiswa :310
+2023-06-27 00:34:14: Server Running On Port :  8080
+2023-06-27 00:34:14: Connected to MongoDB
+2023-06-27 00:34:14: using WA v2.2325.3, isLatest: true
+2023-06-27 00:34:14: connection update:  {
+2023-06-27 00:34:14:   connection: 'connecting',
+2023-06-27 00:34:14:   receivedPendingNotifications: false,
+2023-06-27 00:34:14:   qr: undefined
+2023-06-27 00:34:14: }
+2023-06-27 00:34:14: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:34:14: WhatsApp terhubung!
+2023-06-27 00:34:15: connection update:  { isOnline: true }
+2023-06-27 00:34:15: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:34:15: WhatsApp terhubung!
+2023-06-27 00:34:15: connection update:  { connection: 'open' }
+2023-06-27 00:34:15: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:34:15: WhatsApp terhubung!
+2023-06-27 00:34:15: connection update:  { receivedPendingNotifications: true }
+2023-06-27 00:34:15: Socket AuthState ID : 6281935614654:30@s.whatsapp.net
+2023-06-27 00:34:15: WhatsApp terhubung!

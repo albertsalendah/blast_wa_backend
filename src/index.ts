@@ -13,7 +13,7 @@ import { Server, Socket } from 'socket.io'
 import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
-import { sendmessagePOST, getHistory,getListPesan,deleteHistoryPesan } from './routes/sendmessagePOST'
+import { sendmessagePOST, getHistory,getListPesan,deleteHistoryPesan,checkTotalMahasiswa } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile, getListFileSisaData, downloadFileSisaData, deleteFileSisaData } from './routes/getFiles'
@@ -22,7 +22,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from './models/user_schema';
 
-const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
+const mongoURI = process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1:27017/test_blast_wa';
 
 const logger = MAIN_LOGGER.child({})
 logger.level = 'silent'
@@ -191,6 +191,7 @@ startSock().then((sock) => {
 	downloadFileSisaData()
 	getListPesan()
 	deleteHistoryPesan()
+	checkTotalMahasiswa()
 	app.get("/logout", async (req, res) => {
 		try {
 			await sock.logout()

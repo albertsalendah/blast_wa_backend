@@ -525,6 +525,77 @@ export async function sendmessagePOST(sock: any) {
     });
 }
 
+export async function checkTotalMahasiswa() {
+    app.post('/checkTotalMahasiswa', async (req, res) => {
+        try {          
+            const savedtoken = await token.find().select('access_token');
+            let data = JSON.stringify({
+                "tahun": req.body.tahun,
+                "progdi": req.body.progdi
+            });
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: process.env.URL_CAMARU || '',
+                headers: {
+                    'Authorization': 'bearer ' + savedtoken[0].access_token,
+                    'Content-Type': 'application/json'
+                },
+                data: data
+            };
+            await axios.request(config)
+                .then(async (response) => {
+                    let listMahasiswa: DynamicInterface[] = [];
+                    let uniqueResponse = []
+                    if (req.body.status_regis === "All") {
+                        uniqueResponse = response.data.response.flat(2)
+                    } else {
+                        uniqueResponse = response.data.response.flat(2)
+                            .filter((item: { Status_Registrasi_Ulang: string; }) => item.Status_Registrasi_Ulang.includes(req.body.status_regis));
+                    }
+                    const filteredResponse = uniqueResponse.reduce((accumulator: any[], item: any) => {
+                        const isDuplicate = accumulator.some((accItem) => accItem.Status_Registrasi_Ulang === item.Status_Registrasi_Ulang && accItem.No_Pendaftaran === item.No_Pendaftaran);
+                        if (!isDuplicate) {
+                            accumulator.push(item);
+                        }
+                        return accumulator;
+                    }, []);
+                    const datas: DynamicInterface[] = []
+                    filteredResponse.forEach((item: any) => {
+                        item.No_HP = item.No_HP.split(",").filter(Boolean);
+                        const uniqueNoHP = Array.from(new Set(item.No_HP));
+                        item.No_HP = uniqueNoHP;
+                        item.No_HP.forEach(async (no: string) => {
+                            if (no.length > 10) {
+                                const mahasiswa: DynamicInterface = {
+                                    No_Pendaftaran: item.No_Pendaftaran,
+                                    Nama: item.Nama_Pendaftar,
+                                    No_Handphone: no,
+                                    Tahun_Akademik: item.Tahun_Akademik,
+                                    Status_Registrasi_Ulang: item.Status_Registrasi_Ulang,
+                                    Prodi_Registrasi_Ulang: item.Prodi_Registrasi_Ulang
+                                };
+                                datas.push(mahasiswa)
+                            }
+                        });
+                    });
+                    console.log("Total Mahasiswa :"+datas.length)
+                    res.status(200).json({
+                        response: datas.length
+                    });                  
+                })
+                .catch((error) => {
+                    console.log(error);                   
+                    res.status(500).json({             
+                        response: "Failed To Fetch Data"
+                    });                         
+                });
+        } catch (error) {
+            res.status(500).json({ response: 'Failed to fetch data' });
+        }
+    });
+}
+
 export async function getHistory() {
     app.get('/history', async (req, res) => {
         try {
@@ -532,7 +603,7 @@ export async function getHistory() {
             let hist = []
             for (let i = 0; i < histories.length; i++) {
                 const result = await history.findOne({ id_pesan: histories[i] })
-                hist.push(result)        
+                hist.push(result)
             }
             res.json(hist);
         } catch (error) {
@@ -558,11 +629,11 @@ export async function deleteHistoryPesan() {
     app.post('/deletelistpesan/:id_pesan', async (req, res) => {
         const id_pesan = req.params.id_pesan;
         try {
-            await history.deleteMany({ id_pesan: id_pesan }).then(()=>{
+            await history.deleteMany({ id_pesan: id_pesan }).then(() => {
                 res.json('Data Berhasil Dihapus');
-            }).catch(()=>{
+            }).catch(() => {
                 res.status(500).json({ message: 'Terjadi Kesalahan Saat Menghapus Data' });
-            })           
+            })
         } catch (error) {
             res.status(500).json({ message: 'Internal server error' });
         }
