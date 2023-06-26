@@ -554,6 +554,21 @@ export async function getListPesan() {
 }
 
 
+export async function deleteHistoryPesan() {
+    app.post('/deletelistpesan/:id_pesan', async (req, res) => {
+        const id_pesan = req.params.id_pesan;
+        try {
+            await history.deleteMany({ id_pesan: id_pesan }).then(()=>{
+                res.json('Data Berhasil Dihapus');
+            }).catch(()=>{
+                res.status(500).json({ message: 'Terjadi Kesalahan Saat Menghapus Data' });
+            })           
+        } catch (error) {
+            res.status(500).json({ message: 'Internal server error' });
+        }
+    });
+}
+
 async function createHistory(item: DynamicInterface) {
     try {
         await history.create(item);
