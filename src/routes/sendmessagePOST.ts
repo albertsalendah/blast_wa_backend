@@ -545,7 +545,6 @@ export async function checkTotalMahasiswa() {
             };
             await axios.request(config)
                 .then(async (response) => {
-                    let listMahasiswa: DynamicInterface[] = [];
                     let uniqueResponse = []
                     if (req.body.status_regis === "All") {
                         uniqueResponse = response.data.response.flat(2)
