@@ -257,39 +257,39 @@ export async function sendmessagePOST(sock: any) {
                                                 const [exists] = await sock.onWhatsApp(numberWA);
                                                 if (exists?.jid || (exists && exists?.jid)) {
                                                     registeredcounter++
-                                                    // await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
-                                                    //     .then(async () => {
-                                                    //         console.log('Pasan Terkirim Ke : ' + numberWA);
-                                                    //         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                    //         item.Kategori_Pesan = req.body.kategori_pesan
-                                                    //         item.Status_Pesan = "Terkirim"
-                                                    //         item.id_pesan = jobId
-                                                    //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    //         item.tanggal = currentDate.toDateString()
-                                                    //     })
-                                                    //     .catch(() => {
-                                                    //         console.log('Pasan Tidak Terkirim');
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
-                                                    //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                    //         item.Kategori_Pesan = req.body.kategori_pesan
-                                                    //         item.Status_Pesan = "Gagal Terkirim"
-                                                    //         item.id_pesan = jobId
-                                                    //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    //         item.tanggal = currentDate.toDateString()
-                                                    //     });
-                                                    worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                    worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                                    worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                    await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
+                                                        .then(async () => {
+                                                            console.log('Pasan Terkirim Ke : ' + numberWA);
+                                                            io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                                            item.Kategori_Pesan = req.body.kategori_pesan
+                                                            item.Status_Pesan = "Terkirim"
+                                                            item.id_pesan = jobId
+                                                            item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                            item.tanggal = currentDate.toDateString()
+                                                        })
+                                                        .catch(() => {
+                                                            console.log('Pasan Tidak Terkirim');
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
+                                                            worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                                            item.Kategori_Pesan = req.body.kategori_pesan
+                                                            item.Status_Pesan = "Gagal Terkirim"
+                                                            item.id_pesan = jobId
+                                                            item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                            item.tanggal = currentDate.toDateString()
+                                                        });
+                                                    // worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+                                                    // worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+                                                    // worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+                                                    // item.Kategori_Pesan = req.body.kategori_pesan
+                                                    // item.Status_Pesan = "Terkirim"
+                                                    // item.id_pesan = jobId
+                                                    // item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                                                    // item.tanggal = currentDate.toDateString()
+                                                    // io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                 } else {
                                                     unRegistercounter++;
                                                     console.log(`Nomor ${numberWA} tidak terdaftar. `);
