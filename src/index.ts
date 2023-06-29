@@ -13,13 +13,13 @@ import { Server, Socket } from 'socket.io'
 import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
-import { sendmessagePOST, getHistory,getListPesan,deleteHistoryPesan,checkTotalMahasiswa } from './routes/sendmessagePOST'
+import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
 import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
-import { getListUploadedFile,downloadUploadedFile,deleteUploadedFile } from './routes/getUploadedFile'
-import {getListFileSisaData, downloadFileSisaData, deleteFileSisaData} from './routes/getExtraData'
+import { getListUploadedFile, downloadUploadedFile, deleteUploadedFile } from './routes/getUploadedFile'
+import { getListFileSisaData, downloadFileSisaData, deleteFileSisaData } from './routes/getExtraData'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from './models/user_schema';
@@ -177,7 +177,18 @@ cron.schedule('0 * * * *', function () {
 	createNewToken()
 })
 
+
+
 startSock().then((sock) => {
+	const folderPath = 'files/extra_data/';
+	// Check if the folder exists
+	if (!fs.existsSync(folderPath)) {
+		// Create the folder
+		fs.mkdirSync(folderPath, { recursive: true });
+		console.log('Folder created successfully.');
+	} else {
+		console.log('Folder already exists.');
+	}
 	sendmessagePOST(sock)
 	createScheduleMessage()
 	getHistory()

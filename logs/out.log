@@ -72926,3 +72926,47 @@
 2023-06-29 23:42:31: }
 2023-06-29 23:42:31: Socket AuthState ID : undefined
 2023-06-29 23:42:31: QR Code received, please scan!
+2023-06-29 23:50:07: Server Running On Port :  8080
+2023-06-29 23:50:07: MongoDB connection error: Error: querySrv EREFUSED _mongodb._tcp.blastwacluster.jpiwxtk.mongodb.net
+2023-06-29 23:50:07:     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:251:17) {
+2023-06-29 23:50:07:   errno: undefined,
+2023-06-29 23:50:07:   code: 'EREFUSED',
+2023-06-29 23:50:07:   syscall: 'querySrv',
+2023-06-29 23:50:07:   hostname: '_mongodb._tcp.blastwacluster.jpiwxtk.mongodb.net'
+2023-06-29 23:50:07: }
+2023-06-29 23:50:07: using WA v2.2325.3, isLatest: true
+2023-06-29 23:50:07: Folder already exists.
+2023-06-29 23:50:07: connection update:  {
+2023-06-29 23:50:07:   connection: 'connecting',
+2023-06-29 23:50:07:   receivedPendingNotifications: false,
+2023-06-29 23:50:07:   qr: undefined
+2023-06-29 23:50:07: }
+2023-06-29 23:50:07: Socket AuthState ID : undefined
+2023-06-29 23:50:07: WhatsApp terhubung!
+2023-06-29 23:50:08: connection update:  {
+2023-06-29 23:50:08:   qr: '2@kWtXgBhsxP2P/aJHa7wJD1fu7p2O1GYzom27FW7GZr9B11jKbVgsDbIZqqPTu1OIbYPzN9a+/w8rgA==,Er7svWWO7e+aCsr+LA76uoCRHN4OS5swmnWBXNAazyM=,STp/WkCK2QfXaMY0OrrxPWk+JLh+U3Cldqlvo4PRAy4=,PCuQuXRP/V0xUicEGCXZ3DD8gwAf3mb7y6bJvcMguVE='
+2023-06-29 23:50:08: }
+2023-06-29 23:50:08: Socket AuthState ID : undefined
+2023-06-29 23:50:08: QR Code received, please scan!
+2023-06-29 23:51:01: Server Running On Port :  8080
+2023-06-29 23:51:01: MongoDB connection error: Error: querySrv EREFUSED _mongodb._tcp.blastwacluster.jpiwxtk.mongodb.net
+2023-06-29 23:51:01:     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:251:17) {
+2023-06-29 23:51:01:   errno: undefined,
+2023-06-29 23:51:01:   code: 'EREFUSED',
+2023-06-29 23:51:01:   syscall: 'querySrv',
+2023-06-29 23:51:01:   hostname: '_mongodb._tcp.blastwacluster.jpiwxtk.mongodb.net'
+2023-06-29 23:51:01: }
+2023-06-29 23:51:01: using WA v2.2325.3, isLatest: true
+2023-06-29 23:51:01: Folder created successfully.
+2023-06-29 23:51:01: connection update:  {
+2023-06-29 23:51:01:   connection: 'connecting',
+2023-06-29 23:51:01:   receivedPendingNotifications: false,
+2023-06-29 23:51:01:   qr: undefined
+2023-06-29 23:51:01: }
+2023-06-29 23:51:01: Socket AuthState ID : undefined
+2023-06-29 23:51:01: WhatsApp terhubung!
+2023-06-29 23:51:02: connection update:  {
+2023-06-29 23:51:02:   qr: '2@LelaLK8HJHtQnzFVMUxVCaRQ6tv5N93TG1MZhs3uk40fWysaLVhlNUNsUoRQ10qaCBVICat0O4p8Kg==,QMF/IkMXqsXMH0xFsxjOQ2/u0i36oi70HyYHBYGk0jU=,41MZiAPQ8TjJVMolbuKCjBIztmIiWV9TKe32dbeH3Hk=,lBkA/DzwUQ/7WpPUOUfM1KJryJtBADpxtP/vwxjI+Iw='
+2023-06-29 23:51:02: }
+2023-06-29 23:51:02: Socket AuthState ID : undefined
+2023-06-29 23:51:02: QR Code received, please scan!
