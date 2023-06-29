@@ -16,8 +16,10 @@ import { createNewToken } from './routes/createToken'
 import { sendmessagePOST, getHistory,getListPesan,deleteHistoryPesan,checkTotalMahasiswa } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
-import { getListFile, downloadFile, deleteFile, getListFileSisaData, downloadFileSisaData, deleteFileSisaData } from './routes/getFiles'
+import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
 import { addTemplatePesan, getTemplatePesan, deleteTemplatePesan, editTemplatePesan } from './routes/templates_pesan'
+import { getListUploadedFile,downloadUploadedFile,deleteUploadedFile } from './routes/getUploadedFile'
+import {getListFileSisaData, downloadFileSisaData, deleteFileSisaData} from './routes/getExtraData'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from './models/user_schema';
@@ -43,7 +45,7 @@ let soket: Socket;
 let conns: boolean;
 const msgRetryCounterCache = new NodeCache()
 
-export const startSock = async () => {
+const startSock = async () => {
 	const { state, saveCreds } = await useMultiFileAuthState('baileys_auth_info')
 	// fetch latest version of WA Web
 	const { version, isLatest } = await fetchLatestBaileysVersion()
@@ -192,6 +194,9 @@ startSock().then((sock) => {
 	getListPesan()
 	deleteHistoryPesan()
 	checkTotalMahasiswa()
+	getListUploadedFile()
+	downloadUploadedFile()
+	deleteUploadedFile()
 	app.get("/logout", async (req, res) => {
 		try {
 			await sock.logout()

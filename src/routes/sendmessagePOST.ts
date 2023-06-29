@@ -36,7 +36,8 @@ export async function sendmessagePOST(sock: any) {
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
 
-        const savedtoken = await token.find().select('access_token');
+        const savedtoken = await getToken();
+        //console.log("TOKEN : ",savedtoken)
         let data = JSON.stringify({
             "tahun": req.body.tahun,
             "progdi": req.body.progdi
@@ -47,7 +48,7 @@ export async function sendmessagePOST(sock: any) {
             maxBodyLength: Infinity,
             url: process.env.URL_CAMARU || '',
             headers: {
-                'Authorization': 'bearer ' + savedtoken[0].access_token,
+                'Authorization': 'bearer ' + savedtoken,
                 'Content-Type': 'application/json'
             },
             data: data
@@ -105,7 +106,7 @@ export async function sendmessagePOST(sock: any) {
                     }
 
                     if (cell.value !== null) {
-                        columnNames.push(cell.value?.toString() ?? '');
+                        columnNames.push(cell.text?.toString() ?? '');
                     }
                 });
                 if (columnNames.length >= 2) {
@@ -115,12 +116,22 @@ export async function sendmessagePOST(sock: any) {
                 for (let i = 2; i <= worksheet.rowCount; i++) {
                     const row = worksheet.getRow(i);
                     const rowData: DynamicInterface = {};
+                    let hasValue = false;
 
                     columnNames.forEach((columnName, columnIndex) => {
-                        rowData[columnName] = row.getCell(columnIndex + 1).value?.toString() ?? '';
-                    });
+                        const cellValue = row.getCell(columnIndex + 1).text?.toString() ?? '';
+                        rowData[columnName] = cellValue;
 
-                    listMahasiswa.push(rowData);
+                        // Check if the second (index 1) or third (index 2) column has a value
+                        if (columnIndex === 1 || columnIndex === 2) {
+                            if (cellValue.trim() !== '') {
+                                hasValue = true;
+                            }
+                        }
+                    });
+                    if (hasValue) {
+                        listMahasiswa.push(rowData);
+                    }
                 }
                 //console.log(listMahasiswa)
             } else {
@@ -184,7 +195,7 @@ export async function sendmessagePOST(sock: any) {
                                             const values = newcolumnNames.map((newcolumnNames) => row[newcolumnNames]);
                                             worksheet.addRow(values);
                                         });
-                                        const filesisa = path.join("files/sisa_data", `sisa_data_${i}_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
+                                        const filesisa = path.join("files/extra_data", `extra_data_${i}_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
                                         await workbook.xlsx.writeFile(filesisa);
                                     }
                                     console.log("Jumlah Data List Mahasiswa : " + listMahasiswa.length + ` SISA DATA ${i + 1}: ` + outputArrays[i].length)
@@ -192,11 +203,11 @@ export async function sendmessagePOST(sock: any) {
                             } else {
                                 listMahasiswa = datas
                             }
+                            console.log(listMahasiswa.length)
                             return listMahasiswa;
                             // res.status(200).json({             
                             //     response: listMahasiswa
-                            // });
-                            console.log(listMahasiswa.length)
+                            // });                          
                         })
                         .catch((error) => {
                             console.log(error);
@@ -224,299 +235,307 @@ export async function sendmessagePOST(sock: any) {
             let registeredcounter = 0;
             let progress = 0;
             const latestEntry = await history.findOne({}, {}, { sort: { _id: -1 } });
-            if (!req.files?.file_dikirim) {
-                if (listMahasiswa.length > 0) {
-                    io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
-                    for (let i = 0; i < listMahasiswa.length; i++) {
-                        const item = listMahasiswa[i];
-                        const columnKeys = Object.keys(item);
-                        const columnNama = columnKeys[1];
-                        const columnNoHP = columnKeys[2];
-                        const nohp = item[columnNoHP];
-                        const nama = item[columnNama];
-                        setTimeout(async () => {
-                            count++;
-                            numberWA = phoneNumberFormatter(nohp);
-                            if (isConnected()) {
-                                try {
-                                    const [exists] = await sock.onWhatsApp(numberWA);
-                                    if (exists?.jid || (exists && exists?.jid)) {
-                                        registeredcounter++
-                                        await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
-                                            .then(async () => {
-                                                console.log('Pasan Terkirim Ke : ' + numberWA);
-                                                io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                item.Kategori_Pesan = req.body.kategori_pesan
-                                                item.Status_Pesan = "Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                item.tanggal = currentDate.toDateString()
-                                            })
-                                            .catch(() => {
-                                                console.log('Pasan Tidak Terkirim');
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
-                                                worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                                item.Kategori_Pesan = req.body.kategori_pesan
-                                                item.Status_Pesan = "Gagal Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                item.tanggal = currentDate.toDateString()
-                                            });
-                                        // worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        // worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
-                                        // worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                        // item.Kategori_Pesan = req.body.kategori_pesan
-                                        // item.Status_Pesan = "Terkirim"
-                                        // item.id_pesan = jobId
-                                        io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                    } else {
-                                        unRegistercounter++;
-                                        console.log(`Nomor ${numberWA} tidak terdaftar. `);
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar WA"
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                        item.Kategori_Pesan = req.body.kategori_pesan
-                                        item.Status_Pesan = "Nomor Tidak Terdaftar WA"
-                                        item.id_pesan = jobId
-                                        item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                        item.tanggal = currentDate.toDateString()
-                                    }
-                                    await createHistory(item)
-                                } catch (error) {
-                                    console.log("ERROR SEND MESSAGE WITHOUT FILE", error)
-                                    io.emit("log", "ERROR SENDING WITHOUT MESSAGE FILE");
-                                }
+            //             if (!req.files?.file_dikirim) {
+            //                 if (listMahasiswa.length > 0) {
+            //                     io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
+            //                     for (let i = 0; i < listMahasiswa.length; i++) {
+            //                         const item = listMahasiswa[i];
+            //                         const columnKeys = Object.keys(item);
+            //                         const columnNama = columnKeys[1];
+            //                         const columnNoHP = columnKeys[2];
+            //                         const nohp = item[columnNoHP];
+            //                         const nama = item[columnNama];
+            //                         setTimeout(async () => {
+            //                             count++;
+            //                             const numericRegex = /^[0-9]+$/;
+            //                             if (nohp !== '' && numericRegex.test(nohp)) {
+            //                                 numberWA = phoneNumberFormatter(nohp);
+            //                             }
+            //                             if (isConnected()) {
+            //                                 try {
+            //                                     const [exists] = await sock.onWhatsApp(numberWA);
+            //                                     if (exists?.jid || (exists && exists?.jid)) {
+            //                                         registeredcounter++
+            //                                         // await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
+            //                                         //     .then(async () => {
+            //                                         //         console.log('Pasan Terkirim Ke : ' + numberWA);
+            //                                         //         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                         //         item.Kategori_Pesan = req.body.kategori_pesan
+            //                                         //         item.Status_Pesan = "Terkirim"
+            //                                         //         item.id_pesan = jobId
+            //                                         //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                         //         item.tanggal = currentDate.toDateString()
+            //                                         //     })
+            //                                         //     .catch(() => {
+            //                                         //         console.log('Pasan Tidak Terkirim');
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Pasan Tidak Terkirim"
+            //                                         //         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                         //         item.Kategori_Pesan = req.body.kategori_pesan
+            //                                         //         item.Status_Pesan = "Gagal Terkirim"
+            //                                         //         item.id_pesan = jobId
+            //                                         //         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                         //         item.tanggal = currentDate.toDateString()
+            //                                         //     });
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Terkirim"
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                         item.Kategori_Pesan = req.body.kategori_pesan
+            //                                         item.Status_Pesan = "Terkirim"
+            //                                         item.id_pesan = jobId
+            //                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                         item.tanggal = currentDate.toDateString()
+            //                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                     } else {
+            //                                         unRegistercounter++;
+            //                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar WA"
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                         item.Kategori_Pesan = req.body.kategori_pesan
+            //                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
+            //                                         item.id_pesan = jobId
+            //                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                         item.tanggal = currentDate.toDateString()
+            //                                     }
+            //                                     await createHistory(item)
+            //                                 } catch (error) {
+            //                                     console.log("ERROR SEND MESSAGE WITHOUT FILE", error)
+            //                                     io.emit("log", "ERROR SENDING WITHOUT MESSAGE FILE");
+            //                                 }
 
-                                if (jobs[jobId] && jobs[jobId].status === 'processing') {
-                                    progress = Math.floor((count / listMahasiswa.length) * 100);
-                                    // Update job progress
-                                    jobs[jobId].progress = progress;
+            //                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
+            //                                     progress = Math.floor((count / listMahasiswa.length) * 100);
+            //                                     // Update job progress
+            //                                     jobs[jobId].progress = progress;
 
-                                    // Send a Socket.IO message to the client, updating the job progress
-                                    io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + nama });
-                                }
+            //                                     // Send a Socket.IO message to the client, updating the job progress
+            //                                     io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + nama });
+            //                                 }
 
-                            } else {
-                                jobs[jobId].status = 'error';
-                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
-                                console.log(`WhatsApp belum terhubung.`)
-                            }
-                            //=======================================
-                            if ((i + 1) % 50 === 0 && i + 1 !== listMahasiswa.length) {
-                                setTimeout(() => {
-                                    console.log('Waiting...');
-                                }, delayBetweenItems);
-                            }
-                            if (count === listMahasiswa.length) {
-                                jobs[jobId].status = 'completed';
-                                io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
-                                console.log('Pesan Tanpa File Telah Terkirim Semua ');
+            //                             } else {
+            //                                 jobs[jobId].status = 'error';
+            //                                 io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
+            //                                 console.log(`WhatsApp belum terhubung.`)
+            //                             }
+            //                             //=======================================
+            //                             if ((i + 1) % 50 === 0 && i + 1 !== listMahasiswa.length) {
+            //                                 setTimeout(() => {
+            //                                     console.log('Waiting...');
+            //                                 }, delayBetweenItems);
+            //                             }
+            //                             if (count === listMahasiswa.length) {
+            //                                 jobs[jobId].status = 'completed';
+            //                                 io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
+            //                                 console.log('Pesan Tanpa File Telah Terkirim Semua ');
 
-                                await workbook.xlsx.writeFile(filePath);
-                            }
-                        }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
-                    }
-                    console.log("Total No : " + listMahasiswa.length)
-                } else {
-                    jobs[jobId].status = 'error';
-                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: `Tidak Ada Nomor Yang Ditemukan` });
-                    console.log(`Tidak Ada Nomor Yang Ditemukan`)
-                }
-            } else {
-                //console.log('Kirim document');
-                let filesimpan: UploadedFile[] = [];
-                const file_dikirim = req.files?.file_dikirim;
+            //                                 await workbook.xlsx.writeFile(filePath);
+            //                             }
+            //                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
+            //                     }
+            //                     console.log("Total No : " + listMahasiswa.length)
+            //                 } else {
+            //                     jobs[jobId].status = 'error';
+            //                     io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: `Tidak Ada Nomor Yang Ditemukan` });
+            //                     console.log(`Tidak Ada Nomor Yang Ditemukan`)
+            //                 }
+            //             } else {
+            //                 //console.log('Kirim document');
+            //                 let filesimpan: UploadedFile[] = [];
+            //                 const file_dikirim = req.files?.file_dikirim;
 
-                let file_ubah_nama: String[] = [];
-                let fileDikirim_Mime: string[] = []
-                if (file_dikirim instanceof Array) {
-                    filesimpan = file_dikirim;
-                } else if (file_dikirim) {
-                    filesimpan = [file_dikirim];
-                }
-                for (let i = 0; i < filesimpan.length; i++) {
-                    file_ubah_nama[i] = new Date().getTime() + '_' + filesimpan[i].name;
-                    filesimpan[i].mv('./files/uploads/' + file_ubah_nama[i]);
-                    fileDikirim_Mime[i] = filesimpan[i].mimetype;
-                }
+            //                 let file_ubah_nama: String[] = [];
+            //                 let fileDikirim_Mime: string[] = []
+            //                 if (file_dikirim instanceof Array) {
+            //                     filesimpan = file_dikirim;
+            //                 } else if (file_dikirim) {
+            //                     filesimpan = [file_dikirim];
+            //                 }
+            //                 for (let i = 0; i < filesimpan.length; i++) {
+            //                     file_ubah_nama[i] = new Date().getTime() + '_' + filesimpan[i].name;
+            //                     filesimpan[i].mv('./files/uploads/' + file_ubah_nama[i]);
+            //                     fileDikirim_Mime[i] = filesimpan[i].mimetype;
+            //                 }
 
-                if (listMahasiswa.length != 0) {
-                    io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
-                    for (let i = 0; i < listMahasiswa.length; i++) {
-                        const item = listMahasiswa[i];
-                        const columnKeys = Object.keys(item);
-                        const columnNama = columnKeys[1];
-                        const columnNoHP = columnKeys[2];
-                        const nohp = item[columnNoHP];
-                        const nama = item[columnNama];
-                        setTimeout(async () => {
-                            count++;
-                            numberWA = phoneNumberFormatter(nohp);
-                            let namafiledikirim: string[] = []
-                            let extensionName: String[] = []
-                            if (isConnected()) {
-                                try {
-                                    let statusPesan = ''
-                                    const [exists] = await sock.onWhatsApp(numberWA);
-                                    if (exists?.jid || (exists && exists?.jid)) {
-                                        for (let i = 0; i < file_ubah_nama.length; i++) {
-                                            namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
-                                            extensionName[i] = path.extname(namafiledikirim[i]);
-                                            if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    image: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    statusPesan = "Terkirim"
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                });
-                                            } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    audio: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
-                                                    mimetype: 'audio/mp4'
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                });
-                                            } else {
-                                                registeredcounter++
-                                                await sock.sendMessage(exists.jid || exists.jid, {
-                                                    document: {
-                                                        url: namafiledikirim[i],
-                                                        caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
-                                                    },
-                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
-                                                    mimetype: fileDikirim_Mime[i],
-                                                    fileName: filesimpan[i].name
-                                                }).then(() => {
-                                                    console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                }).catch(() => {
-                                                    console.log('pesan gagal terkirim');
-                                                    statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
-                                                });
-                                            }
-                                        }
-                                        io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                        console.log('Pasan Terkirim Ke : ' + numberWA);
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 2).value = statusPesan
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                    } else {
-                                        console.log(`Nomor ${numberWA} tidak terdaftar.`);
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar"
-                                        worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
-                                        item.Kategori_Pesan = req.body.kategori_pesan
-                                        item.Status_Pesan = "Nomor Tidak Terdaftar WA"
-                                        item.id_pesan = jobId
-                                        item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                        item.tanggal = currentDate.toDateString()
-                                    }
-                                    await createHistory(item)
-                                } catch (error) {
-                                    console.log(`ERROR SENDING MESSAGE FILE`, error);
-                                    io.emit("log", "ERROR SENDING MESSAGE FILE");
-                                }
-                                if (jobs[jobId] && jobs[jobId].status === 'processing') {
-                                    progress = Math.floor((count / listMahasiswa.length) * 100);
-                                    // Update job progress
-                                    jobs[jobId].progress = progress;
+            //                 if (listMahasiswa.length != 0) {
+            //                     io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
+            //                     for (let i = 0; i < listMahasiswa.length; i++) {
+            //                         const item = listMahasiswa[i];
+            //                         const columnKeys = Object.keys(item);
+            //                         const columnNama = columnKeys[1];
+            //                         const columnNoHP = columnKeys[2];
+            //                         const nohp = item[columnNoHP];
+            //                         const nama = item[columnNama];
+            //                         setTimeout(async () => {
+            //                             count++;
+            //                             const numericRegex = /^[0-9]+$/;
+            //                             if (nohp !== '' && numericRegex.test(nohp)) {
+            //                                 numberWA = phoneNumberFormatter(nohp);
+            //                             }
+            //                             let namafiledikirim: string[] = []
+            //                             let extensionName: String[] = []
+            //                             if (isConnected()) {
+            //                                 try {
+            //                                     let statusPesan = ''
+            //                                     const [exists] = await sock.onWhatsApp(numberWA);
+            //                                     if (exists?.jid || (exists && exists?.jid)) {
+            //                                         for (let i = 0; i < file_ubah_nama.length; i++) {
+            //                                             namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
+            //                                             extensionName[i] = path.extname(namafiledikirim[i]);
+            //                                             if (extensionName[i] === '.jpeg' || extensionName[i] === '.jpg' || extensionName[i] === '.png' || extensionName[i] === '.gif') {
+            //                                                 registeredcounter++
+            //                                                 await sock.sendMessage(exists.jid || exists.jid, {
+            //                                                     image: {
+            //                                                         url: namafiledikirim[i],
+            //                                                         caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+            //                                                     },
+            //                                                     caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+            //                                                 }).then(() => {
+            //                                                     console.log('pesan berhasil terkirim');
+            //                                                     statusPesan = "Terkirim"
+            //                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 }).catch(() => {
+            //                                                     console.log('pesan gagal terkirim');
+            //                                                     statusPesan = "Gagal Terkirim"
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Gagal Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 });
+            //                                             } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
+            //                                                 registeredcounter++
+            //                                                 await sock.sendMessage(exists.jid || exists.jid, {
+            //                                                     audio: {
+            //                                                         url: namafiledikirim[i],
+            //                                                         caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+            //                                                     },
+            //                                                     caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
+            //                                                     mimetype: 'audio/mp4'
+            //                                                 }).then(() => {
+            //                                                     console.log('pesan berhasil terkirim');
+            //                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                                     statusPesan = "Terkirim"
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 }).catch(() => {
+            //                                                     console.log('pesan gagal terkirim');
+            //                                                     statusPesan = "Gagal Terkirim"
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Gagal Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 });
+            //                                             } else {
+            //                                                 registeredcounter++
+            //                                                 await sock.sendMessage(exists.jid || exists.jid, {
+            //                                                     document: {
+            //                                                         url: namafiledikirim[i],
+            //                                                         caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+            //                                                     },
+            //                                                     caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
+            //                                                     mimetype: fileDikirim_Mime[i],
+            //                                                     fileName: filesimpan[i].name
+            //                                                 }).then(() => {
+            //                                                     console.log('pesan berhasil terkirim');
+            //                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                                     statusPesan = "Terkirim"
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 }).catch(() => {
+            //                                                     console.log('pesan gagal terkirim');
+            //                                                     statusPesan = "Gagal Terkirim"
+            //                                                     item.Kategori_Pesan = req.body.kategori_pesan
+            //                                                     item.Status_Pesan = "Gagal Terkirim"
+            //                                                     item.id_pesan = jobId
+            //                                                     item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                                     item.tanggal = currentDate.toDateString()
+            //                                                 });
+            //                                             }
+            //                                         }
+            //                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+            //                                         console.log('Pasan Terkirim Ke : ' + numberWA);
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = statusPesan
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                     } else {
+            //                                         console.log(`Nomor ${numberWA} tidak terdaftar.`);
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 1).value = req.body.kategori_pesan
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 2).value = "Nomor Tidak Terdaftar"
+            //                                         worksheet.getCell(i + 2, newcolumnNames.length + 3).value = jobId
+            //                                         item.Kategori_Pesan = req.body.kategori_pesan
+            //                                         item.Status_Pesan = "Nomor Tidak Terdaftar WA"
+            //                                         item.id_pesan = jobId
+            //                                         item.isi_pesan = pesankirim.replace(/\|/g, nama)
+            //                                         item.tanggal = currentDate.toDateString()
+            //                                     }
+            //                                     await createHistory(item)
+            //                                 } catch (error) {
+            //                                     console.log(`ERROR SENDING MESSAGE FILE`, error);
+            //                                     io.emit("log", "ERROR SENDING MESSAGE FILE");
+            //                                 }
+            //                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
+            //                                     progress = Math.floor((count / listMahasiswa.length) * 100);
+            //                                     // Update job progress
+            //                                     jobs[jobId].progress = progress;
 
-                                    // Send a Socket.IO message to the client, updating the job progress
-                                    io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + nama });
-                                }
-                            } else {
-                                jobs[jobId].status = 'error';
-                                io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
-                                console.log(`WhatsApp belum terhubung.`)
-                            }
-                            //=======================================
-                            if ((i + 1) % 50 === 0 && i + 1 !== listMahasiswa.length) {
-                                setTimeout(() => {
-                                    console.log('Waiting for 1 minute...');
-                                }, delayBetweenItems);
-                            }
-                            if (count === listMahasiswa.length) {
-                                for (let i = 0; i < file_ubah_nama.length; i++) {
-                                    namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
-                                    if (fs.existsSync(namafiledikirim[i])) {
-                                        fs.unlink(namafiledikirim[i], (err) => {
-                                            if (err && err.code == "ENOENT") {
-                                                // file doens't exist
-                                                console.info("File doesn't exist, won't remove it.");
-                                            } else if (err) {
-                                                console.error("Error occurred while trying to remove file.");
-                                            }
-                                        });
-                                    }
-                                }
-                                jobs[jobId].status = 'completed';
-                                io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
-                                console.log('Pesan Dengan File Telah Terkirim Semua');
-                                await workbook.xlsx.writeFile(filePath);
-                            }
-                        }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
-                    }
-                    console.log("Total No : " + listMahasiswa.length)
-                } else {
-                    jobs[jobId].status = 'error';
-                    io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: "Tidak Ada Nomor Yang Ditemukan" });
-                    console.log(`Tidak Ada Nomor Yang Ditemukan`)
-                }
-            }
+            //                                     // Send a Socket.IO message to the client, updating the job progress
+            //                                     io.emit('job', { jobId, progress, status: 'processing', sendto: selectedProgdi, message: "Mengirim Pesan Ke : " + nama });
+            //                                 }
+            //                             } else {
+            //                                 jobs[jobId].status = 'error';
+            //                                 io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp belum terhubung.`, sendto: selectedProgdi, message: `WhatsApp belum terhubung.` });
+            //                                 console.log(`WhatsApp belum terhubung.`)
+            //                             }
+            //                             //=======================================
+            //                             if ((i + 1) % 50 === 0 && i + 1 !== listMahasiswa.length) {
+            //                                 setTimeout(() => {
+            //                                     console.log('Waiting for 1 minute...');
+            //                                 }, delayBetweenItems);
+            //                             }
+            //                             if (count === listMahasiswa.length) {
+            //                                 for (let i = 0; i < file_ubah_nama.length; i++) {
+            //                                     namafiledikirim[i] = './files/uploads/' + file_ubah_nama[i];
+            //                                     if (fs.existsSync(namafiledikirim[i])) {
+            //                                         fs.unlink(namafiledikirim[i], (err) => {
+            //                                             if (err && err.code == "ENOENT") {
+            //                                                 // file doens't exist
+            //                                                 console.info("File doesn't exist, won't remove it.");
+            //                                             } else if (err) {
+            //                                                 console.error("Error occurred while trying to remove file.");
+            //                                             }
+            //                                         });
+            //                                     }
+            //                                 }
+            //                                 jobs[jobId].status = 'completed';
+            //                                 io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
+            //                                 console.log('Pesan Dengan File Telah Terkirim Semua');
+            //                                 await workbook.xlsx.writeFile(filePath);
+            //                             }
+            //                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
+            //                     }
+            //                     console.log("Total No : " + listMahasiswa.length)
+            //                 } else {
+            //                     jobs[jobId].status = 'error';
+            //                     io.emit('job', { jobId, progress: 0, status: 'error', error: `Tidak Ada Nomor Yang Ditemukan`, sendto: selectedProgdi, message: "Tidak Ada Nomor Yang Ditemukan" });
+            //                     console.log(`Tidak Ada Nomor Yang Ditemukan`)
+            //                 }
+            //             }
         } catch (err) {
             jobs[jobId].status = 'error';
             io.emit('job', { jobId, progress: 0, status: 'error', error: err, sendto: selectedProgdi, messasge: 'error' });
@@ -525,10 +544,26 @@ export async function sendmessagePOST(sock: any) {
     });
 }
 
+const getToken = async () => {
+    const apiUrl = process.env.URL_TOKEN || '';
+    const bodyParams = {
+        username: process.env.TOKEN_USER || '',
+        password: process.env.TOKEN_PASS || '',
+        grant_type: 'password',
+    };
+
+    const response = await axios.post(apiUrl, bodyParams, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    });
+    return response.data['access_token']
+}
+
 export async function checkTotalMahasiswa() {
     app.post('/checkTotalMahasiswa', async (req, res) => {
-        try {          
-            const savedtoken = await token.find().select('access_token');
+        try {
+            const savedtoken = await getToken();
             let data = JSON.stringify({
                 "tahun": req.body.tahun,
                 "progdi": req.body.progdi
@@ -538,7 +573,7 @@ export async function checkTotalMahasiswa() {
                 maxBodyLength: Infinity,
                 url: process.env.URL_CAMARU || '',
                 headers: {
-                    'Authorization': 'bearer ' + savedtoken[0].access_token,
+                    'Authorization': 'bearer ' + savedtoken,
                     'Content-Type': 'application/json'
                 },
                 data: data
@@ -578,16 +613,16 @@ export async function checkTotalMahasiswa() {
                             }
                         });
                     });
-                    console.log("Total Mahasiswa :"+datas.length)
+                    console.log("Total Mahasiswa :" + datas.length)
                     res.status(200).json({
                         response: datas.length
-                    });                  
+                    });
                 })
                 .catch((error) => {
-                    console.log(error);                   
-                    res.status(500).json({             
+                    console.log(error);
+                    res.status(500).json({
                         response: "Failed To Fetch Data"
-                    });                         
+                    });
                 });
         } catch (error) {
             res.status(500).json({ response: 'Failed to fetch data' });
