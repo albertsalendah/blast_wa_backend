@@ -96,6 +96,7 @@ export async function sendmessagePOST(sock: any) {
                 }
 
                 const worksheet = workbook.worksheets[0];
+                //worksheet.properties.cellValueInference = false;
                 const data: any = [];
                 const columnNames: string[] = [];
                 let lastColumnIndex = 1;
@@ -132,8 +133,7 @@ export async function sendmessagePOST(sock: any) {
                     if (hasValue) {
                         listMahasiswa.push(rowData);
                     }
-                }
-                //console.log(listMahasiswa)
+                }               
             } else {
                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
                 filePath = path.join("files/output_list_nomor", `output_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
@@ -251,6 +251,8 @@ export async function sendmessagePOST(sock: any) {
                                         const numericRegex = /^[0-9]+$/;
                                         if (nohp !== '' && numericRegex.test(nohp)) {
                                             numberWA = phoneNumberFormatter(nohp);
+                                        }else{
+                                            numberWA = nohp
                                         }
                                         if (isConnected()) {
                                             try {
@@ -364,6 +366,7 @@ export async function sendmessagePOST(sock: any) {
                             if (listMahasiswa.length != 0) {
                                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
                                 for (let i = 0; i < listMahasiswa.length; i++) {
+                                    let c = i;
                                     const item = listMahasiswa[i];
                                     const columnKeys = Object.keys(item);
                                     const columnNama = columnKeys[1];
@@ -375,6 +378,8 @@ export async function sendmessagePOST(sock: any) {
                                         const numericRegex = /^[0-9]+$/;
                                         if (nohp !== '' && numericRegex.test(nohp)) {
                                             numberWA = phoneNumberFormatter(nohp);
+                                        }else{
+                                            numberWA = nohp
                                         }
                                         let namafiledikirim: string[] = []
                                         let extensionName: String[] = []
@@ -391,9 +396,9 @@ export async function sendmessagePOST(sock: any) {
                                                             await sock.sendMessage(exists.jid || exists.jid, {
                                                                 image: {
                                                                     url: namafiledikirim[i],
-                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c
                                                                 },
-                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c
                                                             }).then(() => {
                                                                 console.log('pesan berhasil terkirim');
                                                                 statusPesan = "Terkirim"
@@ -417,9 +422,9 @@ export async function sendmessagePOST(sock: any) {
                                                             await sock.sendMessage(exists.jid || exists.jid, {
                                                                 audio: {
                                                                     url: namafiledikirim[i],
-                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c
                                                                 },
-                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
+                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c,
                                                                 mimetype: 'audio/mp4'
                                                             }).then(() => {
                                                                 console.log('pesan berhasil terkirim');
@@ -444,9 +449,9 @@ export async function sendmessagePOST(sock: any) {
                                                             await sock.sendMessage(exists.jid || exists.jid, {
                                                                 document: {
                                                                     url: namafiledikirim[i],
-                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i
+                                                                    caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c
                                                                 },
-                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i,
+                                                                caption: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + c,
                                                                 mimetype: fileDikirim_Mime[i],
                                                                 fileName: filesimpan[i].name
                                                             }).then(() => {
