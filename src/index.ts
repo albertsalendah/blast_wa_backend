@@ -13,7 +13,7 @@ import { Server, Socket } from 'socket.io'
 import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
-import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa } from './routes/sendmessagePOST'
+import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa,downloadHistory } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
@@ -87,6 +87,7 @@ const startSock = async () => {
 						}
 						startSock()
 					} else {
+						updateQR("disconnected");
 						console.log('Reconnecting...')
 						restart()
 					}
@@ -95,13 +96,15 @@ const startSock = async () => {
 
 				console.log('connection update: ', update)
 				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
-				if (update.qr == undefined) {
-					updateQR("connected");
-					conns = true
-				} else {
-					qrCode = update.qr
-					updateQR("qr");
-					conns = false
+				if(connection !== 'close'){
+					if (update.qr == undefined) {
+						updateQR("connected");
+						conns = true
+					} else {
+						qrCode = update.qr
+						updateQR("qr");
+						conns = false
+					}
 				}
 			}
 			// credentials updated -- save them
@@ -173,9 +176,9 @@ const updateQR = (data: String) => {
 	}
 };
 
-cron.schedule('0 * * * *', function () {
-	createNewToken()
-})
+// cron.schedule('0 * * * *', function () {
+// 	createNewToken()
+// })
 
 
 
@@ -208,6 +211,7 @@ startSock().then((sock) => {
 	getListUploadedFile()
 	downloadUploadedFile()
 	deleteUploadedFile()
+	downloadHistory()
 	app.get("/logout", async (req, res) => {
 		try {
 			await sock.logout()

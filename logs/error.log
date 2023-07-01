@@ -80,3 +80,25 @@
 2023-06-24 22:57:04:   code: 'ECONNRESET',
 2023-06-24 22:57:04:   syscall: 'read'
 2023-06-24 22:57:04: }
+2023-06-30 09:00:11: Error deleting expired tokens or creating new token: MongooseError: Operation `tokens.deleteMany()` buffering timed out after 10000ms
+2023-06-30 09:00:11:     at Timeout.<anonymous> (D:\Flutter Project\BlastWA\blast_wa\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:185:23)
+2023-06-30 09:00:11:     at listOnTimeout (node:internal/timers:569:17)
+2023-06-30 09:00:11:     at processTimers (node:internal/timers:512:7)
+2023-07-01 12:52:06: File download error: [Error: ENOENT: no such file or directory, stat 'D:\Flutter Project\BlastWA\blast_wa\files\extra_data\Output_Test_Sat Jul 01 2023.xlsx'] {
+2023-07-01 12:52:06:   errno: -4058,
+2023-07-01 12:52:06:   code: 'ENOENT',
+2023-07-01 12:52:06:   syscall: 'stat',
+2023-07-01 12:52:06:   path: 'D:\\Flutter Project\\BlastWA\\blast_wa\\files\\extra_data\\Output_Test_Sat Jul 01 2023.xlsx',
+2023-07-01 12:52:06:   expose: false,
+2023-07-01 12:52:06:   statusCode: 404,
+2023-07-01 12:52:06:   status: 404
+2023-07-01 12:52:06: }
+2023-07-01 12:52:28: File download error: [Error: ENOENT: no such file or directory, stat 'D:\Flutter Project\BlastWA\blast_wa\files\extra_data\Output_Test_Sat Jul 01 2023.xlsx'] {
+2023-07-01 12:52:28:   errno: -4058,
+2023-07-01 12:52:28:   code: 'ENOENT',
+2023-07-01 12:52:28:   syscall: 'stat',
+2023-07-01 12:52:28:   path: 'D:\\Flutter Project\\BlastWA\\blast_wa\\files\\extra_data\\Output_Test_Sat Jul 01 2023.xlsx',
+2023-07-01 12:52:28:   expose: false,
+2023-07-01 12:52:28:   statusCode: 404,
+2023-07-01 12:52:28:   status: 404
+2023-07-01 12:52:28: }
