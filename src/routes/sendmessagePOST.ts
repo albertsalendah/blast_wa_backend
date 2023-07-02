@@ -667,19 +667,19 @@ export async function deleteHistoryPesan() {
             const tanggal = data[0].tanggal
             const filename = `Output_${kat}_${tanggal}.xlsx`
             const filePath = 'files/output_list_nomor/' + filename
-            fs.unlink(filePath, async (err) => {
-                if (err) {
-                    console.error('File deletion error:', err);
-                    res.status(500).send('File deletion failed.');
-                } else {
-                    console.log('File deleted:', filename);
-                    await history.deleteMany({ id_pesan: id_pesan }).then(() => {
+            await history.deleteMany({ id_pesan: id_pesan }).then(() => {
+                fs.unlink(filePath, async (err) => {
+                    if (err) {
+                        console.error('Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan');
                         res.json('Data History Berhasil Dihapus');
-                    }).catch(() => {
-                        res.status(500).json({ message: 'Terjadi Kesalahan Saat Menghapus Data History' });
-                    })
-                }
-            });           
+                    } else {
+                        console.log('File deleted:', filename); 
+                        res.json('Data History Berhasil Dihapus');                   
+                    }
+                });              
+            }).catch(() => {
+                res.status(500).json({ message: 'Terjadi Kesalahan Saat Menghapus Data History' });
+            })                      
         } catch (error) {
             res.status(500).json({ message: 'Internal server error' });
         }
