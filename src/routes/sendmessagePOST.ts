@@ -2,7 +2,6 @@ import 'dotenv/config'
 import axios from 'axios';
 import { phoneNumberFormatter } from '../utils/formatter'
 import { app, isConnected, io } from '../index';
-import { token } from '../models/tokenschema'
 import { UploadedFile } from 'express-fileupload'
 import path from 'path'
 import fs from "fs"

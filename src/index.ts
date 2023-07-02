@@ -13,7 +13,7 @@ import { Server, Socket } from 'socket.io'
 import mongoose from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
-import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa,downloadHistory } from './routes/sendmessagePOST'
+import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa, downloadHistory } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
@@ -57,7 +57,7 @@ const startSock = async () => {
 		printQRInTerminal: false,
 		defaultQueryTimeoutMs: undefined,
 		keepAliveIntervalMs: 60000,
-		qrTimeout: 60000,
+		//qrTimeout: (5*60000),
 		auth: {
 			creds: state.creds,
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
@@ -71,7 +71,7 @@ const startSock = async () => {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
 				if (connection === 'close') {
-					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode //!== DisconnectReason.loggedOut
+					const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode
 					if (shouldReconnect === DisconnectReason.loggedOut || shouldReconnect === DisconnectReason.timedOut
 						|| shouldReconnect === DisconnectReason.badSession) {
 						updateQR("disconnected")
@@ -88,6 +88,7 @@ const startSock = async () => {
 						startSock()
 					} else {
 						updateQR("disconnected");
+						conns = false
 						console.log('Reconnecting...')
 						restart()
 					}
@@ -96,15 +97,21 @@ const startSock = async () => {
 
 				console.log('connection update: ', update)
 				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
-				if(connection !== 'close'){
-					if (update.qr == undefined) {
-						updateQR("connected");
-						conns = true
+				console.log('connection Status: ', connection)
+				if (update.qr == undefined) {
+					if (sock.authState.creds.me?.id != null || sock.authState.creds.me?.id != undefined) {
+						if (connection !== 'close') {
+							updateQR("connected");
+							conns = true
+						} 
 					} else {
-						qrCode = update.qr
-						updateQR("qr");
+						updateQR("disconnected");
 						conns = false
 					}
+				} else {
+					qrCode = update.qr
+					updateQR("qr");
+					conns = false
 				}
 			}
 			// credentials updated -- save them
@@ -113,11 +120,6 @@ const startSock = async () => {
 			}
 		}
 	)
-	// Schedule Message
-	//cron.schedule('* 7 * * *', function () {
-	//sendScheduleMessage(sock)
-	//})
-	//===============================
 	io.setMaxListeners(15);
 	io.on('connection', async (socket: Socket) => {
 		soket = socket
@@ -158,8 +160,8 @@ const updateQR = (data: String) => {
 	switch (data) {
 		case "qr":
 			soket?.emit("qr", qrCode);
-			soket?.emit("log", "QR Code received, please scan!!");
-			console.log('QR Code received, please scan!');
+			soket?.emit("log", "QR Code Diterima, Silahkan Scan! \nTunggu Hingga Proses Sinkronisasi Selesai Di Aplikasi Whatsapp Selesai");
+			console.log('QR Code Diterima, Silahkan Scan!');
 			break;
 		case "connected":
 			soket?.emit("qrstatus", "connected");
