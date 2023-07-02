@@ -10,7 +10,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import http from 'http'
 import { Server, Socket } from 'socket.io'
-import mongoose from 'mongoose'
+import mongoose, { Path } from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
 import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa, downloadHistory } from './routes/sendmessagePOST'
@@ -185,15 +185,17 @@ const updateQR = (data: String) => {
 
 
 startSock().then((sock) => {
-	const folderPath = 'files/extra_data/';
+	const folderPath:Path[] = ['files/extra_data/','files/input_list_nomor/','files/output_list_nomor/','files/uploads/'];
 	// Check if the folder exists
-	if (!fs.existsSync(folderPath)) {
-		// Create the folder
-		fs.mkdirSync(folderPath, { recursive: true });
-		console.log('Folder created successfully.');
-	} else {
-		console.log('Folder already exists.');
-	}
+	folderPath.forEach((path:Path)=>{
+		if (!fs.existsSync(path)) {
+			// Create the folder
+			fs.mkdirSync(path, { recursive: true });
+			console.log('Folder created successfully.');
+		} else {
+			console.log('Folder already exists.');
+		}
+	})
 	sendmessagePOST(sock)
 	createScheduleMessage()
 	getHistory()
