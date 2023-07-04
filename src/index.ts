@@ -103,7 +103,7 @@ const startSock = async () => {
 						if (connection !== 'close') {
 							updateQR("connected");
 							conns = true
-						} 
+						}
 					} else {
 						updateQR("disconnected");
 						conns = false
@@ -185,9 +185,9 @@ const updateQR = (data: String) => {
 
 
 startSock().then((sock) => {
-	const folderPath:Path[] = ['files/extra_data/','files/input_list_nomor/','files/output_list_nomor/','files/uploads/'];
+	const folderPath: Path[] = ['files/extra_data/', 'files/input_list_nomor/', 'files/output_list_nomor/', 'files/uploads/'];
 	// Check if the folder exists
-	folderPath.forEach((path:Path)=>{
+	folderPath.forEach((path: Path) => {
 		if (!fs.existsSync(path)) {
 			// Create the folder
 			fs.mkdirSync(path, { recursive: true });
@@ -270,28 +270,34 @@ app.post("/login", async (req, res) => {
 })
 app.post("/register", async (req, res) => {
 	try {
+		const adminUserName = req.body.admin
+		const adminpass = req.body.adminpass
 		const username = req.body.username;
 		const password = req.body.password;
 		// Check if the username is already taken
-		const existingUser = await User.findOne({ username });
-		if (existingUser) {
-			res.status(400).json({ message: 'Username already taken' });
-			return;
+		if (adminUserName === process.env.TOKEN_USER && adminpass === process.env.TOKEN_PASS) {
+			const existingUser = await User.findOne({ username });
+			if (existingUser) {
+				res.status(400).json({ message: 'Username already taken' });
+				return;
+			}
+
+			// Hash the password
+			const hashedPassword = await bcrypt.hash(password, 10);
+
+			// Create a new user
+			const newUser: IUser = new User({
+				username,
+				password: hashedPassword,
+			});
+
+			// Save the user to the database
+			await newUser.save();
+
+			res.status(201).json({ message: 'User registered successfully' });
+		}else{
+			res.status(401).json({ message: 'Invalid credentials' });
 		}
-
-		// Hash the password
-		const hashedPassword = await bcrypt.hash(password, 10);
-
-		// Create a new user
-		const newUser: IUser = new User({
-			username,
-			password: hashedPassword,
-		});
-
-		// Save the user to the database
-		await newUser.save();
-
-		res.status(201).json({ message: 'User registered successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Internal server error' });
 	}

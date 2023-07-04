@@ -35,25 +35,8 @@ export async function sendmessagePOST(sock: any) {
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
 
-        const savedtoken = await getToken();
-        let data = JSON.stringify({
-            "tahun": req.body.tahun,
-            "progdi": req.body.progdi
-        });
-
-        let config = {
-            method: 'get',
-            maxBodyLength: Infinity,
-            url: process.env.URL_CAMARU || '',
-            headers: {
-                'Authorization': 'bearer ' + savedtoken,
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
         const currentDate = format(new Date(), 'EEE, dd MMM yyyy');
         let numberWA: String;
-        let s: string[]
         let listMahasiswa: DynamicInterface[] = [];
         const listprogdi: progdi[] = listProgdi
         let selectedProgdi: string = ''
@@ -93,47 +76,67 @@ export async function sendmessagePOST(sock: any) {
                     await workbook.xlsx.readFile('./files/input_list_nomor/' + file_ubah_nama[i]);
                     kats = file_daftar_no[i].name
                 }
+                //====================================
+                const sheets = workbook.worksheets.map((worksheet) => worksheet.name);
+                for (let sheet of sheets) {
+                    const worksheet = workbook.getWorksheet(sheet);
+                    //const worksheet = workbook.worksheets[0]
+                    const columnNames: string[] = [];
+                    let lastColumnIndex = 1;
+                    const firstRow = worksheet.getRow(1);
+                    firstRow.eachCell({ includeEmpty: true }, (cell, colNumber) => {
+                        if (colNumber > lastColumnIndex) {
+                            lastColumnIndex = colNumber;
+                        }
 
-                const worksheet = workbook.worksheets[0];
-                const data: any = [];
-                const columnNames: string[] = [];
-                let lastColumnIndex = 1;
-                const firstRow = worksheet.getRow(1);
-                firstRow.eachCell({ includeEmpty: true }, (cell, colNumber) => {
-                    if (colNumber > lastColumnIndex) {
-                        lastColumnIndex = colNumber;
-                    }
-
-                    if (cell.value !== null) {
-                        columnNames.push(cell.text?.toString() ?? '');
-                    }
-                });
-                if (columnNames.length >= 2) {
-                    columnNames[1] = 'Nama';
-                    columnNames[2] = 'No_Handphone';
-                }
-                for (let i = 2; i <= worksheet.rowCount; i++) {
-                    const row = worksheet.getRow(i);
-                    const rowData: DynamicInterface = {};
-                    let hasValue = false;
-
-                    columnNames.forEach((columnName, columnIndex) => {
-                        const cellValue = row.getCell(columnIndex + 1).text?.toString() ?? '';
-                        rowData[columnName] = cellValue;
-
-                        // Check if the second (index 1) or third (index 2) column has a value
-                        if (columnIndex === 1 || columnIndex === 2) {
-                            if (cellValue.trim() !== '') {
-                                hasValue = true;
-                            }
+                        if (cell.value !== null) {
+                            columnNames.push(cell.text?.toString() ?? '');
                         }
                     });
-                    if (hasValue) {
-                        listMahasiswa.push(rowData);
+                    if (columnNames.length >= 2) {
+                        columnNames[1] = 'Nama';
+                        columnNames[2] = 'No_Handphone';
+                    }
+                    for (let i = 2; i <= worksheet.rowCount; i++) {
+                        const row = worksheet.getRow(i);
+                        const rowData: DynamicInterface = {};
+                        let hasValue = false;
+
+                        columnNames.forEach((columnName, columnIndex) => {
+                            const cellValue = row.getCell(columnIndex + 1).text?.toString() ?? '';
+                            rowData[columnName] = cellValue;
+
+                            // Check if the second (index 1) or third (index 2) column has a value
+                            if (columnIndex === 1 || columnIndex === 2) {
+                                if (cellValue.trim() !== '') {
+                                    hasValue = true;
+                                }
+                            }
+                        });
+                        if (hasValue) {
+                            rowData.sheetName = sheet;
+                            listMahasiswa.push(rowData);
+                        }
                     }
                 }
             } else {
                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
+                const savedtoken = await getToken();
+                let data = JSON.stringify({
+                    "tahun": req.body.tahun,
+                    "progdi": req.body.progdi
+                });
+
+                let config = {
+                    method: 'get',
+                    maxBodyLength: Infinity,
+                    url: process.env.URL_CAMARU || '',
+                    headers: {
+                        'Authorization': 'bearer ' + savedtoken,
+                        'Content-Type': 'application/json'
+                    },
+                    data: data
+                };
                 kats = selectedProgdi
                 listMahasiswa =
                     await axios.request(config)
@@ -203,21 +206,34 @@ export async function sendmessagePOST(sock: any) {
                                 listMahasiswa = datas
                             }
                             console.log(listMahasiswa.length)
-                            return listMahasiswa;                          
+                            return listMahasiswa;
                         })
                         .catch((error) => {
                             console.log(error);
                             io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Failed to Aquired Data From API" });
-                            return [];                       
+                            return [];
                         });
             }
             io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
             let unRegistercounter = 0;
             let registeredcounter = 0;
+            for (let i = 0; i < listMahasiswa.length; i++) {
+                const item = listMahasiswa[i];
+                const columnKeys = Object.keys(item);
+                const columnNama = columnKeys[1];
+                const nama = item[columnNama];
+                item.Kategori_Pesan = req.body.kategori_pesan + `_${kats}`
+                item.Status_Pesan = "Belum Terkirim"
+                item.id_pesan = jobId
+                item.isi_pesan = pesankirim.replace(/\|/g, nama)
+                item.tanggal = currentDate.toDateString()
+                await createHistory(item)               
+            }
             let progress = 0;
             const latestEntry = await history.findOne({}, {}, { sort: { _id: -1 } });
             if (!req.files?.file_dikirim) {
                 if (listMahasiswa.length > 0) {
+                    let status_pesan = ''
                     io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Data Found!!! " + listMahasiswa.length + " Phone Number" });
                     for (let i = 0; i < listMahasiswa.length; i++) {
                         const item = listMahasiswa[i];
@@ -241,38 +257,19 @@ export async function sendmessagePOST(sock: any) {
                                         registeredcounter++
                                         await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
                                             .then(async () => {
-                                                console.log('Pasan Terkirim Ke : ' + numberWA);
                                                 io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                item.Status_Pesan = "Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                item.tanggal = currentDate.toDateString()
+                                                status_pesan = "Terkirim"
                                             })
                                             .catch(() => {
                                                 console.log('Pasan Tidak Terkirim');
-                                                item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                item.Status_Pesan = "Gagal Terkirim"
-                                                item.id_pesan = jobId
-                                                item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                item.tanggal = currentDate.toDateString()
-                                            });                                      
-                                        // item.Kategori_Pesan = req.body.kategori_pesan + `_${kats}`
-                                        // item.Status_Pesan = "Terkirim"
-                                        // item.id_pesan = jobId
-                                        // item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                        // item.tanggal = currentDate.toDateString()
-                                        io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                status_pesan = "Gagal Terkirim"
+                                            });
                                     } else {
                                         unRegistercounter++;
                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
-                                        item.Kategori_Pesan = req.body.kategori_pesan + `_${kats}`
-                                        item.Status_Pesan = "Nomor Tidak Terdaftar WA"
-                                        item.id_pesan = jobId
-                                        item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                        item.tanggal = currentDate.toDateString()
+                                        status_pesan = "Nomor Tidak Terdaftar WA"
                                     }
-                                    await createHistory(item)
+                                    await updateHistory(nama,nohp, jobId, status_pesan)
                                 } catch (error) {
                                     console.log("ERROR SEND MESSAGE WITHOUT FILE", error)
                                     io.emit("log", "ERROR SENDING WITHOUT MESSAGE FILE");
@@ -302,8 +299,6 @@ export async function sendmessagePOST(sock: any) {
                                 jobs[jobId].status = 'completed';
                                 io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
                                 console.log('Pesan Tanpa File Telah Terkirim Semua ');
-
-                                //await workbook.xlsx.writeFile(filePath);
                             }
                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
                     }
@@ -371,19 +366,9 @@ export async function sendmessagePOST(sock: any) {
                                                     console.log('pesan berhasil terkirim');
                                                     statusPesan = "Terkirim"
                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             } else if (extensionName[i] === '.mp3' || extensionName[i] === '.ogg') {
                                                 registeredcounter++
@@ -398,19 +383,9 @@ export async function sendmessagePOST(sock: any) {
                                                     console.log('pesan berhasil terkirim');
                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                     statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             } else {
                                                 registeredcounter++
@@ -426,33 +401,19 @@ export async function sendmessagePOST(sock: any) {
                                                     console.log('pesan berhasil terkirim');
                                                     io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                     statusPesan = "Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
-                                                    item.Kategori_Pesan = req.body.kategori_pesan+`_${kats}`
-                                                    item.Status_Pesan = "Gagal Terkirim"
-                                                    item.id_pesan = jobId
-                                                    item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                                    item.tanggal = currentDate.toDateString()
                                                 });
                                             }
                                         }
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
-                                        console.log('Pasan Terkirim Ke : ' + numberWA);                                    
+                                        console.log('Pasan Terkirim Ke : ' + numberWA);
                                     } else {
+                                        statusPesan = "Nomor Tidak Terdaftar WA"
                                         console.log(`Nomor ${numberWA} tidak terdaftar.`);
-                                        item.Kategori_Pesan = req.body.kategori_pesan + `_${kats}`
-                                        item.Status_Pesan = "Nomor Tidak Terdaftar WA"
-                                        item.id_pesan = jobId
-                                        item.isi_pesan = pesankirim.replace(/\|/g, nama)
-                                        item.tanggal = currentDate.toDateString()
                                     }
-                                    await createHistory(item)
+                                    await updateHistory(nama,nohp, jobId, statusPesan)
                                 } catch (error) {
                                     console.log(`ERROR SENDING MESSAGE FILE`, error);
                                     io.emit("log", "ERROR SENDING MESSAGE FILE");
@@ -492,7 +453,7 @@ export async function sendmessagePOST(sock: any) {
                                 }
                                 jobs[jobId].status = 'completed';
                                 io.emit('job', { jobId, progress: 100, status: 'completed', sendto: selectedProgdi, message: " " });
-                                console.log('Pesan Dengan File Telah Terkirim Semua');                              
+                                console.log('Pesan Dengan File Telah Terkirim Semua');
                             }
                         }, i * delayBetweenItems + Math.floor(i / 50) * delayEveryTenItems);
                     }
@@ -621,16 +582,35 @@ export async function downloadHistory() {
             const kat = data[0].Kategori_Pesan
             const tanggal = data[0].tanggal
             const filePath = path.join("files/output_list_nomor", `Output_${kat}_${tanggal}.xlsx`);
+            const sheetNames = await history.find({ id_pesan: id_pesan }).distinct('sheetName');
             const workbook = new ExcelJS.Workbook();
-            const worksheet = workbook.addWorksheet('Sheet 1');
-            const excludedColumns = ['$__', '$isNew', '_doc'];
-            const columnNames = Object.keys(data[0]).filter((columnName) => !excludedColumns.includes(columnName));
+            if (sheetNames && sheetNames.length > 0) {
+                // Create separate worksheets for each sheetName
+                for (let sheetName of sheetNames) {
+                    const worksheet = workbook.addWorksheet(sheetName);
+                    const filteredData = data.filter((item) => item.sheetName === sheetName);
 
-            worksheet.addRow(columnNames);
-            data.forEach((row: DynamicInterface) => {
-                const values = columnNames.map((columnNames) => row[columnNames]);
-                worksheet.addRow(values);
-            });
+                    const excludedColumns = ['$__', '$isNew', '_doc'];
+                    const columnNames = Object.keys(filteredData[0]).filter((columnName) => !excludedColumns.includes(columnName));
+
+                    worksheet.addRow(columnNames);
+                    filteredData.forEach((row: DynamicInterface) => {
+                        const values = columnNames.map((columnName) => row[columnName]);
+                        worksheet.addRow(values);
+                    });
+                }
+            } else {
+                // Create a single worksheet if no sheetNames are available
+                const worksheet = workbook.addWorksheet('Sheet 1');
+                const excludedColumns = ['$__', '$isNew', '_doc'];
+                const columnNames = Object.keys(data[0]).filter((columnName) => !excludedColumns.includes(columnName));
+
+                worksheet.addRow(columnNames);
+                data.forEach((row: DynamicInterface) => {
+                    const values = columnNames.map((columnName) => row[columnName]);
+                    worksheet.addRow(values);
+                });
+            }
             await workbook.xlsx.writeFile(filePath).then(() => {
                 res.download('files/output_list_nomor/' + `Output_${kat}_${tanggal}.xlsx`, (err) => {
                     if (err) {
@@ -673,13 +653,13 @@ export async function deleteHistoryPesan() {
                         console.error('Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan');
                         res.json('Data History Berhasil Dihapus');
                     } else {
-                        console.log('File deleted:', filename); 
-                        res.json('Data History Berhasil Dihapus');                   
+                        console.log('File deleted:', filename);
+                        res.json('Data History Berhasil Dihapus');
                     }
-                });              
+                });
             }).catch(() => {
                 res.status(500).json({ message: 'Terjadi Kesalahan Saat Menghapus Data History' });
-            })                      
+            })
         } catch (error) {
             res.status(500).json({ message: 'Internal server error' });
         }
@@ -689,8 +669,25 @@ export async function deleteHistoryPesan() {
 async function createHistory(item: DynamicInterface) {
     try {
         await history.create(item);
-        console.log('History Pesan Berhasil Ditambahkan')
+        //console.log('History Pesan Berhasil Ditambahkan')
     } catch (error) {
         console.log(`Terjadi Kesalahan Saat Menyimpan History Pesan`)
+    }
+}
+
+async function updateHistory(nama: String, no_hp: String, id_pesan: String, status_pesan: String) {
+    try {
+        let id = ''
+        let result
+        const listHistori = await history.find({ id_pesan: id_pesan, No_Handphone: no_hp, });
+        listHistori.forEach(async (item) => {
+            id = item.id
+            const filter = { _id: id, Nama: nama, No_Handphone: no_hp, id_pesan: id_pesan };
+            const update = { $set: { Status_Pesan: status_pesan } };
+            result = await history.updateOne(filter, update)
+        })
+        console.log(`Pesan ${status_pesan} Ke ${no_hp}`);
+    } catch (error) {
+        console.log(`Terjadi Kesalahan Saat Update Status Pesan`)
     }
 }
