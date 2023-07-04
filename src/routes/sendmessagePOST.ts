@@ -561,7 +561,7 @@ export async function checkTotalMahasiswa() {
 export async function getHistory() {
     app.get('/history', async (req, res) => {
         try {
-            const histories = await history.distinct('id_pesan').sort({ tanggal: -1 });;
+            const histories = await history.distinct('id_pesan')
             let hist = []
             for (let i = 0; i < histories.length; i++) {
                 const result = await history.findOne({ id_pesan: histories[i] })
