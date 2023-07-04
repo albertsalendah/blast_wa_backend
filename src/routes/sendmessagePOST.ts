@@ -561,7 +561,7 @@ export async function checkTotalMahasiswa() {
 export async function getHistory() {
     app.get('/history', async (req, res) => {
         try {
-            const histories = await history.distinct('id_pesan');
+            const histories = await history.distinct('id_pesan').sort({ tanggal: -1 });;
             let hist = []
             for (let i = 0; i < histories.length; i++) {
                 const result = await history.findOne({ id_pesan: histories[i] })
@@ -590,7 +590,7 @@ export async function downloadHistory() {
                     const worksheet = workbook.addWorksheet(sheetName);
                     const filteredData = data.filter((item) => item.sheetName === sheetName);
 
-                    const excludedColumns = ['$__', '$isNew', '_doc'];
+                    const excludedColumns = ['$__', '$isNew', '_doc','sheetName'];
                     const columnNames = Object.keys(filteredData[0]).filter((columnName) => !excludedColumns.includes(columnName));
 
                     worksheet.addRow(columnNames);
