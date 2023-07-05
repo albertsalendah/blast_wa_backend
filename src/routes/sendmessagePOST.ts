@@ -38,6 +38,7 @@ export async function sendmessagePOST(sock: any) {
         const currentDate = format(new Date(), 'EEE, dd MMM yyyy');
         let numberWA: String;
         let listMahasiswa: DynamicInterface[] = [];
+        let lMahasiswa: DynamicInterface[] = []
         const listprogdi: progdi[] = listProgdi
         let selectedProgdi: string = ''
         const delayBetweenItems = 5000; // 5 seconds
@@ -105,7 +106,6 @@ export async function sendmessagePOST(sock: any) {
                         columnNames.forEach((columnName, columnIndex) => {
                             const cellValue = row.getCell(columnIndex + 1).text?.toString() ?? '';
                             rowData[columnName] = cellValue;
-
                             // Check if the second (index 1) or third (index 2) column has a value
                             if (columnIndex === 1 || columnIndex === 2) {
                                 if (cellValue.trim() !== '') {
@@ -115,10 +115,20 @@ export async function sendmessagePOST(sock: any) {
                         });
                         if (hasValue) {
                             rowData.sheetName = sheet;
-                            listMahasiswa.push(rowData);
+                            lMahasiswa.push(rowData);
                         }
-                    }
+                    } 
                 }
+                lMahasiswa.forEach((element: DynamicInterface) => {
+                    const noHPs: string[] = element['No_Handphone'].split(",").filter(Boolean);
+                    const uniqueNoHP = Array.from(new Set(noHPs));
+                    uniqueNoHP.forEach((noHP: string) => {
+                        const newData: DynamicInterface = { ...element };
+                        newData['No_Handphone'] = noHP;
+                        listMahasiswa.push(newData)
+                    });
+                });
+                console.log("lMahasiswa : "+lMahasiswa.length+" listMahasiswa : "+listMahasiswa.length)
             } else {
                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
                 const savedtoken = await getToken();
@@ -264,6 +274,7 @@ export async function sendmessagePOST(sock: any) {
                                                 console.log('Pasan Tidak Terkirim');
                                                 status_pesan = "Gagal Terkirim"
                                             });
+                                        //status_pesan = "Terkirim"
                                     } else {
                                         unRegistercounter++;
                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
@@ -407,6 +418,7 @@ export async function sendmessagePOST(sock: any) {
                                                 });
                                             }
                                         }
+                                        //statusPesan = "Terkirim"
                                         io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         console.log('Pasan Terkirim Ke : ' + numberWA);
                                     } else {
@@ -590,7 +602,7 @@ export async function downloadHistory() {
                     const worksheet = workbook.addWorksheet(sheetName);
                     const filteredData = data.filter((item) => item.sheetName === sheetName);
 
-                    const excludedColumns = ['$__', '$isNew', '_doc','sheetName'];
+                    const excludedColumns = ['$__', '$isNew', '_doc', 'sheetName'];
                     const columnNames = Object.keys(filteredData[0]).filter((columnName) => !excludedColumns.includes(columnName));
 
                     worksheet.addRow(columnNames);
