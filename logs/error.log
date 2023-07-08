@@ -329,3 +329,61 @@
 2023-07-06 05:06:15: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
 2023-07-06 05:06:20: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
 2023-07-06 05:06:22: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-07 23:19:34: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:19:34: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-07 23:19:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:20:28: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:20:29: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:21:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:22:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:22:50: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:23:02: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:23:06: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:24:21: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:25:39: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:28:09: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:30:07: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:31:13: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:31:28: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:32:14: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:32:38: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:34:19: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:35:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:48:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:48:26: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:48:46: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:49:01: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:49:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:49:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:51:02: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:51:38: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:51:49: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:52:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:52:23: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:52:29: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:55:31: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:55:47: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-07 23:56:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-08 00:11:13: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-08 03:57:56: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-08 03:57:56: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-08 06:57:15: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-08 06:57:27: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-08 11:02:40: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-08 11:02:48: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-08 11:06:45: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-08 11:06:51: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-09 00:47:23: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:47:23: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-09 00:49:39: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:50:04: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:50:20: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:55:12: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:58:39: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 00:59:29: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 01:05:48: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 01:06:20: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
+2023-07-09 01:56:18: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-09 01:56:31: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-09 01:56:36: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-09 01:56:40: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan

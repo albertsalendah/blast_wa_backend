@@ -283,7 +283,7 @@ export async function sendmessagePOST(sock: any) {
                                     await updateHistory(nama,nohp, jobId, status_pesan)
                                 } catch (error) {
                                     console.log("ERROR SEND MESSAGE WITHOUT FILE", error)
-                                    io.emit("log", "ERROR SENDING WITHOUT MESSAGE FILE");
+                                    io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp Socket Closed`, sendto: selectedProgdi, message: `WhatsApp Socket Closed` });
                                 }
 
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
@@ -428,7 +428,7 @@ export async function sendmessagePOST(sock: any) {
                                     await updateHistory(nama,nohp, jobId, statusPesan)
                                 } catch (error) {
                                     console.log(`ERROR SENDING MESSAGE FILE`, error);
-                                    io.emit("log", "ERROR SENDING MESSAGE FILE");
+                                    io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp Socket Closed`, sendto: selectedProgdi, message: `WhatsApp Socket Closed` });
                                 }
                                 if (jobs[jobId] && jobs[jobId].status === 'processing') {
                                     progress = Math.floor((count / listMahasiswa.length) * 100);

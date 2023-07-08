@@ -123,6 +123,7 @@ const startSock = async () => {
 	io.setMaxListeners(15);
 	io.on('connection', async (socket: Socket) => {
 		soket = socket
+		socket.setMaxListeners(15);
 		console.log('A user connected');
 		if (isConnected()) {
 			updateQR("connected");
@@ -245,6 +246,10 @@ app.post("/login", async (req, res) => {
 		const user = await User.findOne({ username });
 		if (!user) {
 			res.status(401).json({ message: 'Invalid credentials' });
+			if (!conns) {
+				updateQR("disconnected");
+				soket?.emit("log", 'Invalid credentials');
+			}
 			return;
 		}
 
@@ -252,6 +257,10 @@ app.post("/login", async (req, res) => {
 		const isPasswordValid = await bcrypt.compare(password, user.password);
 		if (!isPasswordValid) {
 			res.status(401).json({ message: 'Invalid credentials' });
+			if (!conns) {
+				updateQR("disconnected");
+				soket?.emit("log", 'Invalid credentials');
+			}
 			return;
 		}
 
