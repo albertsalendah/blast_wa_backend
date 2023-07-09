@@ -22,6 +22,7 @@ import { getListUploadedFile, downloadUploadedFile, deleteUploadedFile } from '.
 import { getListFileSisaData, downloadFileSisaData, deleteFileSisaData } from './routes/getExtraData'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { phoneNumberFormatter } from './utils/formatter'
 import User, { IUser } from './models/user_schema';
 
 const mongoURI = process.env.MONGO_URI || 'mongodb+srv://albertsalendah:9PQ3o1kyTcTPes8q@blastwacluster.jpiwxtk.mongodb.net/test_blast_wa?retryWrites=true&w=majority';
@@ -44,6 +45,7 @@ let qrCode: String = '';
 let soket: Socket;
 let conns: boolean;
 const msgRetryCounterCache = new NodeCache()
+Socket.setMaxListeners(25)
 
 const startSock = async () => {
 	const { state, saveCreds } = await useMultiFileAuthState('baileys_auth_info')
@@ -96,7 +98,6 @@ const startSock = async () => {
 				}
 
 				console.log('connection update: ', update)
-				console.log("Socket AuthState ID : " + sock.authState.creds.me?.id)
 				console.log('connection Status: ', connection)
 				if (update.qr == undefined) {
 					if (sock.authState.creds.me?.id != null || sock.authState.creds.me?.id != undefined) {
@@ -120,13 +121,15 @@ const startSock = async () => {
 			}
 		}
 	)
-	io.setMaxListeners(15);
+	io.setMaxListeners(25);
 	io.on('connection', async (socket: Socket) => {
 		soket = socket
-		socket.setMaxListeners(15);
+		socket.setMaxListeners(25);
+		soket.setMaxListeners(25);
 		console.log('A user connected');
 		if (isConnected()) {
 			updateQR("connected");
+			getProfile(sock)
 		} else {
 			updateQR("disconnected");
 		}
@@ -228,6 +231,21 @@ startSock().then((sock) => {
 	})
 
 }).catch(err => console.log("unexpected error: " + err))
+async function getProfile(sock: any) {
+	const phoneNumber = sock.authState.creds.me?.id.match(/^([^:]+)/)[0];
+	console.log("Phone Number : "+phoneNumberFormatter(phoneNumber))
+	if (phoneNumber != null || phoneNumber != undefined) {
+		try {
+			console.log("ID "+sock.user?.id)
+			console.log("NAME "+sock.user?.name)
+			const ppUrl = await sock.profilePictureUrl(sock.user?.id)
+			soket?.emit("profile", {userid: phoneNumber, username: sock.user.name, profilepicture: ppUrl});
+		} catch (error) {
+			console.log("Error While Trying To Get Profile")
+			soket?.emit("profile", {userid: phoneNumber, username: sock.user.name, profilepicture: null});
+		}
+	}
+}
 mongoose.connect(mongoURI)
 	.then(() => {
 		console.log('Connected to MongoDB')

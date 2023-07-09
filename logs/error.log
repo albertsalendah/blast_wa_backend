@@ -329,61 +329,220 @@
 2023-07-06 05:06:15: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
 2023-07-06 05:06:20: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
 2023-07-06 05:06:22: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-07 23:19:34: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:19:34: (Use `node --trace-warnings ...` to show where the warning was created)
-2023-07-07 23:19:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:20:28: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:20:29: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:21:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:22:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:22:50: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:23:02: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:23:06: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:24:21: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:25:39: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:28:09: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:30:07: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:31:13: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:31:28: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:32:14: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:32:38: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:34:19: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:35:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:48:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:48:26: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:48:46: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:49:01: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:49:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:49:57: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:51:02: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:51:38: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:51:49: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:52:11: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:52:23: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:52:29: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:55:31: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:55:47: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-07 23:56:15: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-08 00:11:13: (node:10752) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-08 03:57:56: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
-2023-07-08 03:57:56: (Use `node --trace-warnings ...` to show where the warning was created)
-2023-07-08 06:57:15: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-08 06:57:27: (node:27528) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-08 11:02:40: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-08 11:02:48: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-08 11:06:45: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-08 11:06:51: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-09 00:47:23: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:47:23: (Use `node --trace-warnings ...` to show where the warning was created)
-2023-07-09 00:49:39: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:50:04: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:50:20: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:55:12: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 16 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:58:39: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 00:59:29: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 01:05:48: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 01:06:20: (node:9768) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 disconnect listeners added to [Socket]. Use emitter.setMaxListeners() to increase limit
-2023-07-09 01:56:18: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-09 01:56:31: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-09 01:56:36: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
-2023-07-09 01:56:40: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+
+2023-07-10 00:45:03: Error: Connection Closed
+2023-07-10 00:45:03:     at sendRawMessage (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:55:19)
+2023-07-10 00:45:03:     at sendNode (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:74:16)
+2023-07-10 00:45:03:     at query (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:140:15)
+2023-07-10 00:45:03:     at Object.profilePictureUrl (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\chats.js:438:30)
+2023-07-10 00:45:03:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:103:30
+2023-07-10 00:45:03:     at Generator.next (<anonymous>)
+2023-07-10 00:45:03:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:45:03:     at new Promise (<anonymous>)
+2023-07-10 00:45:03:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:45:03:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:45:03:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:45:03:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:45:03:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:45:03:     at D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:460:12
+2023-07-10 00:45:03:     at processTicksAndRejections (node:internal/process/task_queues:77:11) {
+2023-07-10 00:45:03:   data: null,
+2023-07-10 00:45:03:   isBoom: true,
+2023-07-10 00:45:03:   isServer: false,
+2023-07-10 00:45:03:   output: {
+2023-07-10 00:45:03:     statusCode: 428,
+2023-07-10 00:45:03:     payload: {
+2023-07-10 00:45:03:       statusCode: 428,
+2023-07-10 00:45:03:       error: 'Precondition Required',
+2023-07-10 00:45:03:       message: 'Connection Closed'
+2023-07-10 00:45:03:     },
+2023-07-10 00:45:03:     headers: {}
+2023-07-10 00:45:03:   }
+2023-07-10 00:45:03: }
+2023-07-10 00:52:36: Error: Connection Closed
+2023-07-10 00:52:36:     at MobileSocket.onErr (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:119:35)
+2023-07-10 00:52:36:     at MobileSocket.emit (node:events:513:28)
+2023-07-10 00:52:36:     at TCP.<anonymous> (node:net:322:12) {
+2023-07-10 00:52:36:   data: null,
+2023-07-10 00:52:36:   isBoom: true,
+2023-07-10 00:52:36:   isServer: false,
+2023-07-10 00:52:36:   output: {
+2023-07-10 00:52:36:     statusCode: 428,
+2023-07-10 00:52:36:     payload: {
+2023-07-10 00:52:36:       statusCode: 428,
+2023-07-10 00:52:36:       error: 'Precondition Required',
+2023-07-10 00:52:36:       message: 'Connection Closed'
+2023-07-10 00:52:36:     },
+2023-07-10 00:52:36:     headers: {}
+2023-07-10 00:52:36:   }
+2023-07-10 00:52:36: }
+2023-07-10 00:52:36: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:52:36:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:52:36:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:52:36:     at Generator.next (<anonymous>)
+2023-07-10 00:52:36:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:52:36:     at new Promise (<anonymous>)
+2023-07-10 00:52:36:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:52:36:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:52:36:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:52:36:     at Generator.next (<anonymous>)
+2023-07-10 00:52:36:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:52:36:     at new Promise (<anonymous>)
+2023-07-10 00:52:36:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:52:36:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:52:36:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:52:36:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:52:36:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:52:37: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:52:37:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:52:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:52:37:     at Generator.next (<anonymous>)
+2023-07-10 00:52:37:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:52:37:     at new Promise (<anonymous>)
+2023-07-10 00:52:37:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:52:37:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:52:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:52:37:     at Generator.next (<anonymous>)
+2023-07-10 00:52:37:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:52:37:     at new Promise (<anonymous>)
+2023-07-10 00:52:37:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:52:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:52:37:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:52:37:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:52:37:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:53:37: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:53:37:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:53:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:53:37:     at Generator.next (<anonymous>)
+2023-07-10 00:53:37:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:53:37:     at new Promise (<anonymous>)
+2023-07-10 00:53:37:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:53:37:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:53:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:53:37:     at Generator.next (<anonymous>)
+2023-07-10 00:53:37:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:53:37:     at new Promise (<anonymous>)
+2023-07-10 00:53:37:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:53:37:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:53:37:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:53:37:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:53:37:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:53:42: Error: Connection Closed
+2023-07-10 00:53:42:     at MobileSocket.onErr (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:119:35)
+2023-07-10 00:53:42:     at MobileSocket.emit (node:events:513:28)
+2023-07-10 00:53:42:     at TCP.<anonymous> (node:net:322:12) {
+2023-07-10 00:53:42:   data: null,
+2023-07-10 00:53:42:   isBoom: true,
+2023-07-10 00:53:42:   isServer: false,
+2023-07-10 00:53:42:   output: {
+2023-07-10 00:53:42:     statusCode: 428,
+2023-07-10 00:53:42:     payload: {
+2023-07-10 00:53:42:       statusCode: 428,
+2023-07-10 00:53:42:       error: 'Precondition Required',
+2023-07-10 00:53:42:       message: 'Connection Closed'
+2023-07-10 00:53:42:     },
+2023-07-10 00:53:42:     headers: {}
+2023-07-10 00:53:42:   }
+2023-07-10 00:53:42: }
+2023-07-10 00:55:20: Error: Connection Closed
+2023-07-10 00:55:20:     at MobileSocket.onErr (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:119:35)
+2023-07-10 00:55:20:     at MobileSocket.emit (node:events:513:28)
+2023-07-10 00:55:20:     at TCP.<anonymous> (node:net:322:12) {
+2023-07-10 00:55:20:   data: null,
+2023-07-10 00:55:20:   isBoom: true,
+2023-07-10 00:55:20:   isServer: false,
+2023-07-10 00:55:20:   output: {
+2023-07-10 00:55:20:     statusCode: 428,
+2023-07-10 00:55:20:     payload: {
+2023-07-10 00:55:20:       statusCode: 428,
+2023-07-10 00:55:20:       error: 'Precondition Required',
+2023-07-10 00:55:20:       message: 'Connection Closed'
+2023-07-10 00:55:20:     },
+2023-07-10 00:55:20:     headers: {}
+2023-07-10 00:55:20:   }
+2023-07-10 00:55:20: }
+2023-07-10 00:55:20: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:55:20:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:55:20:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:55:20:     at Generator.next (<anonymous>)
+2023-07-10 00:55:20:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:55:20:     at new Promise (<anonymous>)
+2023-07-10 00:55:20:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:55:20:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:55:20:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:55:20:     at Generator.next (<anonymous>)
+2023-07-10 00:55:20:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:55:20:     at new Promise (<anonymous>)
+2023-07-10 00:55:20:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:55:20:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:55:20:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:55:20:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:55:20:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:55:21: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:55:21:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:55:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:55:21:     at Generator.next (<anonymous>)
+2023-07-10 00:55:21:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:55:21:     at new Promise (<anonymous>)
+2023-07-10 00:55:21:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:55:21:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:55:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:55:21:     at Generator.next (<anonymous>)
+2023-07-10 00:55:21:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:55:21:     at new Promise (<anonymous>)
+2023-07-10 00:55:21:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:55:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:55:21:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:55:21:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:55:21:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:56:21: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:56:21:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:56:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:56:21:     at Generator.next (<anonymous>)
+2023-07-10 00:56:21:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:56:21:     at new Promise (<anonymous>)
+2023-07-10 00:56:21:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:56:21:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:56:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:56:21:     at Generator.next (<anonymous>)
+2023-07-10 00:56:21:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:56:21:     at new Promise (<anonymous>)
+2023-07-10 00:56:21:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:56:21:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:56:21:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:56:21:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:56:21:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:56:41: TypeError: Cannot read properties of undefined (reading 'replace')
+2023-07-10 00:56:41:     at phoneNumberFormatter (D:\Flutter Project\BlastWA\blast_wa\src\utils\formatter.ts:2:25)
+2023-07-10 00:56:41:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:239:52
+2023-07-10 00:56:41:     at Generator.next (<anonymous>)
+2023-07-10 00:56:41:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:56:41:     at new Promise (<anonymous>)
+2023-07-10 00:56:41:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:56:41:     at getProfile (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:263:12)
+2023-07-10 00:56:41:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:105:5
+2023-07-10 00:56:41:     at Generator.next (<anonymous>)
+2023-07-10 00:56:41:     at D:\Flutter Project\BlastWA\blast_wa\dist\index.js:31:71
+2023-07-10 00:56:41:     at new Promise (<anonymous>)
+2023-07-10 00:56:41:     at __awaiter (D:\Flutter Project\BlastWA\blast_wa\dist\index.js:27:12)
+2023-07-10 00:56:41:     at D:\Flutter Project\BlastWA\blast_wa\src\index.ts:71:20
+2023-07-10 00:56:41:     at EventEmitter.listener (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:82:17)
+2023-07-10 00:56:41:     at EventEmitter.emit (node:events:525:35)
+2023-07-10 00:56:41:     at Object.emit (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Utils\event-buffer.js:94:23)
+2023-07-10 00:56:47: Error: Connection Closed
+2023-07-10 00:56:47:     at MobileSocket.onErr (D:\Flutter Project\BlastWA\blast_wa\node_modules\@whiskeysockets\baileys\lib\Socket\socket.js:119:35)
+2023-07-10 00:56:47:     at MobileSocket.emit (node:events:513:28)
+2023-07-10 00:56:47:     at TCP.<anonymous> (node:net:322:12) {
+2023-07-10 00:56:47:   data: null,
+2023-07-10 00:56:47:   isBoom: true,
+2023-07-10 00:56:47:   isServer: false,
+2023-07-10 00:56:47:   output: {
+2023-07-10 00:56:47:     statusCode: 428,
+2023-07-10 00:56:47:     payload: {
+2023-07-10 00:56:47:       statusCode: 428,
+2023-07-10 00:56:47:       error: 'Precondition Required',
+2023-07-10 00:56:47:       message: 'Connection Closed'
+2023-07-10 00:56:47:     },
+2023-07-10 00:56:47:     headers: {}
+2023-07-10 00:56:47:   }
+2023-07-10 00:56:47: }
