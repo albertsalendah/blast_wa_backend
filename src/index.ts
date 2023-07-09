@@ -236,13 +236,13 @@ async function getProfile(sock: any) {
 	console.log("Phone Number : "+phoneNumberFormatter(phoneNumber))
 	if (phoneNumber != null || phoneNumber != undefined) {
 		try {
-			console.log("ID "+sock.user?.id)
-			console.log("NAME "+sock.user?.name)
+			//console.log("ID "+sock.user?.id)
+			//console.log("NAME "+sock.authState.creds.me?.name)
 			const ppUrl = await sock.profilePictureUrl(sock.user?.id)
-			soket?.emit("profile", {userid: phoneNumber, username: sock.user.name, profilepicture: ppUrl});
+			soket?.emit("profile", {userid: phoneNumber, username: sock.authState.creds.me?.name, profilepicture: ppUrl});
 		} catch (error) {
 			console.log("Error While Trying To Get Profile")
-			soket?.emit("profile", {userid: phoneNumber, username: sock.user.name, profilepicture: null});
+			soket?.emit("profile", {userid: phoneNumber, username: sock.authState.creds.me?.name, profilepicture: null});
 		}
 	}
 }
