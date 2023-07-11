@@ -303,7 +303,7 @@ export async function sendmessagePOST(sock: any) {
                                                 status_pesan = "Terkirim"
                                             })
                                             .catch(() => {
-                                                console.log('Pasan Tidak Terkirim');
+                                                //console.log('Pasan Tidak Terkirim');
                                                 status_pesan = "Gagal Terkirim"
                                             });
                                         //status_pesan = "Terkirim"
