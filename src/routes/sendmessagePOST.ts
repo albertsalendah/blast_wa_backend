@@ -35,7 +35,7 @@ export async function sendmessagePOST(sock: any) {
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
 
-        const currentDate = format(new Date(), 'EEE, dd MMM yyyy');
+        const currentDates = format(new Date(), 'EEE-dd-MMM-yyyy');
         let numberWA: String;
         let listMahasiswa: DynamicInterface[] = [];
         let lMahasiswa: DynamicInterface[] = []
@@ -72,7 +72,8 @@ export async function sendmessagePOST(sock: any) {
                     file_daftar_no = [file_dikirim];
                 }
                 for (let i = 0; i < file_daftar_no.length; i++) {
-                    file_ubah_nama[i] = `input_${selectedProgdi}_${new Date().getTime()}_${file_daftar_no[i].name}`;
+                    //new Date().getTime()
+                    file_ubah_nama[i] = `input_${selectedProgdi}_${currentDates}_${file_daftar_no[i].name}`;
                     await file_daftar_no[i].mv('./files/input_list_nomor/' + file_ubah_nama[i]);
                     await workbook.xlsx.readFile('./files/input_list_nomor/' + file_ubah_nama[i]);
                     kats = file_daftar_no[i].name
@@ -119,15 +120,46 @@ export async function sendmessagePOST(sock: any) {
                         }
                     } 
                 }
+                const datas: DynamicInterface[] = []
                 lMahasiswa.forEach((element: DynamicInterface) => {
-                    const noHPs: string[] = element['No_Handphone'].split(",").filter(Boolean);
+                    const noHPs: string[] = element['No_Handphone'].split(/[\/,]/).filter(Boolean);
                     const uniqueNoHP = Array.from(new Set(noHPs));
                     uniqueNoHP.forEach((noHP: string) => {
                         const newData: DynamicInterface = { ...element };
                         newData['No_Handphone'] = noHP;
-                        listMahasiswa.push(newData)
+                        datas.push(newData)
                     });
                 });
+                if (datas.length > 250) {
+                    const sliceSize = 250;
+                    const numberOfSlices = Math.ceil(datas.length / sliceSize);
+                    const outputArrays = [];
+                    for (let i = 0; i < numberOfSlices; i++) {
+                        const start = i * sliceSize;
+                        const end = start + sliceSize;
+                        const slice = datas.slice(start, end);
+                        outputArrays.push(slice);
+                    }
+                    for (let i = 0; i < outputArrays.length; i++) {
+                        if (i === 0) {
+                            listMahasiswa = outputArrays[i];
+                        } else {
+                            const workbook = new ExcelJS.Workbook();
+                            const worksheet = workbook.addWorksheet('Sheet 1');
+                            const newcolumnNames = Object.keys(outputArrays[i][0]);
+                            worksheet.addRow(newcolumnNames);
+                            outputArrays[i].forEach((row) => {
+                                const values = newcolumnNames.map((newcolumnNames) => row[newcolumnNames]);
+                                worksheet.addRow(values);
+                            });
+                            const filesisa = path.join("files/extra_data", `extra_data_${i}_${currentDates}_${kats}`);
+                            await workbook.xlsx.writeFile(filesisa);
+                        }
+                        console.log("Jumlah Data List Mahasiswa : " + listMahasiswa.length + ` SISA DATA ${i + 1}: ` + outputArrays[i].length)
+                    }
+                } else {
+                    listMahasiswa = datas
+                }
                 console.log("lMahasiswa : "+lMahasiswa.length+" listMahasiswa : "+listMahasiswa.length)
             } else {
                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
@@ -207,7 +239,7 @@ export async function sendmessagePOST(sock: any) {
                                             const values = newcolumnNames.map((newcolumnNames) => row[newcolumnNames]);
                                             worksheet.addRow(values);
                                         });
-                                        const filesisa = path.join("files/extra_data", `extra_data_${i}_${selectedProgdi}_${new Date().getTime()}_data_api.xlsx`);
+                                        const filesisa = path.join("files/extra_data", `extra_data_${i}_${selectedProgdi}_${currentDates}_data_api.xlsx`);
                                         await workbook.xlsx.writeFile(filesisa);
                                     }
                                     console.log("Jumlah Data List Mahasiswa : " + listMahasiswa.length + ` SISA DATA ${i + 1}: ` + outputArrays[i].length)
@@ -267,7 +299,7 @@ export async function sendmessagePOST(sock: any) {
                                         registeredcounter++
                                         await sock.sendMessage(exists.jid || exists.jid, { text: pesankirim.replace(/\|/g, nama) + "\n ID Pesan : " + jobId + "-" + i })
                                             .then(async () => {
-                                                io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                 status_pesan = "Terkirim"
                                             })
                                             .catch(() => {
@@ -376,7 +408,7 @@ export async function sendmessagePOST(sock: any) {
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
                                                     statusPesan = "Terkirim"
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                    //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
                                                     statusPesan = "Gagal Terkirim"
@@ -392,7 +424,7 @@ export async function sendmessagePOST(sock: any) {
                                                     mimetype: 'audio/mp4'
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                    //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                     statusPesan = "Terkirim"
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
@@ -410,7 +442,7 @@ export async function sendmessagePOST(sock: any) {
                                                     fileName: filesimpan[i].name
                                                 }).then(() => {
                                                     console.log('pesan berhasil terkirim');
-                                                    io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                                    //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                                     statusPesan = "Terkirim"
                                                 }).catch(() => {
                                                     console.log('pesan gagal terkirim');
@@ -419,7 +451,7 @@ export async function sendmessagePOST(sock: any) {
                                             }
                                         }
                                         //statusPesan = "Terkirim"
-                                        io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
+                                        //io.emit("log", "Berhasil Mengirim Pesan Ke " + nama);
                                         console.log('Pasan Terkirim Ke : ' + numberWA);
                                     } else {
                                         statusPesan = "Nomor Tidak Terdaftar WA"
