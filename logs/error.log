@@ -546,3 +546,11 @@
 2023-07-10 00:56:47:     headers: {}
 2023-07-10 00:56:47:   }
 2023-07-10 00:56:47: }
+2023-07-13 19:57:02: (node:18660) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 26 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-13 19:57:02: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-14 01:09:56: (node:18224) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 26 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-14 01:09:56: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-14 05:40:36: (node:1476) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 26 connection listeners added to [Namespace]. Use emitter.setMaxListeners() to increase limit
+2023-07-14 05:40:36: (Use `node --trace-warnings ...` to show where the warning was created)
+2023-07-17 07:43:26: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan
+2023-07-17 07:43:29: Data History Berhasil Dihapus Dan File deletion error: File Tidak di Temukan

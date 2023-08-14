@@ -118,7 +118,7 @@ export async function sendmessagePOST(sock: any) {
                             rowData.sheetName = sheet;
                             lMahasiswa.push(rowData);
                         }
-                    } 
+                    }
                 }
                 const datas: DynamicInterface[] = []
                 lMahasiswa.forEach((element: DynamicInterface) => {
@@ -160,7 +160,7 @@ export async function sendmessagePOST(sock: any) {
                 } else {
                     listMahasiswa = datas
                 }
-                console.log("lMahasiswa : "+lMahasiswa.length+" listMahasiswa : "+listMahasiswa.length)
+                console.log("lMahasiswa : " + lMahasiswa.length + " listMahasiswa : " + listMahasiswa.length)
             } else {
                 io.emit('job', { jobId, progress: 0, status: 'processing', sendto: selectedProgdi, message: "Waiting Data From API" });
                 const savedtoken = await getToken();
@@ -269,7 +269,7 @@ export async function sendmessagePOST(sock: any) {
                 item.id_pesan = jobId
                 item.isi_pesan = pesankirim.replace(/\|/g, nama)
                 item.tanggal = currentDate.toDateString()
-                await createHistory(item)               
+                await createHistory(item)
             }
             let progress = 0;
             const latestEntry = await history.findOne({}, {}, { sort: { _id: -1 } });
@@ -312,7 +312,7 @@ export async function sendmessagePOST(sock: any) {
                                         console.log(`Nomor ${numberWA} tidak terdaftar. `);
                                         status_pesan = "Nomor Tidak Terdaftar WA"
                                     }
-                                    await updateHistory(nama,nohp, jobId, status_pesan)
+                                    await updateHistory(nama, nohp, jobId, status_pesan)
                                 } catch (error) {
                                     console.log("ERROR SEND MESSAGE WITHOUT FILE", error)
                                     io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp Socket Closed`, sendto: selectedProgdi, message: `WhatsApp Socket Closed` });
@@ -457,7 +457,7 @@ export async function sendmessagePOST(sock: any) {
                                         statusPesan = "Nomor Tidak Terdaftar WA"
                                         console.log(`Nomor ${numberWA} tidak terdaftar.`);
                                     }
-                                    await updateHistory(nama,nohp, jobId, statusPesan)
+                                    await updateHistory(nama, nohp, jobId, statusPesan)
                                 } catch (error) {
                                     console.log(`ERROR SENDING MESSAGE FILE`, error);
                                     io.emit('job', { jobId, progress: 0, status: 'error', error: `WhatsApp Socket Closed`, sendto: selectedProgdi, message: `WhatsApp Socket Closed` });
@@ -734,4 +734,73 @@ async function updateHistory(nama: String, no_hp: String, id_pesan: String, stat
     } catch (error) {
         console.log(`Terjadi Kesalahan Saat Update Status Pesan`)
     }
+}
+
+export async function downloadDataMahasiswa() {
+    app.post('/downloadDataMahasiswa', async (req, res) => {
+        try {
+            const savedtoken = await getToken();
+            let data = JSON.stringify({
+                "tahun": req.body.tahun,
+                "progdi": req.body.progdi
+            });
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: process.env.URL_CAMARU || '',
+                headers: {
+                    'Authorization': 'bearer ' + savedtoken,
+                    'Content-Type': 'application/json'
+                },
+                data: data
+            };
+            const listprogdi: progdi[] = listProgdi
+            let selectedProgdi: string = ''
+            for (let i = 0; i < listprogdi.length; i++) {
+                if (req.body.progdi === listProgdi[i].kode_progdi) {
+                    selectedProgdi = listProgdi[i].nama_progdi
+                }
+            }
+            await axios.request(config)
+                .then(async (response) => {
+                    let uniqueResponse = []
+                    if (req.body.status_regis === "All") {
+                        uniqueResponse = response.data.response.flat(2)
+                    } else {
+                        uniqueResponse = response.data.response.flat(2)
+                            .filter((item: { Status_Registrasi_Ulang: string; }) => item.Status_Registrasi_Ulang.includes(req.body.status_regis));
+                    }
+                    const filteredResponse: DynamicInterface[] = uniqueResponse.reduce((accumulator: any[], item: any) => {
+                        const isDuplicate = accumulator.some((accItem) => accItem.Status_Registrasi_Ulang === item.Status_Registrasi_Ulang && accItem.No_Pendaftaran === item.No_Pendaftaran);
+                        if (!isDuplicate) {
+                            accumulator.push(item);
+                        }
+                        return accumulator;
+                    }, []);
+                    const workbook = new ExcelJS.Workbook();
+                    const worksheet = workbook.addWorksheet('Sheet 1');
+                    const newcolumnNames = Object.keys(filteredResponse[0]);
+                    worksheet.addRow(newcolumnNames);
+                    filteredResponse.forEach((row) => {
+                        const values = newcolumnNames.map((newcolumnNames) => row[newcolumnNames]);
+                        worksheet.addRow(values);
+                    });
+                    const filesisa = path.join("files/extra_data", `(${req.body.progdi}) ${selectedProgdi} data_api.xlsx`);
+                    await workbook.xlsx.writeFile(filesisa);
+                    console.log("Total Mahasiswa :" + filteredResponse.length)
+                    //console.log(filteredResponse)
+                    res.status(200).json({
+                        response: filteredResponse.length
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.status(500).json({
+                        response: "Failed To Fetch Data"
+                    });
+                });
+        } catch (error) {
+            res.status(500).json({ response: 'Failed to fetch data' });
+        }
+    });
 }

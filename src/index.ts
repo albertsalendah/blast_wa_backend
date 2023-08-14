@@ -13,7 +13,7 @@ import { Server, Socket } from 'socket.io'
 import mongoose, { Path } from 'mongoose'
 import cron from 'node-cron'
 import { createNewToken } from './routes/createToken'
-import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa, downloadHistory } from './routes/sendmessagePOST'
+import { sendmessagePOST, getHistory, getListPesan, deleteHistoryPesan, checkTotalMahasiswa, downloadHistory,downloadDataMahasiswa } from './routes/sendmessagePOST'
 import { createScheduleMessage, sendScheduleMessage } from './sendscheduleMessage'
 import pm2 from 'pm2'
 import { getListFile, downloadFile, deleteFile } from './routes/getFiles'
@@ -220,6 +220,7 @@ startSock().then((sock) => {
 	downloadUploadedFile()
 	deleteUploadedFile()
 	downloadHistory()
+	downloadDataMahasiswa()
 	app.get("/logout", async (req, res) => {
 		try {
 			await sock.logout()
