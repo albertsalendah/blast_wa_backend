@@ -292,6 +292,7 @@ export async function sendmessagePOST(sock: any) {
                             } else {
                                 numberWA = nohp
                             }
+                            console.log('Nomor WA : ${numberWA}')
                             if (isConnected()) {
                                 try {
                                     const [exists] = await sock.onWhatsApp(numberWA);
@@ -387,6 +388,7 @@ export async function sendmessagePOST(sock: any) {
                             } else {
                                 numberWA = nohp
                             }
+                            console.log('Nomor WA : ${numberWA}')
                             let namafiledikirim: string[] = []
                             let extensionName: String[] = []
                             if (isConnected()) {
