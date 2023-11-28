@@ -183,7 +183,7 @@ const updateQR = (data: String) => {
 };
 
 // cron.schedule('0 * * * *', function () {
-// 	createNewToken()
+// 	createNewToken
 
 
 
