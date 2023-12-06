@@ -253,7 +253,7 @@ mongoose.connect(mongoURI)
 	.catch(error => {
 		console.log('MongoDB connection error:', error)
 		cron.schedule('*/2 * * * *', function () {
-			console.log("Connection closed, reconnecting....");
+			console.log("Connection closed, reconnecting...");
 		})
 	});
 app.post("/login", async (req, res) => {
