@@ -13,7 +13,7 @@ export async function createScheduleMessage() {
     app.post("/create-schedule-message", async (req, res) => {
         let filesimpan: UploadedFile[] = [];
         const file_dikirim = req.files?.file_dikirim;
-
+       
         let file_ubah_nama: String[] = [];
         let fileDikirim_Mime: string[] = []
         if (file_dikirim instanceof Array) {
@@ -56,7 +56,7 @@ export async function sendScheduleMessage(sock: any) {
     const formattedDate = format(currentDate, 'dd MMMM yyyy');
     const scheduleMessages = await scheduleModel.find({ tanggal_kirim: formattedDate })
     const savedtoken = await token.find().select('access_token');
-
+    const kodenegara:String = '62';
     for (let i = 0; i < scheduleMessages.length; i++) {
         let data = JSON.stringify({
             "tahun": scheduleMessages[i].tahun,
@@ -108,7 +108,7 @@ export async function sendScheduleMessage(sock: any) {
                             count++;
                             ///===========================================
                             //numberWA = '62' + item.substring(1) + "@s.whatsapp.net";
-                            numberWA = phoneNumberFormatter(item);
+                            numberWA = phoneNumberFormatter(kodenegara,item);
                             if (isConnected()) {
                                 const [exists] = await sock.onWhatsApp(numberWA);
                                 if (exists?.jid || (exists && exists?.jid)) {
@@ -160,7 +160,7 @@ export async function sendScheduleMessage(sock: any) {
                             count++;
                             ///===========================================
                             //numberWA = '62' + item.substring(1) + "@s.whatsapp.net";
-                            numberWA = phoneNumberFormatter(item);
+                            numberWA = phoneNumberFormatter(kodenegara,item);
                             let filesimpan: UploadedFile[] = [];
                             fs.readdir('./uploads', (err, files) => {
                                 if (err) {

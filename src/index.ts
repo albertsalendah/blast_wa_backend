@@ -91,7 +91,7 @@ const startSock = async () => {
 					} else {
 						updateQR("disconnected");
 						conns = false
-						console.log('Reconnecting...')
+						console.log('Reconnecting....')
 						restart()
 					}
 					console.log('shouldReconnect? : ', shouldReconnect);
@@ -233,7 +233,7 @@ startSock().then((sock) => {
 }).catch(err => console.log("unexpected error: " + err))
 async function getProfile(sock: any) {
 	const phoneNumber = sock.authState.creds.me?.id.match(/^([^:]+)/)[0];
-	console.log("Phone Number : "+phoneNumberFormatter(phoneNumber))
+	//console.log("Phone Number : "+phoneNumberFormatter(phoneNumber))
 	if (phoneNumber != null || phoneNumber != undefined) {
 		try {
 			//console.log("ID "+sock.user?.id)

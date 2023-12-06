@@ -34,6 +34,9 @@ const jobs: { [jobId: string]: Job } = {};
 export async function sendmessagePOST(sock: any) {
     app.post("/send-message", async (req, res) => {
         const pesankirim: String = req.body.message;
+        const kodenegara:String = req.body.kode_negara;
+
+        console.log('Kode Negara : '+kodenegara)
 
         const currentDates = format(new Date(), 'EEE-dd-MMM-yyyy');
         let numberWA: String;
@@ -288,11 +291,11 @@ export async function sendmessagePOST(sock: any) {
                             count++;
                             const numericRegex = /^[0-9]+$/;
                             if (nohp !== '' && numericRegex.test(nohp)) {
-                                numberWA = phoneNumberFormatter(nohp);
+                                numberWA = phoneNumberFormatter(kodenegara,nohp);
                             } else {
                                 numberWA = nohp
                             }
-                            console.log('Nomor WA : ${numberWA}')
+                            console.log('Nomor WA : '+numberWA)
                             if (isConnected()) {
                                 try {
                                     const [exists] = await sock.onWhatsApp(numberWA);
@@ -384,7 +387,7 @@ export async function sendmessagePOST(sock: any) {
                             count++;
                             const numericRegex = /^[0-9]+$/;
                             if (nohp !== '' && numericRegex.test(nohp)) {
-                                numberWA = phoneNumberFormatter(nohp);
+                                numberWA = phoneNumberFormatter(kodenegara,nohp);
                             } else {
                                 numberWA = nohp
                             }
