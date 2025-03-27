@@ -194,7 +194,10 @@ export class MessageService {
                     messageProress.progressCount = progressCount;
                     messageProress.isPause = this.messageStatus.get(request.id) === 'paused' ? true : false;
                     messageProress.createAt = `${date_time.toISOString().slice(0, 19).replace('T', ' ')}`;
-
+                    //FOR TEST ONLY
+                    // const testValue = this.getRandomBoolean();
+                    // messageProress.messageStatus = testValue
+                    // messageProress.onWA = testValue;
                 }
 
                 this.messageStack.push(messageProress)
@@ -206,7 +209,7 @@ export class MessageService {
                 console.error(`❌ WebSocket client disconnected for ${noWA} `);
                 return;
             }
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // await new Promise(resolve => setTimeout(resolve, 1000));
         }
 
         console.log(`✅ Finished sending messages for ${noWA} -> ${request.email}`);

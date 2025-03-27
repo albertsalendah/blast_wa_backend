@@ -36,6 +36,7 @@ export class BaileysService {
             console.log(`[WhatsApp] ✅ Instance for account: ${accountId} found.`);
             if (checkInstance.sock.ws.isOpen) {
                 console.log(`[WhatsApp] ✅ Instance for account: ${accountId} still running 🏃‍♂️‍➡️`);
+                sendToClient(accountId, { type: 'connectionStatus', status: 'open', accountId: accountId });
                 return;
             } else {
                 console.log(`[WhatsApp] 🔄 Instance for account: ${accountId} is closed. Recreating...`);
