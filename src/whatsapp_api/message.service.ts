@@ -8,6 +8,7 @@ import { formatPhoneNumber } from "../core/utils/formatPhoneNumber";
 import { HistoryCrud } from "../domain/usecases/history.cruds";
 import { pauseMessage, resumeMessage, cancelMessage, trackPausedMessage, removePausedMessage, restorePausedMessages, cleanupExpiredMessages } from "../core/services/pause.resume.cancel.message";
 
+export type MessageStatus = 'active' | 'paused' | 'canceled';
 
 @injectable()
 export class MessageService {
@@ -17,7 +18,7 @@ export class MessageService {
 
     private messageQueues: Map<string, any[]> = new Map();
     private processingStatus: Map<string, boolean> = new Map();
-    private messageStatus: Map<string, 'active' | 'paused' | 'canceled'> = new Map();
+    private messageStatus: Map<string, MessageStatus> = new Map();
     private messageStack: any[] = [];
     private messagesProgress: Map<string, MessageProgress> = new Map();
 
@@ -64,7 +65,6 @@ export class MessageService {
 
     private async processNextInQueue(noWA: string) {
         const queue = this.messageQueues.get(noWA);
-        console.log('❔❔ Antrian : ', queue?.length)
         if (!queue || queue.length === 0) {
             this.processingStatus.delete(noWA);
             this.messagesProgress.clear();
@@ -171,6 +171,7 @@ export class MessageService {
                 const messageProress = this.messagesProgress.get(request.id);
                 const numCheck = await this.baileysService.isPhoneNumberOnWhatsApp(noWA, targetNumber);
                 if (messageProress) {
+                    // console.log('Sending Message to phone number ', targetNumber)
                     progressCount++;
                     if (numCheck == true) {
                         // console.log('Sending Message to phone number ', targetNumber)
@@ -182,8 +183,7 @@ export class MessageService {
                             console.log('❌ Failed to send message to ', targetNumber);
                             messageProress.messageStatus = false;
                         }
-                    }
-                    else if (numCheck == false) {
+                    } else if (numCheck == false) {
                         console.error(`❌ Number ${targetNumber} is not on Whatsapp`);
                         messageProress.messageStatus = false;
                         messageProress.onWA = false;
@@ -194,10 +194,7 @@ export class MessageService {
                     messageProress.progressCount = progressCount;
                     messageProress.isPause = this.messageStatus.get(request.id) === 'paused' ? true : false;
                     messageProress.createAt = `${date_time.toISOString().slice(0, 19).replace('T', ' ')}`;
-                    //FOR TEST ONLY
-                    // const testValue = this.getRandomBoolean();
-                    // messageProress.onWA = testValue;
-                    // messageProress.messageStatus = testValue
+
                 }
 
                 this.messageStack.push(messageProress)
@@ -256,7 +253,7 @@ export class MessageService {
     }
 
     public restorePausedMessages(clientId: string) {
-        restorePausedMessages(clientId, this.pausedMessages, this.messagesProgress, this.webSocketService)
+        restorePausedMessages(clientId, this.pausedMessages, this.messagesProgress, this.messageQueues, this.webSocketService)
     }
 
     private cleanupExpiredMessages() {

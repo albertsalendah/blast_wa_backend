@@ -1,8 +1,9 @@
 import { WebSocketService } from "../../whatsapp_api/websocket.service";
+import { MessageStatus } from '../../whatsapp_api/message.service'
 
 
 // Pause message by setting its status to 'paused'
-export function pauseMessage(id: string, messageStatus: Map<string, 'active' | 'paused' | 'canceled'>) {
+export function pauseMessage(id: string, messageStatus: Map<string, MessageStatus>) {
     console.log('Current messages being tracked:', Array.from(messageStatus.keys()));
 
     if (messageStatus.has(id)) {
@@ -13,8 +14,8 @@ export function pauseMessage(id: string, messageStatus: Map<string, 'active' | '
     }
 }
 
-// Resume message by setting its status to 'active'
-export function resumeMessage(id: string, messageStatus: Map<string, 'active' | 'paused' | 'canceled'>, messageQueues: Map<string, any[]>, processNextInQueue: (noWA: string) => void) {
+// // Resume message by setting its status to 'active'
+export function resumeMessage(id: string, messageStatus: Map<string, MessageStatus>, messageQueues: Map<string, any[]>, processNextInQueue: (noWA: string) => void) {
     console.log('Current messages being tracked:', Array.from(messageStatus.keys()));
 
     if (messageStatus.has(id)) {
@@ -38,7 +39,7 @@ export function resumeMessage(id: string, messageStatus: Map<string, 'active' | 
 }
 
 // Cancel message by setting its status to 'canceled'
-export function cancelMessage(id: string, messageStatus: Map<string, 'active' | 'paused' | 'canceled'>) {
+export function cancelMessage(id: string, messageStatus: Map<string, MessageStatus>) {
     console.log('Current messages being tracked:', Array.from(messageStatus.keys()));
 
     if (messageStatus.has(id)) {
@@ -72,18 +73,58 @@ export function removePausedMessage(clientId: string, messageID: string, pausedM
 /**
  * Restores paused messages for a reconnected client
  */
-export function restorePausedMessages(clientId: string, pausedMessages: Map<string, { messageID: string; timestamp: number }[]>, messagesProgress: Map<string, MessageProgress>, webSocketService: WebSocketService) {
+// export function restorePausedMessages(clientId: string, pausedMessages: Map<string, { messageID: string; timestamp: number }[]>, messagesProgress: Map<string, MessageProgress>, webSocketService: WebSocketService) {
 
+//     if (pausedMessages.has(clientId)) {
+//         const pausedMessage = pausedMessages.get(clientId)!;
+//         console.log(`[WebSocket] Restoring ${pausedMessage.length} paused messages for client ${clientId}`);
+//         pausedMessage.forEach(element => {
+//             const message = messagesProgress.get(element.messageID)
+//             if (message) {
+//                 message.isPause = true;
+//                 webSocketService.sendToClient(clientId, message);
+//             }
+//         });
+//     }
+// }
+
+export function restorePausedMessages(
+    clientId: string,
+    pausedMessages: Map<string, { messageID: string; timestamp: number }[]>,
+    messagesProgress: Map<string, MessageProgress>,
+    messageQueues: Map<string, any[]>,
+    webSocketService: WebSocketService
+) {
     if (pausedMessages.has(clientId)) {
         const pausedMessage = pausedMessages.get(clientId)!;
         console.log(`[WebSocket] Restoring ${pausedMessage.length} paused messages for client ${clientId}`);
-        pausedMessage.forEach(element => {
-            const message = messagesProgress.get(element.messageID)
+
+        pausedMessage.forEach(({ messageID }) => {
+            const message = messagesProgress.get(messageID);
             if (message) {
                 message.isPause = true;
                 webSocketService.sendToClient(clientId, message);
             }
         });
+    }
+
+    // Notify user of messages still in queue
+    if (messageQueues.has(clientId)) {
+        const queue = messageQueues.get(clientId)!;
+        if (queue.length > 0) {
+            console.log(`[WebSocket] Notifying client ${clientId} about ${queue.length} queued messages.`);
+
+            queue.forEach((req) => {
+                webSocketService.sendToClient(clientId, {
+                    type: "queue_status",
+                    id: req.id,
+                    sender: req.noWA,
+                    status: "queued",
+                    message: "Your message is in queue.",
+                    queueLength: queue.length,
+                });
+            });
+        }
     }
 }
 
