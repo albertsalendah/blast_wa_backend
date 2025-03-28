@@ -28,8 +28,6 @@ export class BaileysService {
     // Removed WebSocketService dependency from constructor
 
     async connectWhatsApp(email: string, accountId: string, sendToClient: (userId: string, message: any) => void,): Promise<void> {
-        // sendToClient(accountId, { type: 'connectionStatus', status: 'open', accountId: accountId });
-
         const checkInstance = this.baileysInstances.get(accountId);
 
         if (checkInstance) {

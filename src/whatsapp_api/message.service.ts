@@ -118,7 +118,7 @@ export class MessageService {
         }
 
         console.log(`🚀 Processing message ID: ${request.id}`);
-        const excelData = await this.fileService.readExcelFile(request.email, request.noWA, request.excelFileName);
+        const { excelData, pathExcel } = await this.fileService.readExcelFile(request.email, request.noWA, request.excelFileName);
         const images = this.fileService.getImages(request.email, request.noWA, request.imageNames);
         let progressCount = 0
         for (let i = 0; i < excelData.length; i++) {
@@ -142,6 +142,7 @@ export class MessageService {
                 isPause: false,
                 isCancel: false,
                 imageUrl: images,
+                pathExcel: pathExcel,
                 createAt: '',
             })
 
@@ -171,7 +172,6 @@ export class MessageService {
                 const messageProress = this.messagesProgress.get(request.id);
                 const numCheck = await this.baileysService.isPhoneNumberOnWhatsApp(noWA, targetNumber);
                 if (messageProress) {
-                    // console.log('Sending Message to phone number ', targetNumber)
                     progressCount++;
                     if (numCheck == true) {
                         // console.log('Sending Message to phone number ', targetNumber)
@@ -212,7 +212,7 @@ export class MessageService {
             // await new Promise(resolve => setTimeout(resolve, 1000));
         }
 
-        console.log(`✅ Finished sending messages for ${noWA} -> ${request.email}`);
+        console.log(`✅ Finished sending messages for ${noWA} -> ${request.id}`);
         this.messagesProgress.delete(request.id);
         this.messageStatus.delete(request.id);
 

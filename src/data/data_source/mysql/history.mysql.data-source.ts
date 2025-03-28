@@ -27,10 +27,11 @@ export class HistoryMysqlDataSource {
                         item.message,
                         item.messageStatus,
                         JSON.stringify(item.imageUrl),
+                        JSON.stringify(item.pathExcel),
                         item.createAt,
                     ]
                 );
-                const query = `INSERT INTO history (messageID, email, sender, totalData, targetName, targetNumber, onWA, message, messageStatus, imageUrl, createAt) VALUES ? `;
+                const query = `INSERT INTO history (messageID, email, sender, totalData, targetName, targetNumber, onWA, message, messageStatus, imageUrl, pathExcel, createAt) VALUES ? `;
                 await connection.query(query, [values]);
             }
             await connection.commit();
@@ -95,9 +96,10 @@ export class HistoryMysqlDataSource {
     async deleteMessageHistory(messageID: string): Promise<void> {
         let connection = await db.getConnection();
         try {
-            const [rows]: any[] = await db.execute('SELECT imageUrl FROM history WHERE messageID = ?', [messageID]);
+            const [rows]: any[] = await db.execute('SELECT imageUrl,pathExcel FROM history WHERE messageID = ?', [messageID]);
             const parsedImageUrls = JSON.parse(rows[0].imageUrl) as string[];
-            await this.fileService.deleteExistingImages(parsedImageUrls);
+            const parsedPathExcel = JSON.parse(rows[0].pathExcel) as string;
+            await this.fileService.deleteExistingFile(parsedImageUrls, parsedPathExcel);
             await connection.beginTransaction();
             const query = `DELETE FROM history WHERE messageID = ?`;
             await connection.query(query, [messageID]);

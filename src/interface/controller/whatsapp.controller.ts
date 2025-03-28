@@ -22,12 +22,13 @@ export class WhatsAppController {
             const { countryCode, email, noWA, message } = req.body;
 
             if (email && noWA) {
-                const { excelFileName, imageNames } = await this.fileService.handleUploadedFiles(req, email, noWA);
+                const messageID = this.messageService.generateMessageId();
+                const { excelFileName, imageNames } = await this.fileService.handleUploadedFiles(messageID, req, email, noWA);
 
                 res.json({ isSuccess: true, message: "Send Message successfully" });
                 const messageRequests = [];
                 messageRequests.push({
-                    id: this.messageService.generateMessageId(),
+                    id: messageID,
                     countryCode: countryCode,
                     email: email,
                     noWA: noWA,

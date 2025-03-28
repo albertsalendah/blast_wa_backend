@@ -13,7 +13,7 @@ const ensureDirectoryExists = async (dir: string) => {
 };
 
 export class FileService {
-    async handleUploadedFiles(req: Request, email: string, noWA: string) {
+    async handleUploadedFiles(messageID: string, req: Request, email: string, noWA: string) {
         const excelDir = path.join(__dirname, "../../../uploads", email, noWA, "excelFiles");
         const imagesDir = path.join(__dirname, "../../../uploads", email, noWA, "images");
 
@@ -27,21 +27,22 @@ export class FileService {
         if (uploadedFiles) {
             if (uploadedFiles["excelFile"] && uploadedFiles["excelFile"].length > 0) {
                 const excelFile = uploadedFiles["excelFile"][0];
-                excelFileName = excelFile.originalname;
-                fs.renameSync(excelFile.path, path.join(excelDir, excelFile.originalname));
+                excelFileName = `${messageID}_${excelFile.originalname}`;
+                fs.renameSync(excelFile.path, path.join(excelDir, excelFileName));
             }
 
             if (uploadedFiles["images"] && uploadedFiles["images"].length > 0) {
                 for (const img of uploadedFiles["images"]) {
-                    imageNames.push(img.originalname);
-                    fs.renameSync(img.path, path.join(imagesDir, img.originalname));
+                    const imageName = `${messageID}_${img.originalname}`;
+                    imageNames.push(imageName);
+                    fs.renameSync(img.path, path.join(imagesDir, imageName));
                 }
             }
         }
         return { excelFileName, imageNames };
     }
 
-    public readExcelFile = async (email: string, noWA: string, excelFileName: string): Promise<any[]> => {
+    public readExcelFile = async (email: string, noWA: string, excelFileName: string): Promise<{ excelData: any[], pathExcel: string }> => {
         try {
             // Define the file path
             const excelDir = path.join(__dirname, "../../../uploads", email, noWA, "excelFiles");
@@ -81,7 +82,7 @@ export class FileService {
                 row.filter((cell: any) => cell !== undefined && cell !== null && cell !== '')
             );
 
-            return cleanedData;
+            return { excelData: cleanedData, pathExcel: filePath };
         } catch (error) {
             console.error("❌ Error reading Excel file:", error);
             throw error;
@@ -118,8 +119,18 @@ export class FileService {
         }
     };
 
-    async deleteExistingImages(imagePaths: string[]) {
+    async deleteExistingFile(imagePaths: string[], pathExcel: string) {
         try {
+            try {
+                // Check if the file exists
+                await fss.access(pathExcel);
+
+                // If it exists, delete it
+                await fss.unlink(pathExcel);
+                console.log(`File deleted: ${pathExcel}`);
+            } catch (error) {
+                console.error(`Error checking or deleting file: ${pathExcel}`, error);
+            }
             for (const imagePath of imagePaths) {
                 try {
                     // Check if the file exists

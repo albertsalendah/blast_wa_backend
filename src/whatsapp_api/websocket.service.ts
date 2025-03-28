@@ -91,6 +91,7 @@ export class WebSocketService {
                     }
 
                     if (parsedMessage.type === 'connectWhatsApp') {
+                        // this.sendToClient(clientId, { type: 'connectionStatus', status: 'open', accountId: clientId });
                         await this.baileysService.connectWhatsApp(parsedMessage.email, parsedMessage.clientId, this.sendToClient.bind(this));
                     }
 

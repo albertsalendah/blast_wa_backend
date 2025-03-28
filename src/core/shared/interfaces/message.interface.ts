@@ -14,6 +14,7 @@ interface MessageProgress {
     isPause: boolean;
     isCancel: boolean;
     imageUrl: string[];
+    pathExcel: string;
     createAt: string;
 }
 
