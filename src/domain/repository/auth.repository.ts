@@ -7,6 +7,6 @@ export interface AuthRepository {
     findByRefreshToken(token: string): Promise<User | null>;
     updateRefreshToken(userId: number, refreshToken: string): Promise<void>;
     updateUser(user: User): Promise<void>;
-    addUserPhoneNumbers(phone: UserPhoneNumber): Promise<void>
+    addUserPhoneNumbers(phone: UserPhoneNumber): Promise<boolean>
     getUserPhoneNumber(email: string): Promise<UserPhoneNumber[]>
 }

@@ -71,9 +71,10 @@ export class BaileysService {
                 if (phoneNumber) {
                     const newId = phoneNumber.split(':')[0];
                     const dto = new PhoneDTO({ email: email, whatsapp_number: newId });
-                    await this.addPhoneNumber.add(dto);
+                    const newLogin = await this.addPhoneNumber.add(dto);
                     console.log(`[WhatsApp] ✅ connection opened for phone number : ${accountId}`);
                     sendToClient(accountId, { type: 'connectionStatus', status: 'open', accountId: accountId });
+                    sendToClient(accountId, { type: 'newLogin', isNewLogin: newLogin, accountId: accountId });
                 }
             }
             if (connection === 'close') {

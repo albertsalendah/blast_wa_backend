@@ -8,7 +8,7 @@ import { PhoneDTO } from "../../interface/dtos/phone.dto";
 export class PhoneNumberCRUD {
     constructor(@inject(TYPES.AuthRepository) private authRepository: AuthRepository) { }
 
-    async add(phoneDTO: PhoneDTO): Promise<void> {
+    async add(phoneDTO: PhoneDTO): Promise<boolean> {
         return await this.authRepository.addUserPhoneNumbers(new UserPhoneNumber(null, phoneDTO.email, phoneDTO.whatsapp_number))
     }
 

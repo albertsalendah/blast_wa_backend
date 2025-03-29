@@ -8,7 +8,7 @@ import { UserPhoneNumber } from "../../domain/entity/user.phone.entity";
 @injectable()
 export class AuthRepositoryImpl implements AuthRepository {
     constructor(@inject(TYPES.AuthMySQLDataSource) private dataSource: AuthMySQLDataSource) { }
-    async addUserPhoneNumbers(phone: UserPhoneNumber): Promise<void> {
+    async addUserPhoneNumbers(phone: UserPhoneNumber): Promise<boolean> {
         return await this.dataSource.addUserPhoneNumbers(phone);
     }
     async getUserPhoneNumber(email: string): Promise<UserPhoneNumber[]> {

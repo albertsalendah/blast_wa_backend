@@ -31,12 +31,19 @@ export class AuthMySQLDataSource {
         return new User(row.id, row.name, row.email, row.password, row.role, row.refresh_token);
     }
 
-    async addUserPhoneNumbers(phone: UserPhoneNumber): Promise<void> {
+    async addUserPhoneNumbers(phone: UserPhoneNumber): Promise<boolean> {
         const [rows]: any = await db.query('SELECT * FROM whatsapp_accounts WHERE whatsapp_number = ?', [phone.whatsapp_number]);
         if (rows.length > 0) {
-            return;
+            return false;
         }
-        await db.query("INSERT INTO whatsapp_accounts (email, whatsapp_number) VALUES (?,?)", [phone.email, phone.whatsapp_number]);
+        try {
+            await db.query("INSERT INTO whatsapp_accounts (email, whatsapp_number) VALUES (?,?)", [phone.email, phone.whatsapp_number]);
+            return true;
+        } catch (error) {
+            console.error('Error inserting phone number:', error);
+            return false;
+
+        }
     }
 
     async getUserPhoneNumber(email: string): Promise<UserPhoneNumber[]> {
